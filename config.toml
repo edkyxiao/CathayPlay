@@ -1,7 +1,6 @@
 baseURL = "/"
 languageCode = "en-us"
 title = "CathayPlay"
-theme = ""
 
 [markup]
   [markup.goldmark]
