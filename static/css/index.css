@@ -1,0 +1,192 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+}
+h2,
+h3, 
+p {
+  cursor: default;
+}
+/* Font type */
+/* Gravity Wide for logo */
+@font-face {
+  font-family: 'Gravity Wide';
+  src: url('/fonts/ABCGravity/ABCGravity-Wide-Trial.woff2') format('woff2'),
+       url('/fonts/ABCGravity/ABCGravity-Wide-Trial.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Diatype for all other text */
+@font-face {
+  font-family: 'Diatype-bold';
+  src: url('/fonts/ABCDiatype/ABCDiatype-Bold-Trial.woff2') format('woff2'),
+       url('/fonts/ABCDiatype/ABCDiatype-Bold-Trial.woff') format('woff');
+  font-weight: 700; /* Bold */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Diatype-light';
+  src: url('/fonts/ABCDiatype/ABCDiatype-Light-Trial.woff2') format('woff2'),
+       url('/fonts/ABCDiatype/ABCDiatype-Light-Trial.woff') format('woff');
+  font-weight: 300; /* Light */
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Hero container */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Video background */
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Overlay to darken video */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 1;
+}
+
+/* Text overlay container */
+.hero-text-left {
+  position: absolute;
+  top: 7vh;
+  left: 10vw;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 2;
+  color: white;
+}
+
+/* Logo text */
+.logo-text {
+  font-family: 'Gravity Wide', sans-serif;
+  font-feature-settings: "ss05";
+  font-weight: 800;
+  font-size: 2.3rem;
+  line-height: .75;
+  margin: 0;
+  cursor: pointer;
+}
+
+/* Tagline / body text using Diatype */
+.tagline-text {
+  font-family: 'Diatype-bold', sans-serif;
+  font-size: .71rem;
+  max-width: 35rem;
+  padding-left: .2rem;
+  line-height: 1.4;
+  margin-top: 0.25rem;
+  color: lightgray;
+}
+
+/* Browse + Subscribe */
+.menu {
+    position: absolute;
+    top: 7vh;
+    right: 10vw;
+    z-index: 2;
+    color: white;
+    font-family: 'Diatype-bold', sans-serif;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+.menu h3 {
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 0;
+    line-height: 1;
+}
+
+/* Film info */
+.hero-text-middle {
+    font-family: 'Diatype-light', sans-serif;
+    z-index: 2;
+    position: absolute;
+    top: 65vh;
+    left: 10vw;
+    color: white;  
+}
+.promotion h3 {
+  font-size: 1rem;
+  font-weight: 525;
+  margin-top: -.8rem;
+}
+.promotion button {
+    font-family: 'Diatype-bold', sans-serif;
+    color: rgb(255, 255, 255);
+    background-color: rgba(255, 221, 0, 0.4);
+    border: 2px solid rgba(255, 221, 0, 0.6);
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+.promotion button:hover {
+    background-color: rgb(255, 221, 0);
+    color: black;
+}
+.yellow {
+    color: rgb(255, 221, 0);
+}
+.film-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 18vw;
+  flex-wrap: wrap;
+  margin-top: 5vh;
+}
+.film-info > div {
+  flex: 0 0 auto;
+}
+.film-info .description {
+  flex: 1;
+}
+.film-title-text {
+  font-family: 'Diatype-bold', sans-serif;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+.director {
+  font-family: 'Diatype-light', sans-serif;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+.description {
+  font-size: .9rem;
+  width: 55vw;
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .logo-text { font-size: 3rem; }
+  .subtitle-text { font-size: 2rem; }
+  .description-text { font-size: 1rem; }
+}
+
+@media (max-width: 480px) {
+  .logo-text { font-size: 2.25rem; }
+  .subtitle-text { font-size: 1.5rem; }
+  .description-text { font-size: 0.875rem; }
+}
