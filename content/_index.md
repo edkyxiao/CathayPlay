@@ -5,7 +5,7 @@ title: "CathayPlay"
 <section class="hero">
   <video autoplay muted loop playsinline class="hero-video">
     <source src="/videos/victors-cut.mp4" type="video/mp4">
-    Your browser does not support the video tag.
+    Your browser does not support the video tag
   </video>
 
   <div class="overlay"></div>
@@ -14,7 +14,7 @@ title: "CathayPlay"
       <div class="logo">
           <h1 class="logo-text">CATHA<span class="ss05">Y</span>PLA<span class="ss05">Y</span></h1>
           <p class="tagline-text">
-              The only streaming platform dedicated to independent Chinese cinema.
+              The only streaming platform dedicated to independent Chinese cinema
           </p>
       </div>
   </div>
@@ -39,3 +39,217 @@ title: "CathayPlay"
       </div>
   </div>
 </section>
+<section class="main">
+  <div class="grid-container">
+    <h2 class="grid-heading">CURATOR'S SPOTLIGHT</h2>
+    <div class="grid">
+      <div class="film">
+        <div class="film-image-container">
+          <img src="images/home-page/curators-spotlight/Chronicle of a durian, Zhang Xin, 2017.jpg" alt="curator's spotlight film">
+          <div class="film-text">
+            <h2 class="film-title">CHRONICLE OF A DURIAN</h2>
+            <p class="director-year"><strong>ZHANG XIN</strong> 2017</p>
+          </div>
+        </div>
+        <div class="film-hover">
+          <div class="buttons">
+            <button>WATCH</button>
+            <button>ADD</button>
+            <button>FAVOURITE</button>
+          </div>
+          <p class="film-synopsis">TEXT</p>
+          <div class="film-misc">
+          </div>
+        </div>
+      </div>
+      <div class="film">
+        <div class="film-image-container">
+          <img src="images/home-page/curators-spotlight/Meili, directed by Zhou Zhou, 2018.jpg" alt="curator's spotlight film">
+          <div class="film-text">
+            <h2 class="film-title">MEILI</h2>
+            <p class="director-year"><strong>ZJOU ZHOU</strong> 2018</p>
+          </div>
+        </div>
+        <div class="film-hover">
+          <div class="buttons">
+            <button>WATCH</button>
+            <button>ADD</button>
+            <button>FAVOURITE</button>
+          </div>
+          <p class="film-synopsis">TEXT</p>
+          <div class="film-misc">
+          </div>
+        </div>
+      </div>
+      <div class="film">
+        <div class="film-image-container">
+          <img src="images/home-page/curators-spotlight/The Nail, Jiang Zhi, 2007.jpg" alt="curator's spotlight film">
+          <div class="film-text">
+            <h2 class="film-title">THE NAIL</h2>
+            <p class="director-year"><strong>JIANG ZHI</strong> 2007</p>
+          </div>
+        </div>
+        <div class="film-hover">
+          <div class="buttons">
+            <button>WATCH</button>
+            <button>ADD</button>
+            <button>FAVOURITE</button>
+          </div>
+          <p class="film-synopsis">TEXT</p>
+          <div class="film-misc">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="full-bleed-feature">
+  <img class="feature-image" src="images/home-page/full-bleed-feature/TO SAY FAREWELL, WANG LIBO, 2024.jpg" alt="full bleed feature image">
+  <div class="feature-text">
+    <div class="feature-text-heading">
+      <h2>TO SAY FAREWELL</h2>
+      <p><strong>WANG LIBO</strong>, 2024</p>
+    </div>
+    <p class="feature-synopsis">In a Manhattan apartment in New York, there lived a 96-year-old solitary elderly person, Gao Yaojie. Seen as the first grassroots AIDS activist in China, Gao was forced to flee to the United States from China at the age of 82. The elderly woman’s long and tumultuous life mirrors the turbulent modern history of China. The film documents the lonely last three months of Gao Yaojie’s life.</p>
+  </div>
+</section>
+<section class="main">
+  <div class="grid-container">
+    <h2 class="grid-heading">TRENDING</h2>
+    <div class="grid">
+      <div class="film">
+        <div class="film-image-container">
+          <img src="images/home-page/trending/A year apart, Ocean cHIN, 2023.jpg" alt="trending film">
+          <div class="film-text">
+            <h2 class="film-title">A YEAR APART</h2>
+            <p class="director-year"><strong>OCEAN CHIN</strong> 2023</p>
+          </div>
+        </div>
+        <div class="film-hover">
+          <div class="buttons">
+            <button>WATCH</button>
+            <button>ADD</button>
+            <button>FAVOURITE</button>
+          </div>
+          <p class="film-synopsis">TEXT</p>
+          <div class="film-misc">
+          </div>
+        </div>
+      </div>
+      <div class="film">
+        <div class="film-image-container">
+          <img src="images/home-page/trending/My grandmother, Gao Kuan, 2022.jpg" alt="trending film">
+          <div class="film-text">
+            <h2 class="film-title">MY GRANDMOTHER</h2>
+            <p class="director-year"><strong>GAO KUAN</strong> 2022</p>
+          </div>
+        </div>
+        <div class="film-hover">
+          <div class="buttons">
+            <button>WATCH</button>
+            <button>ADD</button>
+            <button>FAVOURITE</button>
+          </div>
+          <p class="film-synopsis">TEXT</p>
+          <div class="film-misc">
+          </div>
+        </div>
+      </div>
+      <div class="film">
+        <div class="film-image-container">
+          <img src="images/home-page/trending/The right moment, chen fang, 2022.jpg" alt="curator's spotlight film">
+          <div class="film-text">
+            <h2 class="film-title">THE RIGHT MOMENT</h2>
+            <p class="director-year"><strong>CHEN FANG</strong> 2022</p>
+          </div>
+        </div>
+        <div class="film-hover">
+          <div class="buttons">
+            <button>WATCH</button>
+            <button>ADD</button>
+            <button>FAVOURITE</button>
+          </div>
+          <p class="film-synopsis">TEXT</p>
+          <div class="film-misc">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="space"></div>
+<section class="main">
+  <div class="grid-container">
+    <h2 class="grid-heading">SUGGESTED FOR YOU</h2>
+    <div class="grid">
+      <div class="film">
+        <div class="film-image-container">
+          <img src="images/home-page/suggested/On my way home, tan junwu, 2019.jpg" alt="trending film">
+          <div class="film-text">
+            <h2 class="film-title">ON MY WAY HOME</h2>
+            <p class="director-year"><strong>TAN JUNWU</strong> 2019</p>
+          </div>
+        </div>
+        <div class="film-hover">
+          <div class="buttons">
+            <button>WATCH</button>
+            <button>ADD</button>
+            <button>FAVOURITE</button>
+          </div>
+          <p class="film-synopsis">TEXT</p>
+          <div class="film-misc">
+          </div>
+        </div>
+      </div>
+      <div class="film">
+        <div class="film-image-container">
+          <img src="images/home-page/suggested/the night, jenny, 2023.jpg" alt="trending film">
+          <div class="film-text">
+            <h2 class="film-title">THE NIGHT</h2>
+            <p class="director-year"><strong>JENNY</strong> 2023</p>
+          </div>
+        </div>
+        <div class="film-hover">
+          <div class="buttons">
+            <button>WATCH</button>
+            <button>ADD</button>
+            <button>FAVOURITE</button>
+          </div>
+          <p class="film-synopsis">TEXT</p>
+          <div class="film-misc">
+          </div>
+        </div>
+      </div>
+      <div class="film">
+        <div class="film-image-container">
+          <img src="images/home-page/suggested/THE VIRGIN, ZHANG QIN, 2022.jpg" alt="curator's spotlight film">
+          <div class="film-text">
+            <h2 class="film-title">THE VIRGIN</h2>
+            <p class="director-year"><strong>ZHANG QIN</strong> 2022</p>
+          </div>
+        </div>
+        <div class="film-hover">
+          <div class="buttons">
+            <button>WATCH</button>
+            <button>ADD</button>
+            <button>FAVOURITE</button>
+          </div>
+          <p class="film-synopsis">TEXT</p>
+          <div class="film-misc">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="full-bleed-feature">
+  <img class="feature-image" src="images/home-page/full-bleed-feature/Blessed with burdens, chen ziyan, 2025.jpg" alt="full bleed feature image">
+  <div class="feature-text">
+    <div class="feature-text-heading">
+      <h2>BLESSED WITH BURDENS</h2>
+      <p><strong>CHEN ZIYAN</strong>, 2025</p>
+    </div>
+    <p class="feature-synopsis">When my cousin gave birth to a girl, my mom and family stood outside the obstetrics and gynecology department and said, "Those who give birth to daughters are blessed." But is childbirth truly a blessing? Behind the blessing and the excitement, how much have mothers sacrificed and compromised in their choices? And as daughters, do we really see everything our mothers have done for us?</p>
+  </div>
+</section>
+<section class="add-height"></section>
