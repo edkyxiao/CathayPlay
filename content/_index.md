@@ -55,7 +55,7 @@ title: "CathayPlay"
           <div class="buttons">
             <button id="watch-button">WATCH</button>
             <button id="add-button">+</button>
-            <button id="heart-button">&#x2764;</button>
+            <button id="heart-button">&#9733;</button>
           </div>
           <p class="film-synopsis">TEXT</p>
           <div class="film-misc">
@@ -74,7 +74,7 @@ title: "CathayPlay"
           <div class="buttons">
             <button id="watch-button">WATCH</button>
             <button id="add-button">+</button>
-            <button id="heart-button">&#x2764;</button>
+            <button id="heart-button">&#9733;</button>
           </div>
           <p class="film-synopsis">TEXT</p>
           <div class="film-misc">
@@ -93,7 +93,7 @@ title: "CathayPlay"
           <div class="buttons">
             <button id="watch-button">WATCH</button>
             <button id="add-button">+</button>
-            <button id="heart-button">&#x2764;</button>
+            <button id="heart-button">&#9733;</button>
           </div>
           <p class="film-synopsis">TEXT</p>
           <div class="film-misc">
@@ -129,7 +129,7 @@ title: "CathayPlay"
           <div class="buttons">
             <button id="watch-button">WATCH</button>
             <button id="add-button">+</button>
-            <button id="heart-button">&#x2764;</button>
+            <button id="heart-button">&#9733;</button>
           </div>
           <p class="film-synopsis">TEXT</p>
           <div class="film-misc">
@@ -148,7 +148,7 @@ title: "CathayPlay"
           <div class="buttons">
             <button id="watch-button">WATCH</button>
             <button id="add-button">+</button>
-            <button id="heart-button">&#x2764;</button>
+            <button id="heart-button">&#9733;</button>
           </div>
           <p class="film-synopsis">TEXT</p>
           <div class="film-misc">
@@ -167,7 +167,7 @@ title: "CathayPlay"
           <div class="buttons">
             <button id="watch-button">WATCH</button>
             <button id="add-button">+</button>
-            <button id="heart-button">&#x2764;</button>
+            <button id="heart-button">&#9733;</button>
           </div>
           <p class="film-synopsis">TEXT</p>
           <div class="film-misc">
@@ -194,7 +194,7 @@ title: "CathayPlay"
           <div class="buttons">
             <button id="watch-button">WATCH</button>
             <button id="add-button">+</button>
-            <button id="heart-button">&#x2764;</button>
+            <button id="heart-button">&#9733;</button>
           </div>
           <p class="film-synopsis">TEXT</p>
           <div class="film-misc">
@@ -213,7 +213,7 @@ title: "CathayPlay"
           <div class="buttons">
             <button id="watch-button">WATCH</button>
             <button id="add-button">+</button>
-            <button id="heart-button">&#x2764;</button>
+            <button id="heart-button">&#9733;</button>
           </div>
           <p class="film-synopsis">TEXT</p>
           <div class="film-misc">
@@ -232,7 +232,7 @@ title: "CathayPlay"
           <div class="buttons">
             <button id="watch-button">WATCH</button>
             <button id="add-button">+</button>
-            <button id="heart-button">&#x2764;</button>
+            <button id="heart-button">&#9733;</button>
           </div>
           <p class="film-synopsis">TEXT</p>
           <div class="film-misc">
