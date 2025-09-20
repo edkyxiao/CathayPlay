@@ -288,14 +288,28 @@ p {
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid black;
   color: black;
-  padding: 0.5rem 1rem;
   cursor: pointer;
-  border-radius: 4px;
   font-size: 0.8rem;
-  transition: background 0.2s ease;
+  transition: all 0.5s ease;
 }
+
+#watch-button {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+#add-button {
+  padding: 0.5rem 0.8rem;
+  border-radius: 50%;
+}
+#heart-button {
+  padding: 0.5rem 0.7rem;
+  border-radius: 50%;
+}
+
 .buttons button:hover {
-  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+  color: white;
+  background-color: rgba(0, 0, 128, 1);
 }
 
 .film-synopsis {
@@ -352,7 +366,6 @@ p {
   line-height: 1.5rem;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
-
 
 .space {
   height: 2vh;

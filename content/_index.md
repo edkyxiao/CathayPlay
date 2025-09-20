@@ -53,9 +53,9 @@ title: "CathayPlay"
         </div>
         <div class="film-hover">
           <div class="buttons">
-            <button>WATCH</button>
-            <button>ADD</button>
-            <button>FAVOURITE</button>
+            <button id="watch-button">WATCH</button>
+            <button id="add-button">+</button>
+            <button id="heart-button">&#x2764;</button>
           </div>
           <p class="film-synopsis">TEXT</p>
           <div class="film-misc">
@@ -72,9 +72,9 @@ title: "CathayPlay"
         </div>
         <div class="film-hover">
           <div class="buttons">
-            <button>WATCH</button>
-            <button>ADD</button>
-            <button>FAVOURITE</button>
+            <button id="watch-button">WATCH</button>
+            <button id="add-button">+</button>
+            <button id="heart-button">&#x2764;</button>
           </div>
           <p class="film-synopsis">TEXT</p>
           <div class="film-misc">
@@ -91,9 +91,9 @@ title: "CathayPlay"
         </div>
         <div class="film-hover">
           <div class="buttons">
-            <button>WATCH</button>
-            <button>ADD</button>
-            <button>FAVOURITE</button>
+            <button id="watch-button">WATCH</button>
+            <button id="add-button">+</button>
+            <button id="heart-button">&#x2764;</button>
           </div>
           <p class="film-synopsis">TEXT</p>
           <div class="film-misc">
@@ -127,9 +127,9 @@ title: "CathayPlay"
         </div>
         <div class="film-hover">
           <div class="buttons">
-            <button>WATCH</button>
-            <button>ADD</button>
-            <button>FAVOURITE</button>
+            <button id="watch-button">WATCH</button>
+            <button id="add-button">+</button>
+            <button id="heart-button">&#x2764;</button>
           </div>
           <p class="film-synopsis">TEXT</p>
           <div class="film-misc">
@@ -146,9 +146,9 @@ title: "CathayPlay"
         </div>
         <div class="film-hover">
           <div class="buttons">
-            <button>WATCH</button>
-            <button>ADD</button>
-            <button>FAVOURITE</button>
+            <button id="watch-button">WATCH</button>
+            <button id="add-button">+</button>
+            <button id="heart-button">&#x2764;</button>
           </div>
           <p class="film-synopsis">TEXT</p>
           <div class="film-misc">
@@ -165,9 +165,9 @@ title: "CathayPlay"
         </div>
         <div class="film-hover">
           <div class="buttons">
-            <button>WATCH</button>
-            <button>ADD</button>
-            <button>FAVOURITE</button>
+            <button id="watch-button">WATCH</button>
+            <button id="add-button">+</button>
+            <button id="heart-button">&#x2764;</button>
           </div>
           <p class="film-synopsis">TEXT</p>
           <div class="film-misc">
@@ -192,9 +192,9 @@ title: "CathayPlay"
         </div>
         <div class="film-hover">
           <div class="buttons">
-            <button>WATCH</button>
-            <button>ADD</button>
-            <button>FAVOURITE</button>
+            <button id="watch-button">WATCH</button>
+            <button id="add-button">+</button>
+            <button id="heart-button">&#x2764;</button>
           </div>
           <p class="film-synopsis">TEXT</p>
           <div class="film-misc">
@@ -211,9 +211,9 @@ title: "CathayPlay"
         </div>
         <div class="film-hover">
           <div class="buttons">
-            <button>WATCH</button>
-            <button>ADD</button>
-            <button>FAVOURITE</button>
+            <button id="watch-button">WATCH</button>
+            <button id="add-button">+</button>
+            <button id="heart-button">&#x2764;</button>
           </div>
           <p class="film-synopsis">TEXT</p>
           <div class="film-misc">
@@ -230,9 +230,9 @@ title: "CathayPlay"
         </div>
         <div class="film-hover">
           <div class="buttons">
-            <button>WATCH</button>
-            <button>ADD</button>
-            <button>FAVOURITE</button>
+            <button id="watch-button">WATCH</button>
+            <button id="add-button">+</button>
+            <button id="heart-button">&#x2764;</button>
           </div>
           <p class="film-synopsis">TEXT</p>
           <div class="film-misc">
