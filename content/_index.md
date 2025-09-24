@@ -107,10 +107,14 @@ title: "CathayPlay"
   <img class="feature-image" src="images/home-page/full-bleed-feature/TO SAY FAREWELL, WANG LIBO, 2024.jpg" alt="full bleed feature image">
   <div class="feature-text">
     <div class="feature-text-heading">
-      <h2>TO SAY FAREWELL</h2>
-      <p><strong>WANG LIBO</strong>, 2024</p>
+      <h1>TO SA<span class="ss05">Y</span> FAREWELL</h1>
+      <p>WANG LIBO 2024</p>
     </div>
     <p class="feature-synopsis">In a Manhattan apartment in New York, there lived a 96-year-old solitary elderly person, Gao Yaojie. Seen as the first grassroots AIDS activist in China, Gao was forced to flee to the United States from China at the age of 82. The elderly woman’s long and tumultuous life mirrors the turbulent modern history of China. The film documents the lonely last three months of Gao Yaojie’s life.</p>
+    <div class="feature-text-heading"><p>Filmmaker bio</p></div>
+    <p class="filmmaker-bio">Wang Libo began making films in 1999. His works include the multimedia drama The Wall and the political documentaries Buried (2009), Oh! The Sanxia (2013), and Entropy (2016). He currently lives in New York.
+    <br><br>His trilogy of political documentaries engages with major disasters in modern Chinese history — the Tangshan earthquake, the Wenchuan earthquake, the Three Gorges Project, and the Cultural Revolution. Using plain yet powerful cinematic language, his films reflect on how such events came to feel inevitable within a seemingly well-functioning political system.
+    </p>
   </div>
 </section>
 <section class="main">
@@ -246,10 +250,13 @@ title: "CathayPlay"
   <img class="feature-image" src="images/home-page/full-bleed-feature/Blessed with burdens, chen ziyan, 2025.jpg" alt="full bleed feature image">
   <div class="feature-text">
     <div class="feature-text-heading">
-      <h2>BLESSED WITH BURDENS</h2>
-      <p><strong>CHEN ZIYAN</strong>, 2025</p>
+      <h1>BLESSED WITH BURDENS</h1>
+      <p>CHEN ZIYAN 2025</p>
     </div>
     <p class="feature-synopsis">When my cousin gave birth to a girl, my mom and family stood outside the obstetrics and gynecology department and said, "Those who give birth to daughters are blessed." But is childbirth truly a blessing? Behind the blessing and the excitement, how much have mothers sacrificed and compromised in their choices? And as daughters, do we really see everything our mothers have done for us?</p>
+    <div class="feature-text-heading"><p>Filmmaker bio</p></div>
+    <p class="filmmaker-bio">Chen Ziyan is a visual artist and filmmaker whose practice spans documentary, experimental video art, dance film, and participatory workshops. She uses visual media as a tool to probe complex, thought-provoking themes with depth and sensitivity.
+    <br><br>Her work often emerges from close observation of daily life, opening dialogue on subjects such as family relationships, language, ecology, and the many states of human existence. By combining careful attention to detail with direct engagement, she creates works that resonate across personal and collective experience.</p>
   </div>
 </section>
 <section class="add-height"></section>
