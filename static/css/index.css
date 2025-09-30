@@ -216,7 +216,6 @@ p {
   font-weight: bolder;
   color: white;
 }
-
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -353,9 +352,8 @@ p {
   top: 0vh;
   left: 65.2vw;
   width: 29.3vw;
-  height: auto;
+  height: 75vh;
   z-index: 2;
-  /* border: 1px solid white; */
 }
 
 .feature-text-heading h1 {
@@ -383,10 +381,19 @@ p {
   text-align: justify;
 }
 
-.feature-synopsis {
-  margin-bottom: 5vh;
+.feature-block-2 {
+  position: inherit;
+  bottom: 0;
 }
 
+.feature-block-2 p {
+  padding: 0;
+  margin: 0;
+}
+
+.feature-text-heading {
+  margin-bottom: 2vh;
+}
 .space {
   height: 2vh;
 }
