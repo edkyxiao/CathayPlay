@@ -212,9 +212,11 @@ p {
   margin: 0 auto;
 }
 
-.grid-heading h3{
+.grid-heading{
   font-weight: bolder;
+  color: white;
 }
+
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
