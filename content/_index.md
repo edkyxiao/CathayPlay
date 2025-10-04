@@ -22,7 +22,7 @@ title: "CathayPlay"
   <div class="menu">
       <h3 class="menu-buttons">NOW SHOWING</h3>
       <h3 class="menu-buttons">SUBSCRIBE</h3>
-      <h3 class="menu-buttons">☰</h3>
+      <h3 class="menu-buttons" id="menu-toggle">☰</h3>
   </div>
 
   <div class="hero-text-middle">
