@@ -471,7 +471,7 @@ p {
   
   /* Grid adjustments */
   .grid-container {
-    max-width: 95vw;
+    max-width: 85vw;
   }
   
   .grid {
@@ -480,12 +480,12 @@ p {
   }
   
   .film {
-    height: 40vh;
+    height: 30vh;
   }
   
   .film img,
   .film-image-container {
-    height: 40vh;
+    height: 30vh;
   }
   
   .film-title {
