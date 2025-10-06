@@ -39,7 +39,7 @@ title: "CathayPlay"
       </div>
   </div>
 </section>
-<section class="main">
+<section class="main curators-spotlight">
   <div class="grid-container">
     <h2 class="grid-heading">CURATOR'S SPOTLIGHT</h2>
     <div class="grid">
@@ -103,7 +103,7 @@ title: "CathayPlay"
     </div>
   </div>
 </section>
-<section class="full-bleed-feature">
+<section class="full-bleed-feature feature-1">
   <img class="feature-image" src="images/home-page/full-bleed-feature/TO SAY FAREWELL, WANG LIBO, 2024.jpg" alt="full bleed feature image">
   <div class="feature-text">
     <div class="feature-text-heading">
@@ -119,7 +119,7 @@ title: "CathayPlay"
     </div>
   </div>
 </section>
-<section class="main">
+<section class="main trending">
   <div class="grid-container">
     <h2 class="grid-heading">TRENDING</h2>
     <div class="grid">
@@ -184,7 +184,7 @@ title: "CathayPlay"
   </div>
 </section>
 <div class="space"></div>
-<section class="main">
+<section class="main suggested">
   <div class="grid-container">
     <h2 class="grid-heading">SUGGESTED FOR YOU</h2>
     <div class="grid">
@@ -248,7 +248,7 @@ title: "CathayPlay"
     </div>
   </div>
 </section>
-<section class="full-bleed-feature">
+<section class="full-bleed-feature feature-2">
   <img class="feature-image" src="images/home-page/full-bleed-feature/Blessed with burdens, chen ziyan, 2025.jpg" alt="full bleed feature image">
   <div class="feature-text">
     <div class="feature-text-heading">
