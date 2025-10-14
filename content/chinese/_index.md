@@ -1,44 +1,6 @@
 ---
 title: "CathayPlay"
 ---
-
-<section class="hero">
-  <video autoplay muted loop playsinline class="hero-video">
-    <source src="/videos/victors-cut.mp4" type="video/mp4">
-    您的浏览器不支持视频标签
-  </video>
-
-  <div class="overlay"></div>
-
-  <div class="hero-text-left">
-      <div class="logo">
-          <h1 class="logo-text">CATHA<span class="ss05">Y</span>PLA<span class="ss05">Y</span></h1>
-          <p class="tagline-text">
-              The only streaming platform dedicated to independent Chinese cinema
-          </p>
-      </div>
-  </div>
-
-  <div class="menu">
-      <h3 class="menu-buttons">正在放映</h3>
-      <h3 class="menu-buttons">订阅</h3>
-      <h3 class="menu-buttons" id="menu-toggle">☰</h3>
-  </div>
-
-  <div class="hero-text-middle">
-      <div class="promotion">
-        <h3 class="white">SUPPORT INDEPENDENT CHINESE FILMMAKERS</h3>
-        <button class="promotion-button">SUBSCRIBE</button>
-      </div>
-      <div class="film-info">
-        <div>
-          <h2 class="film-title-text">田野</h2>
-          <p class="director">导演：<strong>吕美静</strong><br>2022</p>
-        </div>
-        <p class="description">在一个被网络、消费与科技塑造的世界里，《田野》想象了新的共处方式。通过人与非人之间的片段——人与人、动物、元素与装置的连接——影片营造出一个流动的空间，让感知与情感在意识之间共振。这是一部关于沟通、社区与脆弱共存可能性的沉思之作。</p>
-      </div>
-  </div>
-</section>
 <section class="main curators-spotlight">
   <div class="grid-container">
     <h2 class="grid-heading">策展人精选</h2>
