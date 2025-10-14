@@ -3,6 +3,8 @@ html, body {
     padding: 0;
     overflow-x: hidden;
     height: 100%;
+    background-color: black;
+    scroll-behavior: smooth;
 }
 h2,
 h3, 
@@ -106,7 +108,7 @@ p {
   color: lightgray;
 }
 
-/* Browse + Subscribe */
+/* Menu */
 .menu {
     position: absolute;
     top: 7vh;
@@ -118,6 +120,7 @@ p {
     gap: 2rem;
     align-items: center;
 }
+
 .menu h3 {
     font-size: 1rem;
     cursor: pointer;
@@ -125,8 +128,90 @@ p {
     line-height: 1;
     transition: color 0.5s ease;
 }
+
 .menu h3:hover {
   color: rgb(255, 221, 0);
+}
+
+a.button {
+  text-decoration: none !important; 
+  color: inherit;         
+}
+
+/* Language Change */
+.menu-buttons .language-select {
+  font-family: 'Diatype-bold';
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 4% 8%;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.menu-buttons .language-select:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.menu-buttons .language-select option {
+  background: #333;
+  color: white;
+}
+
+/* Menu dropdown */
+.menu-dropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 1rem); /* Position below the menu with some spacing */
+  background: rgba(0, 0, 0, 0.95);
+  padding: 20px;
+  min-width: 200px;
+  border-radius: 8px;
+  display: none;
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+.menu.active .menu-dropdown {
+  display: flex;
+}
+
+/* Hide default-hidden by default */
+.menu-buttons.default-hidden {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Show with staggered delays - adjust nth-child based on position in dropdown */
+.menu-dropdown .menu-buttons.default-hidden:nth-child(1) {
+  animation: slideIn 0.3s ease 0s forwards;
+}
+
+.menu-dropdown .menu-buttons.default-hidden:nth-child(2) {
+  animation: slideIn 0.3s ease 0.1s forwards;
+}
+
+.menu-dropdown .menu-buttons.default-hidden:nth-child(3) {
+  animation: slideIn 0.3s ease 0.2s forwards;
+}
+
+.menu-dropdown .menu-buttons.default-hidden:nth-child(4) {
+  animation: slideIn 0.3s ease 0.3s forwards;
+}
+
+.menu-dropdown .menu-buttons.default-hidden:nth-child(5) {
+  animation: slideIn 0.3s ease 0.4s forwards;
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Film info */
@@ -205,19 +290,16 @@ p {
   .description-text { font-size: 0.875rem; }
 }
 
-/* Main */ 
-.main {
-  background-color: white;
-}
-
 /* Curator's spotlight */
 .grid-container {
   max-width: 90vw;
   margin: 0 auto;
 }
 
-.grid-heading h3{
+.grid-heading{
   font-weight: bolder;
+  color: white;
+  scroll-margin-top: 2vh;
 }
 .grid {
   display: grid;
@@ -239,6 +321,7 @@ p {
   height: 35vh;
   display: block;
   object-fit: cover;
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.2);
 }
 
 .film-text{
@@ -270,7 +353,7 @@ p {
   position: absolute;
   width: inherit;
   top: 35vh;
-  background-color: rgb(255, 255, 255);
+  background-color: whitesmoke;
   padding: 1rem;
   opacity: 0;
   max-height: 0;
@@ -343,18 +426,21 @@ p {
 }
 .feature-image {
   height: 75vh;
-  width: 64.2vw;
+  width: 59.7vw;
+  margin-left: 4.5vw;
   object-fit: cover;
 }
+
 .feature-text {
+  color: white;
   position: absolute;
-  color: black;
   top: 0vh;
   left: 65.2vw;
   width: 29.3vw;
-  height: auto;
+  height: 75vh;
   z-index: 2;
 }
+
 .feature-text-heading h1 {
   font-family: "Gravity Wide";
   font-feature-settings: "ss05";
@@ -372,19 +458,194 @@ p {
 
 .feature-synopsis,
 .filmmaker-bio {
+  color: whitesmoke;
   font-family: 'Arial';
   font-size: 1rem;
   width: 100%;
   line-height: 1.5rem;
+  text-align: justify;
 }
 
-.feature-synopsis {
-  margin-bottom: 5vh;
+.feature-block-2 {
+  position: inherit;
+  bottom: 0;
 }
 
+.feature-block-2 p {
+  padding: 0;
+  margin: 0;
+}
+
+.feature-text-heading {
+  margin-bottom: 2vh;
+}
 .space {
   height: 2vh;
 }
+
+@media (max-width: 768px) {
+  /* Hero text adjustments */
+  .hero-text-left {
+    top: 3vh;
+    left: 5vw;
+  }
+  
+  .logo-text { 
+    font-size: 1.5rem; 
+  }
+  
+  .tagline-text { 
+    font-size: 0.46rem;
+    max-width: 90vw;
+  }
+  
+  /* Menu adjustments */
+  .menu {
+    top: 3vh;
+    right: 5vw;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  #menu-toggle {
+    font-size: 1.5rem;
+    order: -1; /* Put hamburger at the top */
+  }
+
+  .menu-buttons:not(#menu-toggle) {
+    display: none;
+  }
+
+  .menu.active .menu-buttons:not(#menu-toggle) {
+    display: block;
+  }
+
+  .menu h3 {
+    font-size: 0.85rem;
+  }
+
+  a.button {
+    text-decoration: none; 
+    color: inherit;         
+  }
+  
+  /* Film info section */
+  .hero-text-middle {
+    left: 5vw;
+    right: 5vw;
+    top: 70vh;
+  }
+  
+  .film-info {
+    flex-direction: column;
+    gap: 1vh;
+    margin-top: 3vh;
+  }
+  
+  .film-title-text {
+    font-size: 1.2rem;
+  }
+  
+  .director {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+  }
+  
+  .description {
+    margin-top: 0;
+    font-size: 0.8rem;
+    width: 85vw;
+  }
+  
+  /* Grid adjustments */
+  .grid-container {
+    max-width: 85vw;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 3vh;
+  }
+  
+  .film {
+    height: 30vh;
+  }
+  
+  .film img,
+  .film-image-container {
+    height: 30vh;
+  }
+  
+  .film-title {
+    font-size: 1.5rem;
+  }
+  
+  .director-year {
+    font-size: 0.8rem;
+  }
+  
+  /* Mobile tap functionality for film hover */
+  .film:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .film-hover {
+    position: relative;
+    top: 0;
+    opacity: 0;
+    max-height: 0;
+    margin-top: 0;
+    transition: opacity 0.3s ease, max-height 0.3s ease, margin-top 0.3s ease;
+  }
+  
+  .film.active .film-hover {
+    opacity: 1;
+    max-height: 30vh;
+  }
+  
+  .film.active {
+    height: auto;
+  }
+  
+  /* Full bleed feature adjustments */
+  .full-bleed-feature {
+    margin: 3vh auto;
+  }
+  
+  .feature-image {
+    width: 90vw;
+    height: 50vh;
+    margin-left: 5vw;
+  }
+  
+  .feature-text {
+    position: relative;
+    top: auto;
+    left: 5vw;
+    width: 90vw;
+    height: auto;
+    margin-top: 3vh;
+  }
+  
+  .feature-text-heading h1 {
+    font-size: 2rem;
+    margin-bottom: 2vh;
+  }
+  
+  .feature-text-heading p {
+    font-size: 1rem;
+  }
+  
+  .feature-synopsis,
+  .filmmaker-bio {
+    font-size: 0.9rem;
+    line-height: 1.4rem;
+  }
+}
+
 .add-height {
   height: 5vh;
 }

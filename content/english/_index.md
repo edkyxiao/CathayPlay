@@ -2,46 +2,9 @@
 title: "CathayPlay"
 ---
 
-<section class="hero">
-  <video autoplay muted loop playsinline class="hero-video">
-    <source src="/videos/victors-cut.mp4" type="video/mp4">
-    Your browser does not support the video tag
-  </video>
-
-  <div class="overlay"></div>
-
-  <div class="hero-text-left">
-      <div class="logo">
-          <h1 class="logo-text">CATHA<span class="ss05">Y</span>PLA<span class="ss05">Y</span></h1>
-          <p class="tagline-text">
-              The only streaming platform dedicated to independent Chinese cinema
-          </p>
-      </div>
-  </div>
-
-  <div class="menu">
-      <h3 class="menu-buttons">NOW SHOWING</h3>
-      <h3 class="menu-buttons">SUBSCRIBE</h3>
-      <h3 class="menu-buttons">☰</h3>
-  </div>
-
-  <div class="hero-text-middle">
-      <div class="promotion">
-        <h3 class="white">SUPPORT INDEPENDENT CHINESE FILMMAKERS</h3>
-        <button class="promotion-button">SUBSCRIBE</button>
-      </div>
-      <div class="film-info">
-        <div>
-          <h2 class="film-title-text">FIELD</h2>
-          <p class="director">Directed by <strong>LÜ MEIJING</strong><br>2022</p>
-        </div>
-        <p class="description">In a world shaped by networks, consumption, and technology, FIELD imagines new ways of being together. Through fragments of human and non-human connection—between people, animals, elements, and devices—the film creates a shifting space where perception and emotion resonate across consciousness. The result is a meditation on communication, community, and the fragile possibilities of co-existence.</p>
-      </div>
-  </div>
-</section>
-<section class="main">
+<section class="main curators-spotlight">
   <div class="grid-container">
-    <h2 class="grid-heading">CURATOR'S SPOTLIGHT</h2>
+    <h2 class="grid-heading" id="curators-spotlight">CURATOR'S SPOTLIGHT</h2>
     <div class="grid">
       <div class="film">
         <div class="film-image-container">
@@ -103,21 +66,23 @@ title: "CathayPlay"
     </div>
   </div>
 </section>
-<section class="full-bleed-feature">
+<section class="full-bleed-feature feature-1">
   <img class="feature-image" src="images/home-page/full-bleed-feature/TO SAY FAREWELL, WANG LIBO, 2024.jpg" alt="full bleed feature image">
   <div class="feature-text">
     <div class="feature-text-heading">
       <h1>TO SA<span class="ss05">Y</span> FAREWELL</h1>
       <p>WANG LIBO 2024</p>
     </div>
-    <p class="feature-synopsis">In a Manhattan apartment in New York, there lived a 96-year-old solitary elderly person, Gao Yaojie. Seen as the first grassroots AIDS activist in China, Gao was forced to flee to the United States from China at the age of 82. The elderly woman’s long and tumultuous life mirrors the turbulent modern history of China. The film documents the lonely last three months of Gao Yaojie’s life.</p>
-    <div class="feature-text-heading"><p>Filmmaker bio</p></div>
-    <p class="filmmaker-bio">Wang Libo began making films in 1999. His works include the multimedia drama The Wall and the political documentaries Buried (2009), Oh! The Sanxia (2013), and Entropy (2016). He currently lives in New York.
-    <br><br>His trilogy of political documentaries engages with major disasters in modern Chinese history — the Tangshan earthquake, the Wenchuan earthquake, the Three Gorges Project, and the Cultural Revolution. Using plain yet powerful cinematic language, his films reflect on how such events came to feel inevitable within a seemingly well-functioning political system.
+    <p class="feature-synopsis feature-block-1">In a Manhattan apartment in New York, there lived a 96-year-old solitary elderly person, Gao Yaojie. Seen as the first grassroots AIDS activist in China, Gao was forced to flee to the United States from China at the age of 82. The elderly woman’s long and tumultuous life mirrors the turbulent modern history of China. The film documents the lonely last three months of Gao Yaojie’s life.</p>
+    <div class="feature-block-2">
+      <div class="feature-text-heading"><p>Filmmaker bio</p></div>
+      <p class="filmmaker-bio">Wang Libo began making films in 1999. His works include the multimedia drama The Wall and the political documentaries Buried (2009), Oh! The Sanxia (2013), and Entropy (2016). He currently lives in New York.
+      <br><br>His trilogy of political documentaries engages with major disasters in modern Chinese history — the Tangshan earthquake, the Wenchuan earthquake, the Three Gorges Project, and the Cultural Revolution. Using plain yet powerful cinematic language, his films reflect on how such events came to feel inevitable within a seemingly well-functioning political system.
     </p>
+    </div>
   </div>
 </section>
-<section class="main">
+<section class="main trending">
   <div class="grid-container">
     <h2 class="grid-heading">TRENDING</h2>
     <div class="grid">
@@ -182,7 +147,7 @@ title: "CathayPlay"
   </div>
 </section>
 <div class="space"></div>
-<section class="main">
+<section class="main suggested">
   <div class="grid-container">
     <h2 class="grid-heading">SUGGESTED FOR YOU</h2>
     <div class="grid">
@@ -246,17 +211,19 @@ title: "CathayPlay"
     </div>
   </div>
 </section>
-<section class="full-bleed-feature">
+<section class="full-bleed-feature feature-2">
   <img class="feature-image" src="images/home-page/full-bleed-feature/Blessed with burdens, chen ziyan, 2025.jpg" alt="full bleed feature image">
   <div class="feature-text">
     <div class="feature-text-heading">
       <h1>BLESSED WITH BURDENS</h1>
       <p>CHEN ZIYAN 2025</p>
     </div>
-    <p class="feature-synopsis">When my cousin gave birth to a girl, my mom and family stood outside the obstetrics and gynecology department and said, "Those who give birth to daughters are blessed." But is childbirth truly a blessing? Behind the blessing and the excitement, how much have mothers sacrificed and compromised in their choices? And as daughters, do we really see everything our mothers have done for us?</p>
-    <div class="feature-text-heading"><p>Filmmaker bio</p></div>
-    <p class="filmmaker-bio">Chen Ziyan is a visual artist and filmmaker whose practice spans documentary, experimental video art, dance film, and participatory workshops. She uses visual media as a tool to probe complex, thought-provoking themes with depth and sensitivity.
-    <br><br>Her work often emerges from close observation of daily life, opening dialogue on subjects such as family relationships, language, ecology, and the many states of human existence. By combining careful attention to detail with direct engagement, she creates works that resonate across personal and collective experience.</p>
+    <p class="feature-synopsis feature-block-1">When my cousin gave birth to a girl, my mom and family stood outside the obstetrics and gynecology department and said, "Those who give birth to daughters are blessed." But is childbirth truly a blessing? Behind the blessing and the excitement, how much have mothers sacrificed and compromised in their choices? And as daughters, do we really see everything our mothers have done for us?</p>
+    <div class="feature-block-2">
+      <div class="feature-text-heading"><p>Filmmaker bio</p></div>
+      <p class="filmmaker-bio">Chen Ziyan is a visual artist and filmmaker whose practice spans documentary, experimental video art, dance film, and participatory workshops. She uses visual media as a tool to probe complex, thought-provoking themes with depth and sensitivity.
+      <br><br>Her work often emerges from close observation of daily life, opening dialogue on subjects such as family relationships, language, ecology, and the many states of human existence. By combining careful attention to detail with direct engagement, she creates works that resonate across personal and collective experience.</p>
+    </div>
   </div>
 </section>
 <section class="add-height"></section>

@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>CathayPlay</title>
-    <link>//localhost:1313/</link>
+    <link>//localhost:1313/english/</link>
     <description>Recent content on CathayPlay</description>
     <generator>Hugo</generator>
-    <language>english</language>
-    <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <atom:link href="//localhost:1313/english/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

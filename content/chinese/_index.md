@@ -1,97 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta name="generator" content="Hugo 0.148.2"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CathayPlay</title>
-  <link rel="stylesheet" href="/css/index.css">
-  <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
-</head>
-<body>
+---
+title: "CathayPlay"
+---
 
-  
 <section class="hero">
   <video autoplay muted loop playsinline class="hero-video">
     <source src="/videos/victors-cut.mp4" type="video/mp4">
-    Your browser does not support the video tag
+    您的浏览器不支持视频标签
   </video>
 
   <div class="overlay"></div>
 
-  <div class="hero-text-left"><a href="/english/" class="button">
+  <div class="hero-text-left">
       <div class="logo">
           <h1 class="logo-text">CATHA<span class="ss05">Y</span>PLA<span class="ss05">Y</span></h1>
           <p class="tagline-text">
               The only streaming platform dedicated to independent Chinese cinema
           </p>
       </div>
-  </a></div>
+  </div>
 
   <div class="menu">
-        <h3 class="menu-buttons"><a href="#curators-spotlight" class="button">NOW SHOWING</a></h3>
-        <h3 class="menu-buttons"><a href="/english/films/" class="button">ALL FILMS</a></h3>
-        <h3 class="menu-buttons">SUBSCRIBE</h3>
-        <h3 class="menu-buttons">
-            
-
-
-
-
-
-
-
-  
-
-  
-
-
-
-  
-
-  
-
-
-<select class="language-select" onchange="location = this.value">
-  
-    
-    
-    
-      <option
-        id="english"
-        value="//localhost:1313/"
-      
-        selected
-      
-        >
-        English
-      </option>
-    
-  
-    
-    
-    
-      <option
-        id="chinese"
-        value="//localhost:1313/chinese/"
-      
-        >
-        Chinese
-      </option>
-    
-  
-</select>
-
-        </h3>
-        <h3 class="menu-buttons" id="menu-toggle">☰</h3>
-        <div class="menu-dropdown">
-            <h3 class="menu-buttons default-hidden">SIGN IN</h3>
-            <h3 class="menu-buttons default-hidden"><a href="/english/about/" class="button">ABOUT</a></h3>
-            <h3 class="menu-buttons default-hidden"><a href="/english/FAQ/" class="button">FAQ</a></h3>
-            <h3 class="menu-buttons default-hidden"><a href="https://www.instagram.com/cathayplayglobal/" class="button">INSTAGRAM</a></h3>
-            <h3 class="menu-buttons default-hidden"><a href="https://x.com/CathayPlay" class="button">TWITTER</a></h3>
-        </div>
-    </div>
+      <h3 class="menu-buttons">正在放映</h3>
+      <h3 class="menu-buttons">订阅</h3>
+      <h3 class="menu-buttons" id="menu-toggle">☰</h3>
+  </div>
 
   <div class="hero-text-middle">
       <div class="promotion">
@@ -100,21 +32,20 @@
       </div>
       <div class="film-info">
         <div>
-          <h2 class="film-title-text">FIELD</h2>
-          <p class="director">Directed by <strong>LÜ MEIJING</strong><br>2022</p>
+          <h2 class="film-title-text">田野</h2>
+          <p class="director">导演：<strong>吕美静</strong><br>2022</p>
         </div>
-        <p class="description">In a world shaped by networks, consumption, and technology, FIELD imagines new ways of being together. Through fragments of human and non-human connection—between people, animals, elements, and devices—the film creates a shifting space where perception and emotion resonate across consciousness. The result is a meditation on communication, community, and the fragile possibilities of co-existence.</p>
+        <p class="description">在一个被网络、消费与科技塑造的世界里，《田野》想象了新的共处方式。通过人与非人之间的片段——人与人、动物、元素与装置的连接——影片营造出一个流动的空间，让感知与情感在意识之间共振。这是一部关于沟通、社区与脆弱共存可能性的沉思之作。</p>
       </div>
   </div>
 </section>
-
 <section class="main curators-spotlight">
   <div class="grid-container">
-    <h2 class="grid-heading" id="curators-spotlight">CURATOR'S SPOTLIGHT</h2>
+    <h2 class="grid-heading">策展人精选</h2>
     <div class="grid">
       <div class="film">
         <div class="film-image-container">
-          <img src="images/home-page/curators-spotlight/Chronicle of a durian, Zhang Xin, 2017.jpg" alt="curator's spotlight film">
+          <img src="/static/images/home-page/curators-spotlight/Chronicle of a durian, Zhang Xin, 2017.jpg" alt="curator's spotlight film">
           <div class="film-text">
             <h2 class="film-title">CHRONICLE OF A DURIAN</h2>
             <p class="director-year"><strong>ZHANG XIN</strong> 2017</p>
@@ -133,7 +64,7 @@
       </div>
       <div class="film">
         <div class="film-image-container">
-          <img src="images/home-page/curators-spotlight/Meili, directed by Zhou Zhou, 2018.jpg" alt="curator's spotlight film">
+          <img src="/static/images/home-page/curators-spotlight/Meili, directed by Zhou Zhou, 2018.jpg" alt="curator's spotlight film">
           <div class="film-text">
             <h2 class="film-title">MEILI</h2>
             <p class="director-year"><strong>ZJOU ZHOU</strong> 2018</p>
@@ -152,7 +83,7 @@
       </div>
       <div class="film">
         <div class="film-image-container">
-          <img src="images/home-page/curators-spotlight/The Nail, Jiang Zhi, 2007.jpg" alt="curator's spotlight film">
+          <img src="/static/images/home-page/curators-spotlight/The Nail, Jiang Zhi, 2007.jpg" alt="curator's spotlight film">
           <div class="film-text">
             <h2 class="film-title">THE NAIL</h2>
             <p class="director-year"><strong>JIANG ZHI</strong> 2007</p>
@@ -173,7 +104,7 @@
   </div>
 </section>
 <section class="full-bleed-feature feature-1">
-  <img class="feature-image" src="images/home-page/full-bleed-feature/TO SAY FAREWELL, WANG LIBO, 2024.jpg" alt="full bleed feature image">
+  <img class="feature-image" src="/static/images/home-page/full-bleed-feature/TO SAY FAREWELL, WANG LIBO, 2024.jpg" alt="full bleed feature image">
   <div class="feature-text">
     <div class="feature-text-heading">
       <h1>TO SA<span class="ss05">Y</span> FAREWELL</h1>
@@ -194,7 +125,7 @@
     <div class="grid">
       <div class="film">
         <div class="film-image-container">
-          <img src="images/home-page/trending/A year apart, Ocean cHIN, 2023.jpg" alt="trending film">
+          <img src="/static/images/home-page/trending/A year apart, Ocean cHIN, 2023.jpg" alt="trending film">
           <div class="film-text">
             <h2 class="film-title">A YEAR APART</h2>
             <p class="director-year"><strong>OCEAN CHIN</strong> 2023</p>
@@ -213,7 +144,7 @@
       </div>
       <div class="film">
         <div class="film-image-container">
-          <img src="images/home-page/trending/My grandmother, Gao Kuan, 2022.jpg" alt="trending film">
+          <img src="/static/images/home-page/trending/My grandmother, Gao Kuan, 2022.jpg" alt="trending film">
           <div class="film-text">
             <h2 class="film-title">MY GRANDMOTHER</h2>
             <p class="director-year"><strong>GAO KUAN</strong> 2022</p>
@@ -232,7 +163,7 @@
       </div>
       <div class="film">
         <div class="film-image-container">
-          <img src="images/home-page/trending/The right moment, chen fang, 2022.jpg" alt="curator's spotlight film">
+          <img src="/static/images/home-page/trending/The right moment, chen fang, 2022.jpg" alt="curator's spotlight film">
           <div class="film-text">
             <h2 class="film-title">THE RIGHT MOMENT</h2>
             <p class="director-year"><strong>CHEN FANG</strong> 2022</p>
@@ -259,7 +190,7 @@
     <div class="grid">
       <div class="film">
         <div class="film-image-container">
-          <img src="images/home-page/suggested/On my way home, tan junwu, 2019.jpg" alt="trending film">
+          <img src="/static/images/home-page/suggested/On my way home, tan junwu, 2019.jpg" alt="trending film">
           <div class="film-text">
             <h2 class="film-title">ON MY WAY HOME</h2>
             <p class="director-year"><strong>TAN JUNWU</strong> 2019</p>
@@ -278,7 +209,7 @@
       </div>
       <div class="film">
         <div class="film-image-container">
-          <img src="images/home-page/suggested/the night, jenny, 2023.jpg" alt="trending film">
+          <img src="/static/images/home-page/suggested/the night, jenny, 2023.jpg" alt="trending film">
           <div class="film-text">
             <h2 class="film-title">THE NIGHT</h2>
             <p class="director-year"><strong>JENNY</strong> 2023</p>
@@ -297,7 +228,7 @@
       </div>
       <div class="film">
         <div class="film-image-container">
-          <img src="images/home-page/suggested/THE VIRGIN, ZHANG QIN, 2022.jpg" alt="curator's spotlight film">
+          <img src="/static/images/home-page/suggested/THE VIRGIN, ZHANG QIN, 2022.jpg" alt="curator's spotlight film">
           <div class="film-text">
             <h2 class="film-title">THE VIRGIN</h2>
             <p class="director-year"><strong>ZHANG QIN</strong> 2022</p>
@@ -318,7 +249,7 @@
   </div>
 </section>
 <section class="full-bleed-feature feature-2">
-  <img class="feature-image" src="images/home-page/full-bleed-feature/Blessed with burdens, chen ziyan, 2025.jpg" alt="full bleed feature image">
+  <img class="feature-image" src="/static/images/home-page/full-bleed-feature/Blessed with burdens, chen ziyan, 2025.jpg" alt="full bleed feature image">
   <div class="feature-text">
     <div class="feature-text-heading">
       <h1>BLESSED WITH BURDENS</h1>
@@ -333,8 +264,3 @@
   </div>
 </section>
 <section class="add-height"></section>
-
-  
-  <script src="/js/index.js"></script>
-</body>
-</html>

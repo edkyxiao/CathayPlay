@@ -7,3 +7,16 @@ theme = "emptytheme"
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+
+defaultContentLanguage = "english"
+
+[languages]
+  [languages.english]
+    languageName = "English"
+    contentDir = "content/english"
+    weight = 1
+  
+  [languages.chinese]
+    languageName = "Chinese"
+    contentDir = "content/chinese"
+    weight = 2
