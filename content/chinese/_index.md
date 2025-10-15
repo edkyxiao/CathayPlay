@@ -1,13 +1,14 @@
 ---
 title: "CathayPlay"
 ---
-<section class="main curators-spotlight">
+
+<section class="main recently-added">
   <div class="grid-container">
-    <h2 class="grid-heading">策展人精选</h2>
+    <h2 class="grid-heading" id="recently-added">RECENTLY ADDED</h2>
     <div class="grid">
       <div class="film">
         <div class="film-image-container">
-          <img src="/static/images/home-page/curators-spotlight/Chronicle of a durian, Zhang Xin, 2017.jpg" alt="curator's spotlight film">
+          <img src="/images/home-page/recently-added/Chronicle of a durian, Zhang Xin, 2017.jpg" alt="Recently added film">
           <div class="film-text">
             <h2 class="film-title">CHRONICLE OF A DURIAN</h2>
             <p class="director-year"><strong>ZHANG XIN</strong> 2017</p>
@@ -26,7 +27,7 @@ title: "CathayPlay"
       </div>
       <div class="film">
         <div class="film-image-container">
-          <img src="/static/images/home-page/curators-spotlight/Meili, directed by Zhou Zhou, 2018.jpg" alt="curator's spotlight film">
+          <img src="/images/home-page/recently-added/Meili, directed by Zhou Zhou, 2018.jpg" alt="recently added film">
           <div class="film-text">
             <h2 class="film-title">MEILI</h2>
             <p class="director-year"><strong>ZJOU ZHOU</strong> 2018</p>
@@ -45,7 +46,7 @@ title: "CathayPlay"
       </div>
       <div class="film">
         <div class="film-image-container">
-          <img src="/static/images/home-page/curators-spotlight/The Nail, Jiang Zhi, 2007.jpg" alt="curator's spotlight film">
+          <img src="/images/home-page/recently-added/The Nail, Jiang Zhi, 2007.jpg" alt="recently added film">
           <div class="film-text">
             <h2 class="film-title">THE NAIL</h2>
             <p class="director-year"><strong>JIANG ZHI</strong> 2007</p>
@@ -66,7 +67,7 @@ title: "CathayPlay"
   </div>
 </section>
 <section class="full-bleed-feature feature-1">
-  <img class="feature-image" src="/static/images/home-page/full-bleed-feature/TO SAY FAREWELL, WANG LIBO, 2024.jpg" alt="full bleed feature image">
+  <img class="feature-image" src="/images/home-page/full-bleed-feature/TO SAY FAREWELL, WANG LIBO, 2024.jpg" alt="full bleed feature image">
   <div class="feature-text">
     <div class="feature-text-heading">
       <h1>TO SA<span class="ss05">Y</span> FAREWELL</h1>
@@ -87,7 +88,7 @@ title: "CathayPlay"
     <div class="grid">
       <div class="film">
         <div class="film-image-container">
-          <img src="/static/images/home-page/trending/A year apart, Ocean cHIN, 2023.jpg" alt="trending film">
+          <img src="/images/home-page/trending/A year apart, Ocean cHIN, 2023.jpg" alt="trending film">
           <div class="film-text">
             <h2 class="film-title">A YEAR APART</h2>
             <p class="director-year"><strong>OCEAN CHIN</strong> 2023</p>
@@ -106,7 +107,7 @@ title: "CathayPlay"
       </div>
       <div class="film">
         <div class="film-image-container">
-          <img src="/static/images/home-page/trending/My grandmother, Gao Kuan, 2022.jpg" alt="trending film">
+          <img src="/images/home-page/trending/My grandmother, Gao Kuan, 2022.jpg" alt="trending film">
           <div class="film-text">
             <h2 class="film-title">MY GRANDMOTHER</h2>
             <p class="director-year"><strong>GAO KUAN</strong> 2022</p>
@@ -125,7 +126,7 @@ title: "CathayPlay"
       </div>
       <div class="film">
         <div class="film-image-container">
-          <img src="/static/images/home-page/trending/The right moment, chen fang, 2022.jpg" alt="curator's spotlight film">
+          <img src="/images/home-page/trending/The right moment, chen fang, 2022.jpg" alt="recently added film">
           <div class="film-text">
             <h2 class="film-title">THE RIGHT MOMENT</h2>
             <p class="director-year"><strong>CHEN FANG</strong> 2022</p>
@@ -152,7 +153,7 @@ title: "CathayPlay"
     <div class="grid">
       <div class="film">
         <div class="film-image-container">
-          <img src="/static/images/home-page/suggested/On my way home, tan junwu, 2019.jpg" alt="trending film">
+          <img src="/images/home-page/suggested/On my way home, tan junwu, 2019.jpg" alt="trending film">
           <div class="film-text">
             <h2 class="film-title">ON MY WAY HOME</h2>
             <p class="director-year"><strong>TAN JUNWU</strong> 2019</p>
@@ -171,7 +172,7 @@ title: "CathayPlay"
       </div>
       <div class="film">
         <div class="film-image-container">
-          <img src="/static/images/home-page/suggested/the night, jenny, 2023.jpg" alt="trending film">
+          <img src="/images/home-page/suggested/the night, jenny, 2023.jpg" alt="trending film">
           <div class="film-text">
             <h2 class="film-title">THE NIGHT</h2>
             <p class="director-year"><strong>JENNY</strong> 2023</p>
@@ -190,7 +191,7 @@ title: "CathayPlay"
       </div>
       <div class="film">
         <div class="film-image-container">
-          <img src="/static/images/home-page/suggested/THE VIRGIN, ZHANG QIN, 2022.jpg" alt="curator's spotlight film">
+          <img src="/images/home-page/suggested/THE VIRGIN, ZHANG QIN, 2022.jpg" alt="recently added film">
           <div class="film-text">
             <h2 class="film-title">THE VIRGIN</h2>
             <p class="director-year"><strong>ZHANG QIN</strong> 2022</p>
@@ -211,7 +212,7 @@ title: "CathayPlay"
   </div>
 </section>
 <section class="full-bleed-feature feature-2">
-  <img class="feature-image" src="/static/images/home-page/full-bleed-feature/Blessed with burdens, chen ziyan, 2025.jpg" alt="full bleed feature image">
+  <img class="feature-image" src="/images/home-page/full-bleed-feature/Blessed with burdens, chen ziyan, 2025.jpg" alt="full bleed feature image">
   <div class="feature-text">
     <div class="feature-text-heading">
       <h1>BLESSED WITH BURDENS</h1>
