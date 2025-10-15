@@ -263,6 +263,13 @@ a.button {
 .film-info .description {
   flex: 1;
 }
+.film-title-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.film-title-container .buttons {
+    margin: auto;
+}
 .film-title-text {
   font-family: 'Diatype-bold', sans-serif;
     font-size: 1.5rem;
