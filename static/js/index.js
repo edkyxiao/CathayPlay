@@ -2,10 +2,11 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('JavaScript file loaded!');
     console.log('Window width:', window.innerWidth);
 
-    // Menu dropdown - SINGLE implementation that works for all screen sizes
     const menuToggle = document.getElementById('menu-toggle');
     const menu = document.querySelector('.menu');
 
+    // Desktop: Only toggle dropdown for default-hidden items
+    // Mobile: Toggle entire menu visibility
     if (menuToggle && menu) {
         menuToggle.addEventListener('click', function(e) {
             e.stopPropagation();
@@ -58,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (window.innerWidth <= 768) {
             const body = document.body;
             const hero = document.querySelector('.hero');
-            const curators = document.querySelector('.curators-spotlight');
+            const recent = document.querySelector('.recently-added');
             const feature1 = document.querySelector('.feature-1');
             const trending = document.querySelector('.trending');
             const feature2 = document.querySelector('.feature-2');
@@ -68,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             console.log('Found elements:', {
                 hero: !!hero,
-                curators: !!curators,
+                recent: !!recent,
                 feature1: !!feature1,
                 trending: !!trending,
                 feature2: !!feature2,
@@ -77,11 +78,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 addHeight: !!addHeight
             });
             
-            if (hero && curators && feature1 && trending && feature2 && suggested) {
+            if (hero && recent && feature1 && trending && feature2 && suggested) {
                 console.log('Reordering sections...');
                 // Reorder by appending in desired order
                 body.appendChild(hero);
-                body.appendChild(curators);
+                body.appendChild(recent);
                 body.appendChild(feature1);
                 body.appendChild(trending);
                 body.appendChild(feature2);
