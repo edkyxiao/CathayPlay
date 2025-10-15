@@ -20,3 +20,5 @@ defaultContentLanguage = "english"
     languageName = "Chinese"
     contentDir = "content/chinese"
     weight = 2
+
+[permalinks]
