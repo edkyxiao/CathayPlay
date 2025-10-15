@@ -298,6 +298,7 @@ a.button {
 
 .grid-heading{
   font-weight: bolder;
+  color: white;
 }
 .grid {
   display: grid;
