@@ -70,7 +70,10 @@ title: "CathayPlay"
   </div>
 </section>
 <section class="full-bleed-feature feature-1">
-  <img class="feature-image" src="/images/home-page/full-bleed-feature/TO SAY FAREWELL, WANG LIBO, 2024.jpg" alt="full bleed feature image">
+  <div class="feature-image-container">
+    <img class="feature-image" src="/images/home-page/full-bleed-feature/TO SAY FAREWELL, WANG LIBO, 2024.jpg" alt="full bleed feature image">
+    <img class="play-button" src="/images/utilities/play-button.png" alt="play button">
+  </div>
   <div class="feature-text">
     <div class="feature-text-heading">
       <h1>TO SA<span class="ss05">Y</span> FAREWELL</h1>
@@ -221,7 +224,10 @@ title: "CathayPlay"
   </div>
 </section>
 <section class="full-bleed-feature feature-2">
-  <img class="feature-image" src="/images/home-page/full-bleed-feature/Blessed with burdens, chen ziyan, 2025.jpg" alt="full bleed feature image">
+  <div class="feature-image-container">
+    <img class="feature-image" src="/images/home-page/full-bleed-feature/Blessed with burdens, chen ziyan, 2025.jpg" alt="full bleed feature image">
+    <img class="play-button" src="/images/utilities/play-button.png" alt="play button">
+  </div>
   <div class="feature-text">
     <div class="feature-text-heading">
       <h1>BLESSED WITH BURDENS</h1>
@@ -231,7 +237,8 @@ title: "CathayPlay"
     <div class="feature-block-2">
       <div class="feature-text-heading"><p>Filmmaker bio</p></div>
       <p class="filmmaker-bio">Chen Ziyan is a visual artist and filmmaker whose practice spans documentary, experimental video art, dance film, and participatory workshops. She uses visual media as a tool to probe complex, thought-provoking themes with depth and sensitivity.
-      <br><br>Her work often emerges from close observation of daily life, opening dialogue on subjects such as family relationships, language, ecology, and the many states of human existence. By combining careful attention to detail with direct engagement, she creates works that resonate across personal and collective experience.</p>
+      <br><br>Her work often emerges from close observation of daily life, opening dialogue on subjects such as family relationships, language, ecology, and the many states of human existence. By combining careful attention to detail with direct engagement, she creates works that resonate across personal and collective experience.
+      </p>
     </div>
   </div>
 </section>
