@@ -165,7 +165,7 @@ title: "CathayPlay"
     <div class="grid">
       <div class="film">
         <div class="film-image-container">
-          <img src="/images/home-page/staff-picks/On my way home, tan junwu, 2019.jpg" alt="trending film">
+          <img src="/images/home-page/staff-picks/On my way home, tan junwu, 2019.jpg" alt="staff picked film">
           <div class="film-text">
             <h2 class="film-title">ON MY WAY HOME</h2>
             <p class="director-year"><strong>TAN JUNWU</strong> 2019</p>
@@ -184,7 +184,7 @@ title: "CathayPlay"
       </div>
       <div class="film">
         <div class="film-image-container">
-          <img src="/images/home-page/staff-picks/the night, jenny, 2023.jpg" alt="trending film">
+          <img src="/images/home-page/staff-picks/the night, jenny, 2023.jpg" alt="staff picked film">
           <div class="film-text">
             <h2 class="film-title">THE NIGHT</h2>
             <p class="director-year"><strong>JENNY</strong> 2023</p>
@@ -203,7 +203,7 @@ title: "CathayPlay"
       </div>
       <div class="film">
         <div class="film-image-container">
-          <img src="/images/home-page/staff-picks/THE VIRGIN, ZHANG QIN, 2022.jpg" alt="recently added film">
+          <img src="/images/home-page/staff-picks/THE VIRGIN, ZHANG QIN, 2022.jpg" alt="staff picked film">
           <div class="film-text">
             <h2 class="film-title">THE VIRGIN</h2>
             <p class="director-year"><strong>ZHANG QIN</strong> 2022</p>
