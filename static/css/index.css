@@ -270,6 +270,9 @@ a.button {
 .film-title-container .buttons {
     margin: auto;
 }
+.film-title-container .buttons #watch-button {
+  background-color: rgba(0, 0, 0, 0,);
+}
 .film-title-text {
   font-family: 'Diatype-bold', sans-serif;
     font-size: 1.5rem;
@@ -423,6 +426,36 @@ a.button {
 .film:hover .film-hover {
   opacity: 1;
   max-height: 20vh;
+}
+
+.grid-heading-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: center;
+  width: fit-content;
+}
+
+.see-all {
+  width: fit-content;
+  text-align: right;
+  padding: 0;
+  margin: 2vh 0;
+  right: 0%;
+  color: lightgrey;
+  font-size: 1.27rem;
+  font-weight: bolder;
+  cursor: pointer;
+  transition: color 0.5s ease;
+  z-index: 10;
+}
+
+.see-all p {
+  font-family: "Diatype";
+}
+
+.see-all:hover {
+  color: rgb(255, 221, 0);
 }
 
 /* Full bleed feature */
