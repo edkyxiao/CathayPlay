@@ -463,11 +463,31 @@ a.button {
   margin: 5vh auto;
   position: relative;
 }
-.feature-image {
+.feature-image-container {
+  position: relative;
   height: 75vh;
   width: 59.7vw;
   margin-left: 4.5vw;
+}
+.feature-image {
+  position: absolute;
+  height: 100%;
+  width: 100%;
   object-fit: cover;
+}
+.play-button {
+  position: absolute;
+  width: 5vw;
+  height: 5vw;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  filter: brightness(10);
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+.play-button:hover {
+  filter: brightness(1);
 }
 
 .feature-text {
