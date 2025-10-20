@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const feature1 = document.querySelector('.feature-1');
             const trending = document.querySelector('.trending');
             const feature2 = document.querySelector('.feature-2');
-            const suggested = document.querySelector('.suggested');
+            const staff = document.querySelector('.staff-picks');
             const space = document.querySelector('.space');
             const addHeight = document.querySelector('.add-height');
             
@@ -73,12 +73,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 feature1: !!feature1,
                 trending: !!trending,
                 feature2: !!feature2,
-                suggested: !!suggested,
+                staff: !!staff,
                 space: !!space,
                 addHeight: !!addHeight
             });
             
-            if (hero && recent && feature1 && trending && feature2 && suggested) {
+            if (hero && recent && feature1 && trending && feature2 && staff) {
                 console.log('Reordering sections...');
                 // Reorder by appending in desired order
                 body.appendChild(hero);
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 body.appendChild(feature1);
                 body.appendChild(trending);
                 body.appendChild(feature2);
-                body.appendChild(suggested);
+                body.appendChild(staff);
                 if (space) body.appendChild(space);
                 if (addHeight) body.appendChild(addHeight);
                 console.log('Reordering complete');
