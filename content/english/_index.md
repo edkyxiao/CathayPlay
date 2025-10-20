@@ -4,7 +4,10 @@ title: "CathayPlay"
 
 <section class="main recently-added">
   <div class="grid-container">
-    <h2 class="grid-heading" id="recently-added">RECENTLY ADDED</h2>
+    <div class="grid-heading-container">
+      <h2 class="grid-heading" id="recently-added">RECENTLY ADDED</h2>
+      <p class="see-all">SEE ALL ></p>
+    </div>
     <div class="grid">
       <div class="film">
         <div class="film-image-container">
@@ -84,7 +87,10 @@ title: "CathayPlay"
 </section>
 <section class="main trending">
   <div class="grid-container">
-    <h2 class="grid-heading">TRENDING</h2>
+    <div class="grid-heading-container">
+      <h2 class="grid-heading">TRENDING</h2>
+      <p class="see-all">SEE ALL ></p>
+    </div>
     <div class="grid">
       <div class="film">
         <div class="film-image-container">
@@ -147,13 +153,16 @@ title: "CathayPlay"
   </div>
 </section>
 <div class="space"></div>
-<section class="main suggested">
+<section class="main staff-picks">
   <div class="grid-container">
-    <h2 class="grid-heading">SUGGESTED FOR YOU</h2>
+    <div class="grid-heading-container">
+      <h2 class="grid-heading">STAFF PICKS</h2>
+      <p class="see-all">SEE ALL ></p>
+    </div>
     <div class="grid">
       <div class="film">
         <div class="film-image-container">
-          <img src="/images/home-page/suggested/On my way home, tan junwu, 2019.jpg" alt="trending film">
+          <img src="/images/home-page/staff-picks/On my way home, tan junwu, 2019.jpg" alt="trending film">
           <div class="film-text">
             <h2 class="film-title">ON MY WAY HOME</h2>
             <p class="director-year"><strong>TAN JUNWU</strong> 2019</p>
@@ -172,7 +181,7 @@ title: "CathayPlay"
       </div>
       <div class="film">
         <div class="film-image-container">
-          <img src="/images/home-page/suggested/the night, jenny, 2023.jpg" alt="trending film">
+          <img src="/images/home-page/staff-picks/the night, jenny, 2023.jpg" alt="trending film">
           <div class="film-text">
             <h2 class="film-title">THE NIGHT</h2>
             <p class="director-year"><strong>JENNY</strong> 2023</p>
@@ -191,7 +200,7 @@ title: "CathayPlay"
       </div>
       <div class="film">
         <div class="film-image-container">
-          <img src="/images/home-page/suggested/THE VIRGIN, ZHANG QIN, 2022.jpg" alt="recently added film">
+          <img src="/images/home-page/staff-picks/THE VIRGIN, ZHANG QIN, 2022.jpg" alt="recently added film">
           <div class="film-text">
             <h2 class="film-title">THE VIRGIN</h2>
             <p class="director-year"><strong>ZHANG QIN</strong> 2022</p>
