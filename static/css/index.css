@@ -551,7 +551,7 @@ a.button {
 }
 
 .footer-container {
-  max-width: 90vw;
+  max-width: 90vw; 
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
