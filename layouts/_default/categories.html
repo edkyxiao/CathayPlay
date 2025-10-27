@@ -1,0 +1,154 @@
+{{ define "main" }}
+
+<!-- Category Hero Section -->
+<section class="category-hero">
+  {{ with .Params.featured_image }}
+    <img src="{{ . }}" alt="{{ $.Title }}" class="category-hero-image">
+  {{ end }}
+  <div class="category-hero-overlay"></div>
+  
+  <div class="category-hero-content">
+    <a href="/" class="back-button">← Back to Home</a>
+    <h1 class="category-title">{{ .Title }}</h1>
+    {{ with .Params.description }}
+      <p class="category-description">{{ . }}</p>
+    {{ end }}
+  </div>
+</section>
+
+<!-- Films Grid Section -->
+<section class="main category-section">
+  <div class="grid-container">
+    {{ with .Content }}
+      <div class="category-intro">
+        {{ . }}
+      </div>
+    {{ end }}
+    
+    <div class="grid">
+      {{ range .Params.films }}
+        <div class="film">
+          <a href="{{ .url }}">
+            <div class="film-image-container">
+              <img src="{{ .image }}" alt="{{ .title }}">
+              <div class="film-text">
+                <h2 class="film-title">{{ .title }}</h2>
+                <p class="director-year"><strong>{{ .director }}</strong> {{ .year }}</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<style>
+/* Category Hero Section */
+.category-hero {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
+  margin-bottom: 5vh;
+}
+
+.category-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.category-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+}
+
+.category-hero-content {
+  position: absolute;
+  bottom: 8vh;
+  left: 10vw;
+  right: 10vw;
+  z-index: 2;
+  color: white;
+}
+
+.back-button {
+  display: inline-block;
+  font-family: 'Diatype-bold', sans-serif;
+  font-size: 1rem;
+  color: white;
+  text-decoration: none;
+  margin-bottom: 2vh;
+  transition: color 0.3s ease;
+}
+
+.back-button:hover {
+  color: rgb(255, 221, 0);
+}
+
+.category-title {
+  font-family: 'Gravity Wide', sans-serif;
+  font-feature-settings: "ss05";
+  font-size: 3.5rem;
+  line-height: 1;
+  margin: 0 0 1.5vh 0;
+}
+
+.category-description {
+  font-family: 'Diatype-light', sans-serif;
+  font-size: 1.2rem;
+  max-width: 60vw;
+  line-height: 1.5;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Category Section */
+.category-section {
+  background-color: black;
+  padding: 5vh 0;
+}
+
+.category-intro {
+  color: white;
+  font-family: 'Diatype-light', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 5vh;
+  max-width: 70vw;
+}
+
+.category-intro p {
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .category-hero {
+    height: 50vh;
+  }
+  
+  .category-hero-content {
+    left: 5vw;
+    right: 5vw;
+    bottom: 5vh;
+  }
+  
+  .category-title {
+    font-size: 2.5rem;
+  }
+  
+  .category-description {
+    font-size: 1rem;
+    max-width: 90vw;
+  }
+  
+  .category-intro {
+    max-width: 100%;
+  }
+}
+</style>
+
+{{ end }}
