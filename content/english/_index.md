@@ -92,7 +92,7 @@ title: "CathayPlay"
   <div class="grid-container">
     <div class="grid-heading-container">
       <h2 class="grid-heading">TRENDING</h2>
-      <p class="see-all">SEE ALL ></p>
+      <a href="/categories/queer-cinema/"><p class="see-all">SEE ALL ></p></a>
     </div>
     <div class="grid">
       <div class="film">
@@ -160,7 +160,7 @@ title: "CathayPlay"
   <div class="grid-container">
     <div class="grid-heading-container">
       <h2 class="grid-heading">STAFF PICKS</h2>
-      <p class="see-all">SEE ALL ></p>
+      <a href="/categories/queer-cinema/"><p class="see-all">SEE ALL ></p></a>
     </div>
     <div class="grid">
       <div class="film">
