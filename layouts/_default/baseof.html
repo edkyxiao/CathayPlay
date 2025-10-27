@@ -6,6 +6,7 @@
   <title>{{ .Title }}</title>
   <link rel="stylesheet" href="/css/index.css">
   <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
   <!-- Header -->
@@ -43,8 +44,11 @@
       <div class="footer-social">
         <p class="follow-text">Follow Us</p>
         <div class="social-icons">
-          <a href="https://www.instagram.com/cathayplayglobal/" class="social-icon" target="_blank" aria-label="Instagram">📷</a>
-          <a href="https://x.com/CathayPlay" class="social-icon" target="_blank" aria-label="Twitter">𝕏</a>
+          {{ range site.Data.social.main }}
+            <a href="{{ .link }}" class="social-icon" target="_blank" aria-label="{{ .name }}">
+              <i class="{{ .icon }}"></i>
+            </a>
+          {{ end }}
         </div>
       </div>
     </div>
