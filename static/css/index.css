@@ -11,6 +11,13 @@ h3,
 p {
   cursor: default;
 }
+a {
+  text-decoration: none;
+  color: inherit;
+  background: none;
+  border: none;
+  outline: none;
+}
 /* Font type */
 /* Gravity Wide for logo */
 @font-face {
@@ -109,6 +116,10 @@ p {
 }
 
 /* Menu */
+.header {
+  position: relative;
+  z-index: 10;
+}
 .menu {
     position: absolute;
     top: 7vh;
