@@ -1,0 +1,29 @@
+{
+  "main": [
+    {
+      "name": "Instagram",
+      "icon": "fab fa-instagram",
+      "link": "https://www.instagram.com/cathayplayglobal/"
+    },
+    {
+      "name": "Twitter",
+      "icon": "fab fa-x-twitter",
+      "link": "https://x.com/CathayPlay"
+    },
+    {
+      "name": "YouTube",
+      "icon": "fab fa-youtube",
+      "link": "https://www.youtube.com/@cathayplay"
+    },
+    {
+      "name": "Vimeo",
+      "icon": "fab fa-vimeo-v",
+      "link": "https://vimeo.com/cathayplay"
+    },
+    {
+      "name": "TikTok",
+      "icon": "fab fa-tiktok",
+      "link": "https://www.tiktok.com/@cathayplay"
+    }
+  ]
+}
