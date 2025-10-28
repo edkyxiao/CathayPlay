@@ -118,7 +118,7 @@ p {
 /* Search Bar */
 .search-container {
   position: absolute;
-  top: 7vh;
+  top: 6.5vh;
   left: 30vw;
   z-index: 2;
 }
