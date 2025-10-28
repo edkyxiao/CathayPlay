@@ -118,8 +118,9 @@ p {
 /* Search Bar */
 .search-container {
   position: absolute;
-  top: 6.5vh;
+  top: 7vh;
   left: 30vw;
+  margin: 0;
   z-index: 2;
 }
 
@@ -131,7 +132,8 @@ p {
 
 .search-input {
   width: 400px;
-  padding: 0.6rem 3rem 0.6rem 1rem;
+  padding: 0.3rem 6rem 0.3rem 1rem;
+  margin: 0;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 25px;
@@ -206,7 +208,7 @@ p {
 .menu {
     position: absolute;
     top: 7vh;
-    right: 5vw;
+    right: 10vw;
     z-index: 2;
     color: white;
     font-family: 'Diatype-bold', sans-serif;
@@ -219,7 +221,7 @@ p {
     font-size: 1rem;
     cursor: pointer;
     margin: 0;
-    line-height: 1;
+    line-height: 1.25;
     transition: color 0.5s ease;
 }
 
@@ -238,7 +240,7 @@ a.button {
   background: transparent;
   border: 1px solid white;
   color: white;
-  padding: 4% 8%;
+  padding: 1% 2%;
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
@@ -257,7 +259,7 @@ a.button {
 .menu-dropdown {
   position: absolute;
   right: 0;
-  top: calc(100% + 1rem); /* Position below the menu with some spacing */
+  top: calc(100% + 1rem);
   background: rgba(0, 0, 0, 0.95);
   padding: 20px;
   min-width: 200px;
@@ -266,7 +268,7 @@ a.button {
   flex-direction: column;
   gap: 15px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-  z-index: 100;
+  z-index: 1000;
 }
 
 .menu.active .menu-dropdown {
@@ -298,6 +300,10 @@ a.button {
 }
 
 .menu-dropdown .menu-buttons.default-hidden:nth-child(5) {
+  animation: slideIn 0.3s ease 0.4s forwards;
+}
+
+.menu-dropdown .menu-buttons.default-hidden:nth-child(6) {
   animation: slideIn 0.3s ease 0.4s forwards;
 }
 
