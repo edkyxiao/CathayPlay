@@ -85,7 +85,7 @@ p {
 .hero-text-left {
   position: absolute;
   top: 7vh;
-  left: 5vw;
+  left: 7.5vw;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -119,7 +119,7 @@ p {
 .search-container {
   position: absolute;
   top: 7vh;
-  left: 30vw;
+  left: 33vw;
   margin: 0;
   z-index: 2;
 }
@@ -132,7 +132,7 @@ p {
 
 .search-input {
   width: 400px;
-  padding: 0.3rem 6rem 0.3rem 1rem;
+  padding: 0.3rem 5rem 0.3rem 1rem;
   margin: 0;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -208,7 +208,7 @@ p {
 .menu {
     position: absolute;
     top: 7vh;
-    right: 10vw;
+    right: 7.5vw;
     z-index: 2;
     color: white;
     font-family: 'Diatype-bold', sans-serif;
@@ -316,13 +316,13 @@ a.button {
 
 /* Film info */
 .hero-text-middle {
-    font-family: 'Diatype-light';
-    z-index: 2;
-    position: absolute;
-    /* top: 65vh; */
-    top: 75vh;
-    left: 5vw;
-    color: white;  
+  font-family: 'Diatype-light';
+  z-index: 2;
+  position: absolute;
+  /* top: 65vh; */
+  top: 75vh;
+  left: 7.5vw;
+  color: white;  
 }
 .promotion {
   display: none;
@@ -353,7 +353,7 @@ a.button {
 .film-info {
   display: flex;
   align-items: flex-start;
-  gap: 23vw;
+  gap: 18vw;
   flex-wrap: wrap;
   margin-top: 5vh;
 }
