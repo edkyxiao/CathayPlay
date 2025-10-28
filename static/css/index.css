@@ -84,7 +84,6 @@ p {
 /* Text overlay container */
 .hero-text-left {
   position: absolute;
-  top: 7vh;
   left: 7.5vw;
   display: flex;
   flex-direction: column;
@@ -118,7 +117,6 @@ p {
 /* Search Bar */
 .search-container {
   position: absolute;
-  top: 7vh;
   left: 33vw;
   margin: 0;
   z-index: 2;
@@ -203,11 +201,15 @@ p {
 /* Menu */
 .header {
   position: relative;
+  top: 4vh;
   z-index: 10;
 }
+.header.home-page {
+  top: 7vh;
+}
+
 .menu {
     position: absolute;
-    top: 7vh;
     right: 7.5vw;
     z-index: 2;
     color: white;
