@@ -85,7 +85,7 @@ p {
 .hero-text-left {
   position: absolute;
   top: 7vh;
-  left: 10vw;
+  left: 5vw;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -115,6 +115,89 @@ p {
   color: lightgray;
 }
 
+/* Search Bar */
+.search-container {
+  position: absolute;
+  top: 7vh;
+  left: 30vw;
+  z-index: 2;
+}
+
+.search-form {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  width: 400px;
+  padding: 0.6rem 3rem 0.6rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+  color: white;
+  font-family: 'Diatype-light', sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.search-input:focus {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 221, 0, 0.6);
+  box-shadow: 0 0 0 2px rgba(255, 221, 0, 0.2);
+}
+
+.search-button {
+  position: absolute;
+  right: 0.5rem;
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease;
+}
+
+.search-button:hover {
+  color: rgb(255, 221, 0);
+}
+
+.search-button svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .search-container {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 1rem 5vw;
+  }
+
+  .search-input {
+    width: 90vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-input {
+    font-size: 0.85rem;
+    padding: 0.5rem 2.5rem 0.5rem 0.8rem;
+  }
+}
+
 /* Menu */
 .header {
   position: relative;
@@ -123,7 +206,7 @@ p {
 .menu {
     position: absolute;
     top: 7vh;
-    right: 10vw;
+    right: 5vw;
     z-index: 2;
     color: white;
     font-family: 'Diatype-bold', sans-serif;
@@ -232,7 +315,7 @@ a.button {
     position: absolute;
     /* top: 65vh; */
     top: 75vh;
-    left: 10vw;
+    left: 5vw;
     color: white;  
 }
 .promotion {
@@ -264,7 +347,7 @@ a.button {
 .film-info {
   display: flex;
   align-items: flex-start;
-  gap: 18vw;
+  gap: 23vw;
   flex-wrap: wrap;
   margin-top: 5vh;
 }
