@@ -301,14 +301,6 @@ a.button {
   animation: slideIn 0.3s ease 0.3s forwards;
 }
 
-.menu-dropdown .menu-buttons.default-hidden:nth-child(5) {
-  animation: slideIn 0.3s ease 0.4s forwards;
-}
-
-.menu-dropdown .menu-buttons.default-hidden:nth-child(6) {
-  animation: slideIn 0.3s ease 0.4s forwards;
-}
-
 @keyframes slideIn {
   to {
     opacity: 1;
