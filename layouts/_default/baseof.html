@@ -10,7 +10,15 @@
 </head>
 <body>
   <!-- Header -->
-  <div class="header">
+  <div class="header {{ if .IsHome }}home-page{{ end }}">
+    <div class="hero-text-left"><a href="/english/" class="button">
+      <div class="logo">
+          <h1 class="logo-text">CATHA<span class="ss05">Y</span>PLA<span class="ss05">Y</span></h1>
+          <p class="tagline-text">
+              The only streaming platform dedicated to independent Chinese cinema
+          </p>
+      </div>
+   </a></div>
     <div class="search-container">
       <form class="search-form" action="/search" method="get">
         <input 
@@ -32,9 +40,6 @@
       <h3 class="menu-buttons"><a href="#recently-added" class="button">NOW SHOWING</a></h3>
       <h3 class="menu-buttons"><a href="/english/films/" class="button">ALL FILMS</a></h3>
       <h3 class="menu-buttons">SUBSCRIBE</h3>
-      <h3 class="menu-buttons">
-          {{ partial "language-switcher.html" (dict "Class" "language-select" "Context" .) }}
-      </h3>
       <h3 class="menu-buttons" id="menu-toggle">☰</h3>
       <div class="menu-dropdown">
           <h3 class="menu-buttons default-hidden">SIGN IN</h3>
@@ -42,6 +47,9 @@
           <h3 class="menu-buttons default-hidden"><a href="/english/FAQ/" class="button">FAQ</a></h3>
           <h3 class="menu-buttons default-hidden"><a href="https://www.instagram.com/cathayplayglobal/" class="button">INSTAGRAM</a></h3>
           <h3 class="menu-buttons default-hidden"><a href="https://x.com/CathayPlay" class="button">TWITTER</a></h3>
+          <h3 class="menu-buttons default-hidden">
+          {{ partial "language-switcher.html" (dict "Class" "language-select" "Context" .) }}
+          </h3>
       </div>
     </div>
   </div>
