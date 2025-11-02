@@ -201,7 +201,7 @@ p {
 /* Menu */
 .header {
   position: relative;
-  top: 4vh;
+  top: 5vh;
   z-index: 10;
 }
 .header.home-page {
@@ -231,7 +231,8 @@ p {
   color: rgb(255, 221, 0);
 }
 
-a.button {
+a.button,
+a {
   text-decoration: none !important; 
   color: inherit;         
 }
@@ -326,7 +327,8 @@ a.button {
   font-weight: 525;
   margin-top: -.8rem;
 }
-.promotion button {
+.promotion button,
+.promotion a {
     font-family: 'Diatype-bold', sans-serif;
     color: rgb(255, 255, 255);
     background-color: rgba(255, 221, 0, 0.4);
@@ -337,7 +339,8 @@ a.button {
     border-radius: 10px;
     transition: background-color 0.3s, color 0.3s;
 }
-.promotion button:hover {
+.promotion button:hover,
+.promotion a:hover {
     background-color: rgb(255, 221, 0);
     color: black;
 }
@@ -470,7 +473,8 @@ a.button {
   gap: 0.5rem;
   margin-bottom: 1rem;
 }
-.buttons button {
+.buttons button,
+.buttons a {
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid black;
   color: black;
@@ -492,13 +496,15 @@ a.button {
   border-radius: 50%;
 }
 
-.buttons button:hover {
+.buttons button:hover,
+.buttons a:hover {
   transform: scale(1.1);
   color: white;
   background-color: rgba(0, 0, 128, 1);
   transition: all 0.1s ease;
 }
-.buttons button:active {
+.buttons button:active,
+.buttons a:active {
   transform: scale(1.05);
   color: black;
   background-color: white;
