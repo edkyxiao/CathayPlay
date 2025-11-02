@@ -1,0 +1,881 @@
+{{ define "main" }}
+
+<!-- Film Hero Section -->
+<section class="film-hero">
+  <div class="film-hero-container">
+    <!-- Trailer -->
+    <div class="film-trailer">
+      {{ with .Params.trailer_url }}
+        <iframe 
+          src="{{ . }}" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen
+          class="trailer-iframe">
+        </iframe>
+      {{ end }}
+    </div>
+
+    <!-- Film Info -->
+    <div class="film-info-panel">
+      <h1 class="film-page-title">{{ .Title }}</h1>
+      <p class="film-director-year">{{ .Params.director }} • {{ .Params.year }}</p>
+      
+      <div class="film-meta">
+        <div class="meta-item">
+          <span class="meta-label">Duration:</span>
+          <span class="meta-value">{{ .Params.duration }}</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Language:</span>
+          <span class="meta-value">{{ .Params.language }}</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Subtitles:</span>
+          <span class="meta-value">{{ .Params.subtitles }}</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Licensing:</span>
+          <span class="meta-value licensing">{{ .Params.licensing }}</span>
+        </div>
+      </div>
+
+      <p class="film-introduction">{{ .Params.introduction }}</p>
+
+      <!-- Tags -->
+      {{ with .Params.tags }}
+        <div class="film-tags">
+            <div class="tags-visible">
+                {{ range first 3 . }}
+                    <a href="/categories/queer-cinema/" class="film-tag">{{ . }}</a>
+                {{ end }}
+            <!-- {{ range first 3 . }}
+                <a href="/categories/{{ . | urlize }}" class="film-tag">{{ . }}</a>
+            {{ end }} -->
+            </div>
+            {{ if gt (len .) 3 }}
+                <div class="tags-hidden" style="display: none;">
+                    {{ range after 3 . }}
+                        <a href="/categories/{{ . | urlize }}" class="film-tag">{{ . }}</a>
+                    {{ end }}
+                </div>
+                <button class="show-more-tags" onclick="toggleTags(this)">
+                    <span class="show-text">+{{ sub (len .) 3 }} more</span>
+                    <span class="hide-text" style="display: none;">Show less</span>
+                </button>
+            {{ end }}
+        </div>
+    {{ end }}
+
+      <button class="play-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M8 5v14l11-7z"/>
+        </svg>
+        PLAY
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Festival Section -->
+{{ with .Params.festivals }}
+<section class="festivals-section">
+  <div class="section-container">
+    <h2 class="section-heading">AWARDS & FESTIVALS</h2>
+    <div class="festivals-grid">
+      {{ range . }}
+        <div class="festival-card">
+          <img src="{{ .logo }}" alt="{{ .name }}" class="festival-logo">
+          <h3 class="festival-name">{{ .name }}</h3>
+          <p class="festival-award">{{ .award }}</p>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<!-- Cast & Crew Section -->
+<section class="cast-crew-section">
+  <div class="section-container">
+    <h2 class="section-heading">CAST & CREW</h2>
+    <div class="people-grid">
+      {{ range .Params.cast }}
+        <div class="person-card">
+          <img src="{{ .image }}" alt="{{ .name }}" class="person-image">
+          <h4 class="person-name">{{ .name }}</h4>
+          <p class="person-role">{{ .role }}</p>
+        </div>
+      {{ end }}
+    </div>
+    <div class="people-grid">
+      {{ range .Params.crew }}
+        <div class="person-card">
+          <img src="{{ .image }}" alt="{{ .name }}" class="person-image">
+          <h4 class="person-name">{{ .name }}</h4>
+          <p class="person-role">{{ .role }}</p>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- Film Stills Section -->
+<section class="film-stills-section">
+  <div class="section-container">
+    <h2 class="section-heading">STILLS</h2>
+    <div class="stills-gallery">
+      <button class="stills-nav prev" onclick="changeStill(-1)" aria-label="Previous">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      
+      <div class="stills-viewer">
+        {{ range $index, $still := .Params.stills }}
+          <img src="{{ $still }}" alt="Film still {{ add $index 1 }}" class="still-image {{ if eq $index 0 }}active{{ end }}" data-index="{{ $index }}">
+        {{ end }}
+      </div>
+      
+      <button class="stills-nav next" onclick="changeStill(1)" aria-label="Next">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </div>
+    
+    <div class="stills-dots">
+      {{ range $index, $still := .Params.stills }}
+        <button class="still-dot {{ if eq $index 0 }}active{{ end }}" onclick="goToStill({ $index })" aria-label="Go to still {{ add $index 1 }}"></button>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- Staff Pick Section -->
+{{ with .Params.staff_pick }}
+<section class="staff-pick-section">
+  <div class="section-container">
+    <h2 class="section-heading">STAFF PICK</h2>
+    <div class="staff-pick-card">
+      <img src="{{ .curator_image }}" alt="{{ .curator }}" class="curator-image">
+      <div class="curator-content">
+        <h3 class="curator-name">{{ .curator }}</h3>
+        <p class="curator-title">{{ .curator_title }}</p>
+        <p class="curator-note">{{ .note }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<!-- Professional Reviews -->
+{{ with .Params.professional_reviews }}
+<section class="reviews-section">
+  <div class="section-container">
+    <h2 class="section-heading">PROFESSIONAL REVIEWS</h2>
+    <div class="reviews-grid">
+      {{ range . }}
+        <div class="review-card">
+          <div class="review-rating">
+            {{ range seq .rating }}★{{ end }}
+          </div>
+          <p class="review-quote">"{{ .quote }}"</p>
+          <p class="review-attribution">— {{ .critic }}, <em>{{ .publication }}</em></p>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<!-- User Reviews -->
+{{ with .Params.user_reviews }}
+<section class="user-reviews-section">
+  <div class="section-container">
+    <h2 class="section-heading">USER REVIEWS</h2>
+    <div class="user-reviews-list">
+      {{ range . }}
+        <div class="user-review-card">
+          <div class="review-header">
+            <span class="review-user">{{ .user }}</span>
+            <span class="review-rating">{{ range seq .rating }}★{{ end }}</span>
+          </div>
+          <p class="review-date">{{ .date }}</p>
+          <p class="review-comment">{{ .comment }}</p>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<!-- Related Films -->
+{{ with .Params.related_films }}
+<section class="related-films-section">
+  <div class="section-container">
+    <h2 class="section-heading">RELATED FILMS</h2>
+    <div class="related-films-grid">
+      {{ range . }}
+        <a href="{{ .url }}" class="related-film-card">
+          <img src="{{ .image }}" alt="{{ .title }}" class="related-film-image">
+          <h3 class="related-film-title">{{ .title }}</h3>
+          <p class="related-film-meta">{{ .director }} • {{ .year }}</p>
+        </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+
+<!-- Playlists Section -->
+{{ with .Params.playlists }}
+<section class="playlists-section">
+  <div class="section-container">
+    <h2 class="section-heading">FEATURED IN COLLECTIONS</h2>
+    <div class="playlists-list">
+      {{ range . }}
+        <a href="{{ .url }}" class="playlist-link">
+          <span class="playlist-name">{{ .name }}</span>
+          <span class="playlist-arrow">→</span>
+        </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<style>
+/* Film Hero Section */
+.film-hero {
+  background-color: black;
+  padding: 17vh 0;
+  color: white;
+}
+
+.film-hero-container {
+  max-width: 90vw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 4vw;
+  align-items: start;
+}
+
+.film-trailer {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #222;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.trailer-iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.film-info-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.film-page-title {
+  font-family: 'Gravity Wide', sans-serif;
+  font-feature-settings: "ss05";
+  font-size: 3rem;
+  line-height: 1;
+  margin: 0;
+  color: white;
+}
+
+.film-director-year {
+  font-family: 'Diatype-bold', sans-serif;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+.film-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.meta-item {
+  display: flex;
+  gap: 0.5rem;
+  font-family: 'Diatype-light', sans-serif;
+  font-size: 0.9rem;
+}
+
+.meta-label {
+  color: rgba(255, 255, 255, 0.6);
+  min-width: 80px;
+}
+
+.meta-value {
+  color: white;
+}
+
+.meta-value.licensing {
+  color: rgb(255, 221, 0);
+}
+
+.film-introduction {
+  font-family: 'Diatype-light', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+.film-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.film-tag {
+  font-family: 'Diatype-bold', sans-serif;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.8rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.film-tag:hover {
+  background: rgba(255, 221, 0, 0.2);
+  border-color: rgb(255, 221, 0);
+  color: rgb(255, 221, 0);
+}
+
+/* Tags show more button */
+.film-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.tags-visible,
+.tags-hidden {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.show-more-tags {
+  font-family: 'Diatype-bold', sans-serif;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.8rem;
+  background: rgba(255, 221, 0, 0.2);
+  border: 1px solid rgba(255, 221, 0, 0.5);
+  border-radius: 20px;
+  color: rgb(255, 221, 0);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.show-more-tags:hover {
+    background: rgba(255, 221, 0, 0.3);
+    border-color: rgb(255, 221, 0);
+}
+
+.play-btn {
+  font-family: 'Diatype-bold', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: rgb(255, 221, 0);
+  border: none;
+  border-radius: 8px;
+  color: black;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: fit-content;
+}
+
+.play-btn:hover {
+    color: white;
+    background: rgba(0, 0, 128, 1);
+    transform: translateY(-2px);
+}
+
+/* Sections */
+.section-container {
+  max-width: 90vw;
+  margin: 0 auto;
+  padding: 5vh 0;
+}
+
+.section-heading {
+  font-family: 'Diatype-bold', sans-serif;
+  font-size: 2rem;
+  color: white;
+  margin: 0 0 3vh 0;
+}
+
+.subsection-heading {
+  font-family: 'Diatype-bold', sans-serif;
+  font-size: 1.5rem;
+  color: white;
+  margin: 3vh 0 2vh 0;
+}
+
+/* Film Stills */
+.film-stills-section {
+  background-color: black;
+}
+
+.stills-gallery {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.stills-viewer {
+  position: relative;
+  width: 70vw;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #111;
+}
+
+.still-image {
+  position: absolute;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.still-image.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.stills-nav {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.stills-nav:hover {
+  background: rgba(255, 221, 0, 0.2);
+  border-color: rgb(255, 221, 0);
+  color: rgb(255, 221, 0);
+  transform: scale(1.1);
+}
+
+.stills-nav:active {
+  transform: scale(0.95);
+}
+
+.stills-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.still-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.still-dot:hover {
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(1.2);
+}
+
+.still-dot.active {
+  background: rgb(255, 221, 0);
+  transform: scale(1.3);
+}
+
+/* Festivals */
+.festivals-section {
+  background-color: #111;
+}
+
+.festivals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.festival-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.festival-logo {
+  width: 50%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.festival-name {
+  font-family: 'Diatype-bold', sans-serif;
+  color: white;
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+.festival-award {
+  font-family: 'Diatype-light', sans-serif;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Cast & Crew */
+.cast-crew-section {
+  background-color: black;
+}
+
+.people-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3vh;
+}
+
+.person-card {
+  text-align: center;
+}
+
+.person-image {
+  width: 12vw;
+  height: 12vw;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.person-name {
+  font-family: 'Diatype-bold', sans-serif;
+  color: white;
+  font-size: 1rem;
+  margin: 0.5rem 0 0.25rem 0;
+}
+
+.person-role {
+  font-family: 'Diatype-light', sans-serif;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* Staff Pick */
+.staff-pick-section {
+  background-color: #111;
+}
+
+.staff-pick-card {
+  display: flex;
+  gap: 2rem;
+  align-items: start;
+  background: rgba(255, 221, 0, 0.1);
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 221, 0, 0.3);
+}
+
+.curator-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.curator-name {
+  font-family: 'Diatype-bold', sans-serif;
+  color: white;
+  font-size: 1.3rem;
+  margin: 0 0 0.25rem 0;
+}
+
+.curator-title {
+  font-family: 'Diatype-light', sans-serif;
+  color: rgb(255, 221, 0);
+  font-size: 0.9rem;
+  margin: 0 0 1rem 0;
+}
+
+.curator-note {
+  font-family: 'Diatype-light', sans-serif;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Reviews */
+.reviews-section, .user-reviews-section {
+  background-color: black;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.review-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.review-rating {
+  color: rgb(255, 221, 0);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.review-quote {
+  font-family: 'Diatype-light', sans-serif;
+  color: white;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-style: italic;
+  margin: 0 0 1rem 0;
+}
+
+.review-attribution {
+  font-family: 'Diatype-light', sans-serif;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* User Reviews */
+.user-reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.user-review-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.review-user {
+  font-family: 'Diatype-bold', sans-serif;
+  color: white;
+  font-size: 1rem;
+}
+
+.review-date {
+  font-family: 'Diatype-light', sans-serif;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.review-comment {
+  font-family: 'Diatype-light', sans-serif;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Playlists */
+.playlists-section {
+  background-color: #111;
+}
+
+.playlists-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.playlist-link {
+  font-family: 'Diatype-bold', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.playlist-link:hover {
+  background: rgba(255, 221, 0, 0.1);
+  color: rgb(255, 221, 0);
+  transform: translateX(5px);
+}
+
+.playlist-arrow {
+  font-size: 1.5rem;
+}
+
+/* Related Films */
+.related-films-section {
+  background-color: black;
+}
+
+.related-films-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2vw;
+}
+
+.related-film-card {
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.related-film-card:hover {
+  transform: translateY(-10px);
+}
+
+.related-film-image {
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.related-film-title {
+  font-family: 'Diatype-bold', sans-serif;
+  color: white;
+  font-size: 1.2rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.related-film-meta {
+  font-family: 'Diatype-light', sans-serif;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .film-hero-container {
+    grid-template-columns: 1fr;
+  }
+
+  .film-page-title {
+    font-size: 2rem;
+  }
+
+  .people-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .related-films-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .staff-pick-card {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+</style>
+<script>
+function toggleTags(button) {
+  const hiddenTags = button.previousElementSibling;
+  const showText = button.querySelector('.show-text');
+  const hideText = button.querySelector('.hide-text');
+  
+  if (hiddenTags.style.display === 'none') {
+    hiddenTags.style.display = 'flex';
+    showText.style.display = 'none';
+    hideText.style.display = 'inline';
+  } else {
+    hiddenTags.style.display = 'none';
+    showText.style.display = 'inline';
+    hideText.style.display = 'none';
+  }
+}
+
+let currentStillIndex = 0;
+const stills = document.querySelectorAll('.still-image');
+const dots = document.querySelectorAll('.still-dot');
+
+function showStill(index) {
+  stills.forEach(still => still.classList.remove('active'));
+  dots.forEach(dot => dot.classList.remove('active'));
+  
+  if (index >= stills.length) currentStillIndex = 0;
+  else if (index < 0) currentStillIndex = stills.length - 1;
+  else currentStillIndex = index;
+  
+  stills[currentStillIndex].classList.add('active');
+  dots[currentStillIndex].classList.add('active');
+}
+
+function changeStill(direction) {
+  showStill(currentStillIndex + direction);
+}
+
+function goToStill(index) {
+  showStill(index);
+}
+
+// Optional: Keyboard navigation
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowLeft') changeStill(-1);
+  if (e.key === 'ArrowRight') changeStill(1);
+});
+</script>
+
+{{ end }}
