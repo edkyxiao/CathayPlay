@@ -152,6 +152,53 @@
   </div>
 </section>
 
+<!-- Physical Products Section -->
+{{ with .Params.products }}
+<section class="products-section">
+  <div class="section-container">
+    <h2 class="section-heading">PHYSICAL PRODUCTS</h2>
+    <div class="products-grid">
+      {{ range . }}
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="{{ .image }}" alt="{{ .name }}" class="product-image">
+            <div class="product-overlay">
+              <button class="product-quick-view" onclick="openProductModal(this)" 
+                data-name="{{ .name }}" 
+                data-image="{{ .image }}" 
+                data-price="{{ .price }}"
+                data-url="{{ .url }}">
+                Quick View
+              </button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">{{ .name }}</h3>
+            <p class="product-price">{{ .price }}</p>
+            <a href="{{ .url }}" class="product-buy-btn">Add to Cart</a>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- Product Modal -->
+<div id="productModal" class="product-modal" onclick="closeProductModal(event)">
+  <div class="product-modal-content">
+    <button class="modal-close" onclick="closeProductModal(event)">&times;</button>
+    <div class="modal-body">
+      <img src="" alt="" class="modal-product-image" id="modalProductImage">
+      <div class="modal-product-details">
+        <h2 class="modal-product-name" id="modalProductName"></h2>
+        <p class="modal-product-price" id="modalProductPrice"></p>
+        <a href="#" class="modal-buy-btn" id="modalBuyBtn">Add to Cart</a>
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}
+
 <!-- Staff Pick Section -->
 {{ with .Params.staff_pick }}
 <section class="staff-pick-section">
@@ -526,6 +573,252 @@
   transform: scale(1.3);
 }
 
+/* Physical Products */
+.products-section {
+  background-color: black;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.product-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+}
+
+.product-image-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: #111;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.1);
+}
+
+.product-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.product-card:hover .product-overlay {
+  opacity: 1;
+}
+
+.product-quick-view {
+  font-family: 'Diatype-bold', sans-serif;
+  padding: 0.8rem 1.5rem;
+  background: rgb(255, 221, 0);
+  border: none;
+  border-radius: 5px;
+  color: black;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.product-quick-view:hover {
+    color: white;
+    background: rgba(0, 0, 128, 1);
+    transform: scale(1.05);
+}
+
+.product-info {
+  padding: 1.5rem;
+}
+
+.product-name {
+  font-family: 'Diatype-bold', sans-serif;
+  color: white;
+  font-size: 1.1rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.product-price {
+  font-family: 'Diatype-bold', sans-serif;
+  color: rgb(255, 221, 0);
+  font-size: 1.3rem;
+  margin: 0 0 1rem 0;
+}
+
+.product-buy-btn {
+  font-family: 'Diatype-bold', sans-serif;
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.product-buy-btn:hover {
+  background: rgba(255, 221, 0, 0.2);
+  border-color: rgb(255, 221, 0);
+  color: rgb(255, 221, 0);
+  transform: translateY(-2px);
+}
+
+/* Product Modal */
+.product-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  animation: fadeIn 0.3s ease;
+}
+
+.product-modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.product-modal-content {
+  background-color: #1a1a1a;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 800px;
+  width: 90%;
+  position: relative;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+  color: rgb(255, 221, 0);
+}
+
+.modal-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.modal-product-image {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.modal-product-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.modal-product-name {
+  font-family: 'Diatype-bold', sans-serif;
+  color: white;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.modal-product-price {
+  font-family: 'Diatype-bold', sans-serif;
+  color: rgb(255, 221, 0);
+  font-size: 2rem;
+  margin: 0;
+}
+
+.modal-buy-btn {
+  font-family: 'Diatype-bold', sans-serif;
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: rgb(255, 221, 0);
+  border: none;
+  border-radius: 8px;
+  color: black;
+  text-decoration: none;
+  font-size: 1.1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modal-buy-btn:hover {
+  background: rgb(255, 235, 50);
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  .modal-body {
+    grid-template-columns: 1fr;
+  }
+
+  .product-modal-content {
+    width: 95%;
+    padding: 1.5rem;
+  }
+}
 /* Festivals */
 .festivals-section {
   background-color: #111;
@@ -831,51 +1124,84 @@
 }
 </style>
 <script>
-function toggleTags(button) {
-  const hiddenTags = button.previousElementSibling;
-  const showText = button.querySelector('.show-text');
-  const hideText = button.querySelector('.hide-text');
-  
-  if (hiddenTags.style.display === 'none') {
-    hiddenTags.style.display = 'flex';
-    showText.style.display = 'none';
-    hideText.style.display = 'inline';
-  } else {
-    hiddenTags.style.display = 'none';
-    showText.style.display = 'inline';
-    hideText.style.display = 'none';
-  }
-}
+    // Hidden tags toggle
+    function toggleTags(button) {
+    const hiddenTags = button.previousElementSibling;
+    const showText = button.querySelector('.show-text');
+    const hideText = button.querySelector('.hide-text');
+    
+    if (hiddenTags.style.display === 'none') {
+        hiddenTags.style.display = 'flex';
+        showText.style.display = 'none';
+        hideText.style.display = 'inline';
+    } else {
+        hiddenTags.style.display = 'none';
+        showText.style.display = 'inline';
+        hideText.style.display = 'none';
+    }
+    }
 
-let currentStillIndex = 0;
-const stills = document.querySelectorAll('.still-image');
-const dots = document.querySelectorAll('.still-dot');
+    // Stills
+    let currentStillIndex = 0;
+    const stills = document.querySelectorAll('.still-image');
+    const dots = document.querySelectorAll('.still-dot');
 
-function showStill(index) {
-  stills.forEach(still => still.classList.remove('active'));
-  dots.forEach(dot => dot.classList.remove('active'));
-  
-  if (index >= stills.length) currentStillIndex = 0;
-  else if (index < 0) currentStillIndex = stills.length - 1;
-  else currentStillIndex = index;
-  
-  stills[currentStillIndex].classList.add('active');
-  dots[currentStillIndex].classList.add('active');
-}
+    function showStill(index) {
+    stills.forEach(still => still.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+    
+    if (index >= stills.length) currentStillIndex = 0;
+    else if (index < 0) currentStillIndex = stills.length - 1;
+    else currentStillIndex = index;
+    
+    stills[currentStillIndex].classList.add('active');
+    dots[currentStillIndex].classList.add('active');
+    }
 
-function changeStill(direction) {
-  showStill(currentStillIndex + direction);
-}
+    function changeStill(direction) {
+    showStill(currentStillIndex + direction);
+    }
 
-function goToStill(index) {
-  showStill(index);
-}
+    function goToStill(index) {
+    showStill(index);
+    }
 
-// Optional: Keyboard navigation
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'ArrowLeft') changeStill(-1);
-  if (e.key === 'ArrowRight') changeStill(1);
-});
+    // Product Modal Functions
+    function openProductModal(button) {
+    const modal = document.getElementById('productModal');
+    const name = button.getAttribute('data-name');
+    const image = button.getAttribute('data-image');
+    const price = button.getAttribute('data-price');
+    const url = button.getAttribute('data-url');
+    
+    document.getElementById('modalProductName').textContent = name;
+    document.getElementById('modalProductImage').src = image;
+    document.getElementById('modalProductImage').alt = name;
+    document.getElementById('modalProductPrice').textContent = price;
+    document.getElementById('modalBuyBtn').href = url;
+    
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    }
+
+    function closeProductModal(event) {
+    const modal = document.getElementById('productModal');
+    if (event.target === modal || event.target.classList.contains('modal-close')) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+    }
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        const modal = document.getElementById('productModal');
+        if (modal.classList.contains('active')) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+        }
+    }
+    });
 </script>
 
 {{ end }}
