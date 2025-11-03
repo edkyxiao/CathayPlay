@@ -41,12 +41,26 @@ crew:
     role: "Director"
     image: "/images/cast_and_crew/Lü Meijing.jpg"
 
+# Director Statement
+director_statement:
+  director_image: "/images/cast_and_crew/Lü Meijing.jpg"
+  title: "Director"
+  statement: |
+    Nowadays, we are immersed in thoroughly networked over-consumption, excessively homogeneous social interactions, and a single-minded pursuit of technological capability. This transforms social life into an empty, illusory spectacle. 
+
+    Nevertheless, the world of postmodern knowledge no longer has a meta-discourse. Data in principle is accessible to anyone, thereby allowing for the possibilities of a new “subjectless community”, whose membership demands no substantial commitments but transcends what we now understand as identity.
+
+    In our short film Field, we try using a new kind of inter-related, to fictionalize the existing possibilities. Persons – in their relationships with fire, water, air, earth, birds, dogs, fish, cellphones/electromagnetism, language etc. – Regarding, or gazing becomes a way to open up the solipsist self, thereby awakening emotional experiences in different consciousnesses by means of iterations of communication that form perceptual resonance.
+
+    Every person is given to the world. From the chaos where everything infiltrates everything, thereby generating a “autopoietic areality” that exists in a probability cloud of “being-with-one-another”.
+
+    “The innermost character of salvation is that we are saved only at the point when we no longer want to be,” as Giorgio Agamben has said, “We can have hope only in what is without remedy. That things are thus and thus-this is still in the world. But that this is irreparable, that this thus is without remedy, that we can contemplate it as such-this is the only passage outside the world.”
+
 # Film Stills
 stills:
   - "/images/films/field/field1.jpeg"
   - "/images/films/field/field2.jpeg"
   - "/images/films/field/field3.jpeg"
-
 
 # Physical Products (optional - for future)
 products:
