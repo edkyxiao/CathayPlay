@@ -6,6 +6,7 @@ year: 2022
 duration: "13 min"
 language: "Mandarin"
 subtitles: "Chinese, English"
+country: "Mainland China"
 licensing: "lisensing info to be added"
 trailer_url: "https://www.youtube.com/embed/RnPjh-09e-M?si=23J8nAo1EG6I1g4K"
 
