@@ -4,17 +4,27 @@
 <section class="film-hero">
   <div class="film-hero-container">
     <!-- Trailer -->
+    {{ if .Params.trailer_url }}
     <div class="film-trailer">
-      {{ with .Params.trailer_url }}
-        <iframe 
-          src="{{ . }}" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen
-          class="trailer-iframe">
-        </iframe>
+      <iframe 
+        src="{{ .Params.trailer_url }}" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen
+        class="trailer-iframe">
+      </iframe>
+    </div>
+    {{ else }}
+    <div class="film-trailer">
+      {{ if .Params.stills }}
+        <img src="{{ index .Params.stills 0 }}" alt="{{ .Title }} placeholder" class="trailer-placeholder">
+      {{ else }}
+        <div class="trailer-placeholder-empty">
+          <p>Trailer coming soon</p>
+        </div>
       {{ end }}
     </div>
+    {{ end }}
 
     <!-- Film Info -->
     <div class="film-info-panel">
@@ -33,6 +43,10 @@
         <div class="meta-item">
           <span class="meta-label">Subtitles:</span>
           <span class="meta-value">{{ .Params.subtitles }}</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Country:</span>
+          <span class="meta-value">{{ .Params.country }}</span>
         </div>
         <div class="meta-item">
           <span class="meta-label">Licensing:</span>
@@ -85,9 +99,13 @@
     <div class="festivals-grid">
       {{ range . }}
         <div class="festival-card">
-          <img src="{{ .logo }}" alt="{{ .name }}" class="festival-logo">
-          <h3 class="festival-name">{{ .name }}</h3>
-          <p class="festival-award">{{ .award }}</p>
+          <div class="festival-logo-container">
+            <img src="{{ .logo }}" alt="{{ .name }}" class="festival-logo">
+          </div>
+          <p class="festival-name">{{ .name }}</p>
+          {{ if .award }}
+            <p class="festival-award">{{ .award }}</p>
+          {{ end }}
         </div>
       {{ end }}
     </div>
@@ -175,7 +193,7 @@
   </div>
 </section>
 
-<!-- Physical Products Section -->
+<!-- Physical Products Section 
 {{ with .Params.products }}
 <section class="products-section">
   <div class="section-container">
@@ -205,8 +223,9 @@
     </div>
   </div>
 </section>
+-->
 
-<!-- Product Modal -->
+<!-- Product Modal 
 <div id="productModal" class="product-modal" onclick="closeProductModal(event)">
   <div class="product-modal-content">
     <button class="modal-close" onclick="closeProductModal(event)">&times;</button>
@@ -221,8 +240,8 @@
   </div>
 </div>
 {{ end }}
-
-<!-- Staff Pick Section -->
+-->
+<!-- Staff Pick Section 
 {{ with .Params.staff_pick }}
 <section class="staff-pick-section">
   <div class="section-container">
@@ -238,12 +257,13 @@
   </div>
 </section>
 {{ end }}
+-->
 
-<!-- Professional Reviews -->
+<!-- Critics Reviews -->
 {{ with .Params.professional_reviews }}
 <section class="reviews-section">
   <div class="section-container">
-    <h2 class="section-heading">PROFESSIONAL REVIEWS</h2>
+    <h2 class="section-heading">CRITICS REVIEWS</h2>
     <div class="reviews-grid">
       {{ range . }}
         <div class="review-card">
@@ -346,6 +366,24 @@
   height: 100%;
 }
 
+/* Trailer placeholder */
+.trailer-placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.trailer-placeholder-empty {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: 'Diatype-light', sans-serif;
+}
+
 .film-info-panel {
   display: flex;
   flex-direction: column;
@@ -400,6 +438,7 @@
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.9);
   margin: 0;
+  text-align: justify;
 }
 
 .film-tags {
@@ -849,35 +888,51 @@
 
 .festivals-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
 }
 
 .festival-card {
   background: rgba(255, 255, 255, 0.05);
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 8px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.festival-logo-container {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .festival-logo {
-  width: 50%;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
   height: auto;
-  margin-bottom: 1rem;
+  object-fit: contain;
 }
 
 .festival-name {
-  font-family: 'Diatype-bold', sans-serif;
+  font-family: 'Diatype-light', sans-serif;
   color: white;
-  font-size: 1.1rem;
-  margin: 0.5rem 0;
+  font-size: 0.9rem;
+  margin: 0;
+  line-height: 1.4;
 }
 
 .festival-award {
-  font-family: 'Diatype-light', sans-serif;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.9rem;
+  font-family: 'Diatype-bold', sans-serif;
+  color: rgb(255, 221, 0);
+  font-size: 0.95rem;
   margin: 0;
+  text-align: center;
 }
 
 /* Cast & Crew */
@@ -969,6 +1024,7 @@
   color: rgba(255, 255, 255, 0.9);
   font-size: 1.05rem;
   line-height: 1.8;
+  text-align: justify;
 }
 
 .director-statement-text p {
@@ -981,15 +1037,50 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-  .director-statement-card {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 2rem;
-    text-align: center;
+  .director-statement-text {
+    position: relative;
   }
 
-  .director-statement-image {
-    margin: 0 auto;
+  .director-statement-text.collapsed {
+    max-height: 150px;
+    overflow: hidden;
+  }
+
+  .director-statement-text.collapsed::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: linear-gradient(transparent, #111);
+  }
+
+  .see-more-btn {
+    font-family: 'Diatype-bold', sans-serif;
+    display: block;
+    margin: 1rem auto 0;
+    padding: 0.6rem 1.5rem;
+    background: rgba(255, 221, 0, 0.2);
+    border: 1px solid rgba(255, 221, 0, 0.5);
+    border-radius: 20px;
+    color: rgb(255, 221, 0);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .see-more-btn:hover {
+    background: rgba(255, 221, 0, 0.3);
+    border-color: rgb(255, 221, 0);
+  }
+
+  .festivals-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .festival-logo-container {
+    height: 80px;
   }
 }
 
@@ -1299,6 +1390,28 @@
         }
     }
     });
+
+    // Mobile Director's Statement See More
+    if (window.innerWidth <= 768) {
+      const statementText = document.querySelector('.director-statement-text');
+      if (statementText && statementText.scrollHeight > 150) {
+        statementText.classList.add('collapsed');
+        const seeMoreBtn = document.createElement('button');
+        seeMoreBtn.className = 'see-more-btn';
+        seeMoreBtn.textContent = 'See More';
+        statementText.parentElement.appendChild(seeMoreBtn);
+        
+        seeMoreBtn.addEventListener('click', function() {
+          if (statementText.classList.contains('collapsed')) {
+            statementText.classList.remove('collapsed');
+            this.textContent = 'See Less';
+          } else {
+            statementText.classList.add('collapsed');
+            this.textContent = 'See More';
+          }
+        });
+      }
+    }
 </script>
 
 {{ end }}
