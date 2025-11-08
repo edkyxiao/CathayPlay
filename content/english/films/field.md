@@ -11,7 +11,7 @@ licensing: "lisensing info to be added"
 trailer_url: "https://www.youtube.com/embed/RnPjh-09e-M?si=23J8nAo1EG6I1g4K"
 
 # Film Introduction
-introduction: "In a world shaped by networks, consumption, and technology, FIELD imagines new ways of being together. Through fragments of human and non-human connection—between people, animals, elements, and devices—the film creates a shifting space where perception and emotion resonate across consciousness. The result is a meditation on communication, community, and the fragile possibilities of co-existence."
+introduction: "A chaotic field evokes contradictory, ambiguous emotions. At a reunion, a man resists rekindled desire. Another abandons visiting a dying friend after a rainy drive. A woman fails to break up during a hotel tryst. A drunk man contemplates suicide. We return to places never visited, forever approaching unfolding adventure. "
 
 # Tags/Categories
 tags:
@@ -47,7 +47,7 @@ director_statement:
   director_image: "/images/cast_and_crew/Lü Meijing.jpg"
   title: "Director"
   statement: |
-    Nowadays, we are immersed in thoroughly networked over-consumption, excessively homogeneous social interactions, and a single-minded pursuit of technological capability. This transforms social life into an empty, illusory spectacle. 
+    Nowadays, we are immersed in thoroughly networked over-consumption, excessively homogeneous social interactions, and a single-minded pursuit of technological capability. This         transforms social life into an empty, illusory spectacle. 
 
     Nevertheless, the world of postmodern knowledge no longer has a meta-discourse. Data in principle is accessible to anyone, thereby allowing for the possibilities of a new “subjectless community”, whose membership demands no substantial commitments but transcends what we now understand as identity.
 
