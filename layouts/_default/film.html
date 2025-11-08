@@ -1035,9 +1035,73 @@
   margin-bottom: 0;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* See More Button - Hidden by default */
+.see-more-btn {
+  display: none;
+  font-family: 'Diatype-bold', sans-serif;
+  margin: 1rem auto 0;
+  padding: 0.6rem 1.5rem;
+  background: rgba(255, 221, 0, 0.2);
+  border: 1px solid rgba(255, 221, 0, 0.5);
+  border-radius: 20px;
+  color: rgb(255, 221, 0);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.see-more-btn:hover {
+  background: rgba(255, 221, 0, 0.3);
+  border-color: rgb(255, 221, 0);
+}
+
+/* Tablet */
+@media (max-width: 968px) {
+  .director-statement-card {
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .director-statement-name {
+    font-size: 1.5rem;
+  }
+
   .director-statement-text {
+    font-size: 1rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .director-statement-card {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .director-statement-image {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+  }
+
+  .director-statement-content {
+    gap: 0.8rem;
+    text-align: center;
+  }
+
+  .director-statement-name {
+    font-size: 1.4rem;
+  }
+
+  .director-statement-title {
+    font-size: 0.9rem;
+  }
+
+  .director-statement-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    text-align: left;
     position: relative;
   }
 
@@ -1053,25 +1117,12 @@
     left: 0;
     right: 0;
     height: 50px;
-    background: linear-gradient(transparent, #111);
+    background: linear-gradient(transparent, rgba(255, 255, 255, 0.03));
+    pointer-events: none;
   }
 
   .see-more-btn {
-    font-family: 'Diatype-bold', sans-serif;
     display: block;
-    margin: 1rem auto 0;
-    padding: 0.6rem 1.5rem;
-    background: rgba(255, 221, 0, 0.2);
-    border: 1px solid rgba(255, 221, 0, 0.5);
-    border-radius: 20px;
-    color: rgb(255, 221, 0);
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  .see-more-btn:hover {
-    background: rgba(255, 221, 0, 0.3);
-    border-color: rgb(255, 221, 0);
   }
 
   .festivals-grid {
@@ -1081,6 +1132,46 @@
 
   .festival-logo-container {
     height: 80px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .director-statement-card {
+    padding: 1.2rem;
+    gap: 1.2rem;
+  }
+
+  .director-statement-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .director-statement-name {
+    font-size: 1.2rem;
+  }
+
+  .director-statement-title {
+    font-size: 0.85rem;
+  }
+
+  .director-statement-text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .director-statement-text.collapsed {
+    max-height: 120px;
+  }
+
+  .see-more-btn {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .festivals-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 }
 
