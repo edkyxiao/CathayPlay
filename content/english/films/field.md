@@ -26,10 +26,10 @@ tags:
 festivals:
   - name: "2022 Thessaloniki International Short Film Festival, Greece"
     award: ""
-    logo: "/images/festivals/theiff2023call.png"
+    logo: "/images/festivals/icon.png"
   - name: "2022 Salerno International Film Festival, Italy"
     award: ""
-    logo: "/images/festivals/salerno.png"
+    logo: "/images/festivals/icon.png"
 
 # Cast and Crew
 #cast:
@@ -47,7 +47,7 @@ director_statement:
   director_image: "/images/cast_and_crew/Lü Meijing.jpg"
   title: "Director"
   statement: |
-    Nowadays, we are immersed in thoroughly networked over-consumption, excessively homogeneous social interactions, and a single-minded pursuit of technological capability. This         transforms social life into an empty, illusory spectacle. 
+    Nowadays, we are immersed in thoroughly networked over-consumption, excessively homogeneous social interactions, and a single-minded pursuit of technological capability. This transforms social life into an empty, illusory spectacle. 
 
     Nevertheless, the world of postmodern knowledge no longer has a meta-discourse. Data in principle is accessible to anyone, thereby allowing for the possibilities of a new “subjectless community”, whose membership demands no substantial commitments but transcends what we now understand as identity.
 
