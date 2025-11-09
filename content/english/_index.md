@@ -19,7 +19,7 @@ title: "CathayPlay"
         </div>
         <div class="film-hover">
           <div class="buttons">
-            <button id="watch-button">WATCH</button>
+            <button id="watch-button"><a href="/films/chronicle-of-a-durian/">WATCH</a></button>
             <button id="add-button">+</button>
             <button id="heart-button">&#9733;</button>
           </div>
