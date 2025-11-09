@@ -102,10 +102,12 @@
           <div class="festival-logo-container">
             <img src="{{ .logo }}" alt="{{ .name }}" class="festival-logo">
           </div>
-          <p class="festival-name">{{ .name }}</p>
-          {{ if .award }}
-            <p class="festival-award">{{ .award }}</p>
-          {{ end }}
+          <div class="festival-text-content">
+            <p class="festival-name">{{ .name }}</p>
+            {{ if .award }}
+              <p class="festival-award">{{ .award }}</p>
+            {{ end }}
+          </div>
         </div>
       {{ end }}
     </div>
@@ -340,7 +342,7 @@
 /* Film Hero Section */
 .film-hero {
   background-color: black;
-  padding: 17vh 0;
+  padding: 17vh 0 10vh;
   color: white;
 }
 @media (max-width: 768px) {
@@ -917,13 +919,17 @@
 
 .festival-card {
   background: rgba(255, 255, 255, 0.05);
-  padding: 1.5rem;
+  padding: 1rem;
   border-radius: 8px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
   align-items: center;
   gap: 1rem;
+  transition: all 0.3s ease;
+}
+
+.festival-card:hover {
+  background: rgba(134, 133, 133, 0.5);
 }
 
 .festival-logo-container {
@@ -932,6 +938,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.festival-text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .festival-logo {
@@ -948,6 +960,7 @@
   font-size: 0.9rem;
   margin: 0;
   line-height: 1.4;
+  text-align: left;
 }
 
 .festival-award {
@@ -955,7 +968,7 @@
   color: rgb(255, 221, 0);
   font-size: 0.95rem;
   margin: 0;
-  text-align: center;
+  text-align: left;
 }
 
 /* Cast & Crew */
@@ -1148,9 +1161,20 @@
     display: block;
   }
 
-  .festivals-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+  @media (max-width: 768px) {
+    .festivals-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .festival-card {
+      grid-template-columns: 1fr 2fr;
+      padding: 1rem;
+    }
+
+    .festival-logo-container {
+      height: 80px;
+    }
   }
 
   .festival-logo-container {
