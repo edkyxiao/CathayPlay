@@ -17,7 +17,7 @@
             <div class="film-title-container">
                 <h2 class="film-title-text">FIELD</h2>
                 <div class="buttons">
-                    <a href="/films/field/" id="watch-button">WATCH</a>
+                    <a href="/films/field/" id="watch-button-hero">WATCH</a>
                 </div>
             </div>
           <p class="director">Directed by <strong>LÜ MEIJING</strong><br>2022</p>
@@ -30,4 +30,11 @@
 {{ .Content }}
 
 {{ partial "recent-articles.html" . }}
+<style>
+  a {
+    text-decoration: none !important;
+    border: none;
+  }
+</style>
 {{ end }}
+
