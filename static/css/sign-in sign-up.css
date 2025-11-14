@@ -1,4 +1,12 @@
 /* Modal Overlay */
+.signin-heading {
+    top: 0;
+    font-family: "Diatype-Bold";
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+}
+
 .auth-modal {
 display: none;
 position: fixed;
@@ -68,7 +76,6 @@ color: rgb(255, 221, 0);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 12px;
     padding: 3rem;
-    padding-right: 4.5rem;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -134,11 +141,11 @@ color: rgb(255, 221, 0);
     padding: 0.875rem 1rem;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 8px;
     color: white;
     font-family: 'Diatype-light', sans-serif;
     font-size: 1rem;
     transition: all 0.3s ease;
+    box-sizing: border-box;
 }
 
 .form-input::placeholder {
@@ -173,6 +180,7 @@ color: rgb(255, 221, 0);
 }
 
 .forgot-password {
+    font-family: 'Diatype-Light';
     display: block;
     text-align: right;
     margin-top: -0.5rem;
@@ -187,12 +195,17 @@ color: rgb(255, 221, 0);
     color: rgb(255, 221, 0);
 }
 
+.remember-me {
+    font-family: "Diatype-Light";
+    margin-top: -4.75vh;
+}
+
 .submit-button {
     width: 100%;
+    margin-top: 1rem;
     padding: 1rem;
     background: rgba(255, 221, 0, 0.2);
     border: 2px solid rgba(255, 221, 0, 0.6);
-    border-radius: 8px;
     color: rgb(255, 221, 0);
     font-family: 'Diatype-bold', sans-serif;
     font-size: 1rem;
@@ -200,6 +213,7 @@ color: rgb(255, 221, 0);
     cursor: pointer;
     transition: all 0.3s ease;
     text-transform: uppercase;
+    box-sizing: border-box;
 }
 
 .submit-button:hover {
