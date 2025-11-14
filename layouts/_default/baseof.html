@@ -5,24 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ .Title }}</title>
   <link rel="stylesheet" href="/css/index.css">
+  <link rel="stylesheet" href="/css/sign-in sign-up.css">
   <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
   <!-- Header -->
   <div class="header {{ if .IsHome }}home-page{{ end }}">
-    <div class="hero-text-left"><a href="/english/" class="button">
-      <div class="logo">
+    <div class="hero-text-left">
+      <a href="/english/" class="button">
+        <div class="logo">
           <h1 class="logo-text">CATHA<span class="ss05">Y</span>PLA<span class="ss05">Y</span></h1>
           <p class="tagline-text">
               The only streaming platform dedicated to independent Chinese cinema
           </p>
-      </div>
-   </a></div>
+        </div>
+      </a>
+    </div>
     <div class="menu">
       <h3 class="menu-buttons"><a href="#recently-added" class="button" data-home-url="{{ "/" | relLangURL }}" data-target-id="recently-added">NOW SHOWING</a></h3>
       <h3 class="menu-buttons"><a href="/english/films/" class="button">ALL FILMS</a></h3>
-      <h3 class="menu-buttons"><a href="/signin/">SUBSCRIBE</a></h3>
+      <h3 class="menu-buttons" onclick="openAuthModal('signup')" style="cursor: pointer;">SUBSCRIBE</h3>
       <h3 class="menu-buttons menu-search">
         <button type="button" class="search-trigger" aria-label="Open search">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
@@ -33,7 +36,7 @@
       </h3>
       <h3 class="menu-buttons" id="menu-toggle">☰</h3>
       <div class="menu-dropdown">
-          <h3 class="menu-buttons default-hidden"><a href="/signin/">SIGN IN</a></h3>
+          <h3 class="menu-buttons default-hidden" onclick="openAuthModal('signin')" style="cursor: pointer;">SIGN IN</h3>
           <h3 class="menu-buttons default-hidden"><a href="/english/about/" class="button">ABOUT</a></h3>
           <h3 class="menu-buttons default-hidden"><a href="/english/FAQ/" class="button">FAQ</a></h3>
           <h3 class="menu-buttons default-hidden">
@@ -89,6 +92,340 @@
       </div>
     </div>
   </footer>
+
+  <!-- Auth Container -->
+  <div class="auth-modal" id="authModal">
+  <div class="auth-modal-overlay" onclick="closeAuthModal()"></div>
+    <div class="auth-container">
+      <div class="auth-box">
+        <button class="modal-close" onclick="closeAuthModal()">&times;</button>
+        
+            <!-- Tabs -->
+            <div class="auth-tabs">
+              <button class="tab-button active" data-tab="signin">Sign In</button>
+              <button class="tab-button" data-tab="signup">Sign Up</button>
+            </div>
+
+            <!-- Sign In Form -->
+            <form class="auth-form active" id="signin-form">
+              <div class="form-group">
+                <label class="form-label" for="signin-email">Email</label>
+                <input 
+                  type="email" 
+                  id="signin-email" 
+                  class="form-input" 
+                  placeholder="your@email.com"
+                  required
+                >
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="signin-password">Password</label>
+                <input 
+                  type="password" 
+                  id="signin-password" 
+                  class="form-input" 
+                  placeholder="Enter your password"
+                  required
+                >
+              </div>
+
+              <a href="#" class="forgot-password">Forgot password?</a>
+
+              <div class="form-checkbox">
+                <input type="checkbox" id="remember-me">
+                <label for="remember-me">Remember me</label>
+              </div>
+
+              <button type="submit" class="submit-button">Sign In</button>
+            </form>
+
+            <!-- Sign Up Form -->
+            <form class="auth-form" id="signup-form">
+              <div class="form-group">
+                <label class="form-label" for="signup-name">Full Name</label>
+                <input 
+                  type="text" 
+                  id="signup-name" 
+                  class="form-input" 
+                  placeholder="John Doe"
+                  required
+                >
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="signup-email">Email</label>
+                <input 
+                  type="email" 
+                  id="signup-email" 
+                  class="form-input" 
+                  placeholder="your@email.com"
+                  required
+                >
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="signup-password">Password</label>
+                <input 
+                  type="password" 
+                  id="signup-password" 
+                  class="form-input" 
+                  placeholder="Create a password"
+                  required
+                >
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="signup-confirm">Confirm Password</label>
+                <input 
+                  type="password" 
+                  id="signup-confirm" 
+                  class="form-input" 
+                  placeholder="Confirm your password"
+                  required
+                >
+              </div>
+
+              <!-- Membership Plans -->
+              <div class="form-group">
+                <label class="form-label">Select Membership Plan</label>
+                <div class="plan-cards">
+                  <label class="plan-card">
+                    <input type="radio" name="plan" value="monthly" data-price="18.99" required>
+                    <div class="plan-content">
+                      <div class="plan-name">Monthly</div>
+                      <div class="plan-price">$18.99<span class="plan-period">/mo</span></div>
+                      <div class="plan-desc">Billed monthly</div>
+                    </div>
+                  </label>
+
+                  <label class="plan-card">
+                    <input type="radio" name="plan" value="quarterly" data-price="49.99" checked>
+                    <!-- <div class="plan-badge">Most Popular</div> -->
+                    <div class="plan-content">
+                      <div class="plan-name">Quarterly</div>
+                      <div class="plan-price">$49.99<span class="plan-period">/3mo</span></div>
+                      <div class="plan-desc">Billed quarterly</div>
+                    </div>
+                  </label>
+
+                  <label class="plan-card plan-best">
+                    <input type="radio" name="plan" value="annual" data-price="189.99">
+                    <div class="plan-badge">Best Value</div>
+                    <div class="plan-content">
+                      <div class="plan-name">Annual</div>
+                      <div class="plan-price">$189.99<span class="plan-period">/yr</span></div>
+                      <div class="plan-desc">Billed annualy</div>
+                    </div>
+                  </label>
+
+                  <label class="plan-card">
+                    <input type="radio" name="plan" value="docu" data-price="9.99">
+                    <div class="plan-content">
+                      <div class="plan-name">Documentary Lover</div>
+                      <div class="plan-price">$9.99<span class="plan-period">/mo</span></div>
+                      <div class="plan-desc">Billed monthly</div>
+                    </div>
+                  </label>
+
+                  <label class="plan-card">
+                    <input type="radio" name="plan" value="anthropology" data-price="6.99">
+                    <div class="plan-content">
+                      <div class="plan-name">Anthropology Club</div>
+                      <div class="plan-price">$6.99<span class="plan-period">/mo</span></div>
+                      <div class="plan-desc">Billed monthly</div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Discount Options -->
+              <div class="form-group">
+                <label class="form-label" for="discount-type">Account Type</label>
+                <select id="discount-type" class="form-input">
+                  <option value="">Regular</option>
+                  <option value="student">Student</option>
+                  <option value="industry">Film Industry Professional</option>
+                </select>
+              </div>
+
+              <div class="discount-verification" id="discount-verification" style="display: none;">
+                <div class="form-group">
+                  <label class="form-label" for="verification-doc">Verification Document</label>
+                  <input 
+                    type="file" 
+                    id="verification-doc" 
+                    class="form-input file-input"
+                    accept=".pdf,.jpg,.jpeg,.png"
+                  >
+                  <p class="form-hint">Upload student ID or industry credentials</p>
+                </div>
+              </div>
+
+              <!-- Price Summary -->
+              <div class="price-summary">
+                <div class="price-row total-row">
+                  <span>Total:</span>
+                  <span id="total-price">$49.99</span>
+                </div>
+                <p class="pricing-note" id="pricing-note"></p>
+              </div>
+
+              <div class="form-checkbox">
+                <input type="checkbox" id="newsletter" checked>
+                <label for="newsletter">Send me updates and newsletters</label>
+              </div>
+
+              <button type="submit" class="submit-button">Continue to Payment</button>
+
+              <p class="terms-text">
+                By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+              </p>
+            </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script>
+    // Modal control functions
+    function openAuthModal(tab = 'signin') {
+      const modal = document.getElementById('authModal');
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      
+      // Switch to specified tab
+      if (tab === 'signup') {
+        document.querySelector('[data-tab="signup"]').click();
+      }
+    }
+
+    function closeAuthModal() {
+      const modal = document.getElementById('authModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeAuthModal();
+      }
+    });
+
+    // Prevent closing when clicking inside the auth-box
+    document.querySelector('.auth-box').addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+
+    // Tab switching
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const authForms = document.querySelectorAll('.auth-form');
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const targetTab = button.dataset.tab;
+        
+        // Update active states
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        
+        // Show corresponding form
+        authForms.forEach(form => {
+          form.classList.remove('active');
+          if (form.id === `${targetTab}-form`) {
+            form.classList.add('active');
+          }
+        });
+      });
+    });
+
+    // Form submissions (placeholder)
+    document.getElementById('signin-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      console.log('Sign in submitted');
+      alert('Sign in functionality would connect to backend');
+    });
+
+    document.getElementById('signup-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const password = document.getElementById('signup-password').value;
+      const confirm = document.getElementById('signup-confirm').value;
+      
+      if (password !== confirm) {
+        alert('Passwords do not match');
+        return;
+      }
+      
+      const selectedPlan = document.querySelector('input[name="plan"]:checked');
+      const discountType = document.getElementById('discount-type').value;
+      const totalPrice = document.getElementById('total-price').textContent;
+      
+      console.log('Sign up submitted', {
+        plan: selectedPlan.value,
+        price: selectedPlan.dataset.price,
+        discount: discountType,
+        total: totalPrice
+      });
+      alert(`Proceeding to payment for ${totalPrice}`);
+    });
+
+    // Plan selection and price calculation
+    const planRadios = document.querySelectorAll('input[name="plan"]');
+    const discountSelect = document.getElementById('discount-type');
+    const discountVerification = document.getElementById('discount-verification');
+    const totalPriceEl = document.getElementById('total-price');
+    const pricingNote = document.getElementById('pricing-note');
+
+    // Pricing structure: [regular, student, industry]
+    const pricing = {
+      monthly: [18.99, 6.99, 7.99],
+      quarterly: [49.99, 18.99, 21.99],
+      annual: [189.99, 69.99, 79.99],
+      docu: [9.99, 9.99, 9.99],
+      anthropology: [6.99, 6.99, 6.99]
+    };
+
+    function updatePrice() {
+      const selectedPlan = document.querySelector('input[name="plan"]:checked');
+      const accountType = discountSelect.value;
+      const planType = selectedPlan.value;
+      
+      let priceIndex = 0;
+      let noteText = '';
+      
+      if (accountType === 'student') {
+        priceIndex = 1;
+        noteText = 'Student pricing applied';
+      } else if (accountType === 'industry') {
+        priceIndex = 2;
+        noteText = 'Industry professional pricing applied';
+      }
+      
+      const finalPrice = pricing[planType][priceIndex];
+      totalPriceEl.textContent = `$${finalPrice.toFixed(2)}`;
+      pricingNote.textContent = noteText;
+      
+      // Update the data-price attribute for form submission
+      selectedPlan.dataset.price = finalPrice;
+    }
+
+    planRadios.forEach(radio => {
+      radio.addEventListener('change', updatePrice);
+    });
+
+    discountSelect.addEventListener('change', function() {
+      if (this.value === 'student' || this.value === 'industry') {
+        discountVerification.style.display = 'block';
+      } else {
+        discountVerification.style.display = 'none';
+      }
+      updatePrice();
+    });
+
+    // Initialize price
+    updatePrice();
+  </script>
   
   <script src="/js/index.js"></script>
 </body>
