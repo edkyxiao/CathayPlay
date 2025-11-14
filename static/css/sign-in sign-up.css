@@ -231,6 +231,11 @@ color: rgb(255, 221, 0);
     color: rgb(255, 221, 0);
 }
 
+#to-sign-up {
+    color: white;
+    text-align: center;
+}
+
 /* Membership Plans */
 .plan-cards {
     display: grid;
