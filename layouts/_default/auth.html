@@ -1,809 +1,661 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign In - CathayPlay</title>
-  <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+{{ define "main" }}
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-    @font-face {
-      font-family: 'Gravity Wide';
-      src: url('/fonts/ABCGravity/ABCGravity-Wide-Trial.woff2') format('woff2');
-      font-weight: 400;
-      font-style: normal;
-    }
+  @font-face {
+    font-family: 'Gravity Wide';
+    src: url('/fonts/ABCGravity/ABCGravity-Wide-Trial.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+  }
 
-    @font-face {
-      font-family: 'Diatype-bold';
-      src: url('/fonts/ABCDiatype/ABCDiatype-Bold-Trial.woff2') format('woff2');
-      font-weight: 700;
-      font-style: normal;
-    }
+  @font-face {
+    font-family: 'Diatype-bold';
+    src: url('/fonts/ABCDiatype/ABCDiatype-Bold-Trial.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+  }
 
-    @font-face {
-      font-family: 'Diatype-light';
-      src: url('/fonts/ABCDiatype/ABCDiatype-Light-Trial.woff2') format('woff2');
-      font-weight: 300;
-      font-style: normal;
-    }
+  @font-face {
+    font-family: 'Diatype-light';
+    src: url('/fonts/ABCDiatype/ABCDiatype-Light-Trial.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+  }
 
-    body {
-      background-color: #000;
-      color: white;
-      font-family: 'Diatype-light', sans-serif;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+  .header {
+    position: relative;
+    top: 0;
+    z-index: 10;
+  }
 
-    /* Header */
+  body {
+    background-color: #000;
+    color: white;
+    font-family: 'Diatype-light', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Header */
+  .header {
+    padding: 5vh 7.5vw;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+  }
+
+  .logo {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .logo-text {
+    font-family: 'Gravity Wide', sans-serif;
+    font-feature-settings: "ss05";
+    font-weight: 800;
+    font-size: 2.3rem;
+    line-height: 0.75;
+    color: white;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  .tagline-text {
+    font-family: 'Diatype-bold', sans-serif;
+    font-size: 0.71rem;
+    max-width: 35rem;
+    padding-left: 0.2rem;
+    line-height: 1.4;
+    margin-top: 0.25rem;
+    color: lightgray;
+  }
+
+  /* Main Content */
+  .signup-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    width: 50vw;
+    padding: 0 5vw;
+    min-height: calc(100vh - 20vh);
+  }
+
+  .signup-box {
+    width: 100%;
+    max-width: 600px;
+    max-height: 85vh;
+    overflow-y: auto;
+    background: rgba(20, 20, 20, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 3rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .signup-box::-webkit-scrollbar {
+    display: none;
+  }
+
+  #signup-form {
+    margin-top: 5vh;
+    width: 90vw;
+  }
+
+  .signup-heading {
+    font-family: 'Diatype-bold', sans-serif;
+    font-size: 2rem;
+    color: white;
+    margin-top: 5vh;
+    margin-bottom: 1vh;
+    text-align: center;
+  }
+
+  .signup-subheading {
+    font-family: 'Diatype-Light';
+    text-align: center;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-label {
+    display: block;
+    font-family: 'Diatype-bold', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: white;
+    font-family: 'Diatype-light', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .form-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .form-input:focus {
+    outline: none;
+    border-color: rgba(255, 221, 0, 0.6);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(255, 221, 0, 0.1);
+  }
+
+  .form-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 1.25rem 0;
+  }
+
+  .form-checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: rgb(255, 221, 0);
+    cursor: pointer;
+  }
+
+  .form-checkbox label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+  }
+
+  .submit-button {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 221, 0, 0.2);
+    border: 2px solid rgba(255, 221, 0, 0.6);
+    border-radius: 8px;
+    color: rgb(255, 221, 0);
+    font-family: 'Diatype-bold', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+  }
+
+  .submit-button:hover {
+    background: rgb(255, 221, 0);
+    color: black;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 221, 0, 0.3);
+  }
+
+  .submit-button:active {
+    transform: translateY(0);
+  }
+
+  .terms-text {
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  .terms-text a {
+    color: rgba(255, 221, 0, 0.8);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .terms-text a:hover {
+    color: rgb(255, 221, 0);
+  }
+
+  /* Membership Plans */
+  .plan-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+  }
+
+  .plan-card {
+    position: relative;
+    padding: 1.25rem 1rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .plan-card input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .plan-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 221, 0, 0.4);
+  }
+
+  .plan-card:has(input[type="radio"]:checked) {
+    background: rgba(255, 221, 0, 0.1);
+    border-color: rgb(255, 221, 0);
+    transform: translateY(-2px);
+  }
+
+  .plan-badge {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgb(255, 221, 0);
+    color: black;
+    font-family: 'Diatype-bold', sans-serif;
+    font-size: 0.7rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+
+  .plan-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
+
+  .plan-card input[type="radio"]:checked ~ .plan-content {
+    opacity: 1;
+  }
+
+  .plan-name {
+    font-family: 'Diatype-bold', sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+    color: white;
+  }
+
+  .plan-price {
+    font-family: 'Diatype-bold', sans-serif;
+    font-size: 1.5rem;
+    color: white;
+    line-height: 1;
+  }
+
+  .plan-period {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .plan-desc {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  /* Discount Section */
+  .discount-verification {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(255, 221, 0, 0.05);
+    border: 1px solid rgba(255, 221, 0, 0.2);
+    border-radius: 8px;
+  }
+
+  .form-hint {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 0.35rem;
+    font-style: italic;
+  }
+
+  .file-input {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .file-input::file-selector-button {
+    background: rgba(255, 221, 0, 0.2);
+    border: 1px solid rgba(255, 221, 0, 0.5);
+    border-radius: 6px;
+    color: rgb(255, 221, 0);
+    font-family: 'Diatype-bold', sans-serif;
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    margin-right: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .file-input::file-selector-button:hover {
+    background: rgba(255, 221, 0, 0.3);
+  }
+
+  /* Price Summary */
+  .price-summary {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+  }
+
+  .price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .total-row {
+    font-family: 'Diatype-bold', sans-serif;
+    font-size: 1.1rem;
+    color: white;
+  }
+
+  .pricing-note {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    font-size: 0.8rem;
+    color: rgba(255, 221, 0, 0.9);
+    margin-bottom: 0;
+    font-style: italic;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
     .header {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      padding: 5vh 7.5vw;
-      z-index: 100;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
-    }
-
-    .logo {
-      display: inline-block;
-      text-decoration: none;
-      color: inherit;
+      padding: 3vh 5vw;
     }
 
     .logo-text {
-      font-family: 'Gravity Wide', sans-serif;
-      font-feature-settings: "ss05";
-      font-weight: 800;
-      font-size: 2.3rem;
-      line-height: 0.75;
-      color: white;
-      text-decoration: none;
-      cursor: pointer;
-      transition: color 0.3s ease;
+      font-size: 1.8rem;
     }
 
     .tagline-text {
-      font-family: 'Diatype-bold', sans-serif;
-      font-size: 0.71rem;
-      max-width: 35rem;
-      padding-left: 0.2rem;
-      line-height: 1.4;
-      margin-top: 0.25rem;
-      color: lightgray;
-      transition: color 0.3s ease;
+      font-size: 0.6rem;
     }
 
-    .logo-text:hover,
-    .tagline-text:hover {
-      color: rgb(255, 221, 0);
+    .signup-box {
+      padding: 2rem 1.5rem;
+      max-height: 80vh;
     }
 
-    /* Main Content */
-    .auth-container {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 15vh 5vw 5vh;
-      min-height: 100vh;
+    .signup-heading {
+      font-size: 1.5rem;
     }
 
-    .auth-box {
-      width: 100%;
-      max-width: 40vw;
-      background: rgba(109, 107, 107, 0.402);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      padding: 3rem;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-    }
-
-    .auth-tabs {
-      display: flex;
-      gap: 0;
-      margin-bottom: 2.5rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .tab-button {
-      flex: 1;
-      background: transparent;
-      border: none;
-      color: rgba(255, 255, 255, 0.5);
-      font-family: 'Diatype-bold', sans-serif;
-      font-size: 1.1rem;
-      letter-spacing: 0.05em;
-      padding: 1rem 0;
-      cursor: pointer;
-      border-bottom: 2px solid transparent;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-
-    .tab-button:hover {
-      color: rgba(255, 255, 255, 0.8);
-    }
-
-    .tab-button.active {
-      color: rgb(255, 221, 0);
-      border-bottom-color: rgb(255, 221, 0);
-    }
-
-    .auth-form {
-      display: none;
-    }
-
-    .auth-form.active {
-      display: block;
-    }
-
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-
-    .form-label {
-      display: block;
-      font-family: 'Diatype-bold', sans-serif;
-      font-size: 0.9rem;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.5rem;
-      color: rgba(255, 255, 255, 0.9);
-    }
-
-    .form-input {
-      width: 100%;
-      padding: 0.875rem 1rem;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 8px;
-      color: white;
-      font-family: 'Diatype-light', sans-serif;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-    }
-
-    .form-input::placeholder {
-      color: rgba(255, 255, 255, 0.4);
-    }
-
-    .form-input:focus {
-      outline: none;
-      border-color: rgba(255, 221, 0, 0.6);
-      background: rgba(255, 255, 255, 0.08);
-      box-shadow: 0 0 0 3px rgba(255, 221, 0, 0.1);
-    }
-
-    .form-checkbox {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin: 1.25rem 0;
-    }
-
-    .form-checkbox input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
-      accent-color: rgb(255, 221, 0);
-      cursor: pointer;
-    }
-
-    .form-checkbox label {
-      font-size: 0.9rem;
-      color: rgba(255, 255, 255, 0.8);
-      cursor: pointer;
-    }
-
-    .forgot-password {
-      display: block;
-      text-align: right;
-      margin-top: -0.5rem;
-      margin-bottom: 1.5rem;
-      font-size: 0.85rem;
-      color: rgba(255, 255, 255, 0.6);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .forgot-password:hover {
-      color: rgb(255, 221, 0);
-    }
-
-    .submit-button {
-      width: 100%;
-      padding: 1rem;
-      background: rgba(255, 221, 0, 0.2);
-      border: 2px solid rgba(255, 221, 0, 0.6);
-      border-radius: 8px;
-      color: rgb(255, 221, 0);
-      font-family: 'Diatype-bold', sans-serif;
-      font-size: 1rem;
-      letter-spacing: 0.08em;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-transform: uppercase;
-    }
-
-    .submit-button:hover {
-      background: rgb(255, 221, 0);
-      color: black;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(255, 221, 0, 0.3);
-    }
-
-    .submit-button:active {
-      transform: translateY(0);
-    }
-
-    .terms-text {
-      margin-top: 1.5rem;
-      font-size: 0.8rem;
-      color: rgba(255, 255, 255, 0.5);
-      text-align: center;
-      line-height: 1.5;
-    }
-
-    .terms-text a {
-      color: rgba(255, 221, 0, 0.8);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .terms-text a:hover {
-      color: rgb(255, 221, 0);
-    }
-
-    /* Membership Plans */
     .plan-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.75rem;
-      margin-top: 0.75rem;
+      grid-template-columns: 1fr;
+      gap: 1rem;
     }
 
     .plan-card {
-      position: relative;
-      padding: 1.25rem 1rem;
-      background: rgba(255, 255, 255, 0.04);
-      border: 2px solid rgba(255, 255, 255, 0.15);
-      border-radius: 10px;
-      cursor: pointer;
-      transition: all 0.3s ease;
+      padding: 1.5rem 1rem;
     }
+  }
 
-    .plan-card input[type="radio"] {
-      position: absolute;
-      opacity: 0;
-      cursor: pointer;
-    }
-
-    .plan-card:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: rgba(255, 221, 0, 0.4);
-    }
-
-    .plan-card input[type="radio"]:checked ~ .plan-content {
-      opacity: 1;
-    }
-
-    .plan-card input[type="radio"]:checked + .plan-badge,
-    .plan-card input[type="radio"]:checked ~ .plan-content {
-      opacity: 1;
-    }
-
-    .plan-card:has(input[type="radio"]:checked) {
-      background: rgba(255, 221, 0, 0.1);
-      border-color: rgb(255, 221, 0);
-      transform: translateY(-2px);
-    }
-
-    .plan-badge {
-      position: absolute;
-      top: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgb(255, 221, 0);
-      color: black;
-      font-family: 'Diatype-bold', sans-serif;
-      font-size: 0.7rem;
-      padding: 0.25rem 0.75rem;
-      border-radius: 12px;
-      letter-spacing: 0.05em;
-      white-space: nowrap;
-    }
-
-    .plan-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.35rem;
-      opacity: 0.7;
-      transition: opacity 0.3s ease;
-    }
-
-    .plan-name {
-      font-family: 'Diatype-bold', sans-serif;
-      font-size: 0.95rem;
-      letter-spacing: 0.05em;
-      color: white;
-    }
-
-    .plan-price {
-      font-family: 'Diatype-bold', sans-serif;
+  @media (max-width: 480px) {
+    .logo-text {
       font-size: 1.5rem;
-      color: white;
-      line-height: 1;
     }
 
-    .plan-period {
-      font-size: 0.75rem;
-      color: rgba(255, 255, 255, 0.6);
+    .tagline-text {
+      font-size: 0.5rem;
     }
 
-    .plan-desc {
-      font-size: 0.75rem;
-      color: rgba(255, 255, 255, 0.6);
+    .signup-box {
+      padding: 1.75rem 1.25rem;
     }
 
-    /* Discount Section */
-    .discount-verification {
-      margin-top: 1rem;
-      padding: 1rem;
-      background: rgba(255, 221, 0, 0.05);
-      border: 1px solid rgba(255, 221, 0, 0.2);
-      border-radius: 8px;
-    }
-
-    .form-hint {
-      font-size: 0.8rem;
-      color: rgba(255, 255, 255, 0.5);
-      margin-top: 0.35rem;
-      font-style: italic;
-    }
-
-    .file-input {
-      padding: 0.5rem;
-      font-size: 0.9rem;
-    }
-
-    .file-input::file-selector-button {
-      background: rgba(255, 221, 0, 0.2);
-      border: 1px solid rgba(255, 221, 0, 0.5);
-      border-radius: 6px;
-      color: rgb(255, 221, 0);
-      font-family: 'Diatype-bold', sans-serif;
-      font-size: 0.85rem;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-      margin-right: 1rem;
-      transition: all 0.3s ease;
-    }
-
-    .file-input::file-selector-button:hover {
-      background: rgba(255, 221, 0, 0.3);
-    }
-
-    /* Price Summary */
-    .price-summary {
-      margin: 1.5rem 0;
-      padding: 1rem;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 8px;
-    }
-
-    .price-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.5rem;
+    .form-input {
       font-size: 0.95rem;
-      color: rgba(255, 255, 255, 0.8);
+      padding: 0.75rem 0.875rem;
     }
+  }
+</style>
 
-    .price-row:last-child {
-      margin-bottom: 0;
-    }
+<!-- Sign Up Container -->
+<h2 class="signup-heading">COMPLETE REGISTRATION</h2>
+<P class="signup-subheading">Secure your CATHAYPLAY account to start watching great films at home and on the go.</p>
 
-    .discount-row {
-      color: rgb(255, 221, 0);
-    }
-
-    .total-row {
-      margin-top: 0;
-      padding-top: 0;
-      border-top: none;
-      font-family: 'Diatype-bold', sans-serif;
-      font-size: 1.1rem;
-      color: white;
-    }
-
-    .pricing-note {
-      margin-top: 0.75rem;
-      padding-top: 0.75rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.15);
-      font-size: 0.8rem;
-      color: rgba(255, 221, 0, 0.9);
-      margin-bottom: 0;
-      font-style: italic;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .header {
-        padding: 3vh 5vw;
-      }
-
-      .logo-text {
-        font-size: 1.8rem;
-      }
-
-      .tagline-text {
-        font-size: 0.6rem;
-      }
-
-      .auth-container {
-        padding: 12vh 5vw 5vh;
-      }
-
-      .auth-box {
-        padding: 2rem 1.5rem;
-      }
-
-      .tab-button {
-        font-size: 1rem;
-        padding: 0.875rem 0;
-      }
-
-      .plan-cards {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
-
-      .plan-card {
-        padding: 1.5rem 1rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .logo-text {
-        font-size: 1.5rem;
-      }
-
-      .tagline-text {
-        font-size: 0.5rem;
-      }
-
-      .auth-box {
-        padding: 1.75rem 1.25rem;
-      }
-
-      .tab-button {
-        font-size: 0.95rem;
-      }
-
-      .form-input {
-        font-size: 0.95rem;
-        padding: 0.75rem 0.875rem;
-      }
-    }
-  </style>
-</head>
-<body>
-  <!-- Header -->
-  <div class="header">
-    <a href="/" class="logo">
-      <h1 class="logo-text">CATHAYPLAY</h1>
-      <p class="tagline-text">
-        The only streaming platform dedicated to independent Chinese cinema
-      </p>
-    </a>
-  </div>
-
-  <!-- Auth Container -->
-  <div class="auth-container">
-    <div class="auth-box">
-      <!-- Tabs -->
-      <div class="auth-tabs">
-        <button class="tab-button active" data-tab="signin">Sign In</button>
-        <button class="tab-button" data-tab="signup">Sign Up</button>
-      </div>
-
-      <!-- Sign In Form -->
-      <form class="auth-form active" id="signin-form">
-        <div class="form-group">
-          <label class="form-label" for="signin-email">Email</label>
-          <input 
-            type="email" 
-            id="signin-email" 
-            class="form-input" 
-            placeholder="your@email.com"
-            required
-          >
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="signin-password">Password</label>
-          <input 
-            type="password" 
-            id="signin-password" 
-            class="form-input" 
-            placeholder="Enter your password"
-            required
-          >
-        </div>
-
-        <a href="#" class="forgot-password">Forgot password?</a>
-
-        <div class="form-checkbox">
-          <input type="checkbox" id="remember-me">
-          <label for="remember-me">Remember me</label>
-        </div>
-
-        <button type="submit" class="submit-button">Sign In</button>
-      </form>
-
-      <!-- Sign Up Form -->
-      <form class="auth-form" id="signup-form">
-        <div class="form-group">
-          <label class="form-label" for="signup-name">Full Name</label>
-          <input 
-            type="text" 
-            id="signup-name" 
-            class="form-input" 
-            placeholder="John Doe"
-            required
-          >
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="signup-email">Email</label>
-          <input 
-            type="email" 
-            id="signup-email" 
-            class="form-input" 
-            placeholder="your@email.com"
-            required
-          >
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="signup-password">Password</label>
-          <input 
-            type="password" 
-            id="signup-password" 
-            class="form-input" 
-            placeholder="Create a password"
-            required
-          >
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="signup-confirm">Confirm Password</label>
-          <input 
-            type="password" 
-            id="signup-confirm" 
-            class="form-input" 
-            placeholder="Confirm your password"
-            required
-          >
-        </div>
-
-        <!-- Membership Plans -->
-        <div class="form-group">
-          <label class="form-label">Select Membership Plan</label>
-          <div class="plan-cards">
-            <label class="plan-card">
-              <input type="radio" name="plan" value="monthly" data-price="18.99" required>
-              <div class="plan-content">
-                <div class="plan-name">Monthly</div>
-                <div class="plan-price">$18.99<span class="plan-period">/mo</span></div>
-                <div class="plan-desc">Billed monthly</div>
-              </div>
-            </label>
-
-            <label class="plan-card">
-              <input type="radio" name="plan" value="quarterly" data-price="49.99" checked>
-              <!-- <div class="plan-badge">Most Popular</div> -->
-              <div class="plan-content">
-                <div class="plan-name">Quarterly</div>
-                <div class="plan-price">$49.99<span class="plan-period">/3mo</span></div>
-                <div class="plan-desc">Billed quarterly</div>
-              </div>
-            </label>
-
-            <label class="plan-card plan-best">
-              <input type="radio" name="plan" value="annual" data-price="189.99">
-              <div class="plan-badge">Best Value</div>
-              <div class="plan-content">
-                <div class="plan-name">Annual</div>
-                <div class="plan-price">$189.99<span class="plan-period">/yr</span></div>
-                <div class="plan-desc">Billed annualy</div>
-              </div>
-            </label>
-
-            <label class="plan-card">
-              <input type="radio" name="plan" value="docu" data-price="9.99">
-              <div class="plan-content">
-                <div class="plan-name">Documentary Lover</div>
-                <div class="plan-price">$9.99<span class="plan-period">/mo</span></div>
-                <div class="plan-desc">Billed monthly</div>
-              </div>
-            </label>
-
-            <label class="plan-card">
-              <input type="radio" name="plan" value="anthropology" data-price="6.99">
-              <div class="plan-content">
-                <div class="plan-name">Anthropology Club</div>
-                <div class="plan-price">$6.99<span class="plan-period">/mo</span></div>
-                <div class="plan-desc">Billed monthly</div>
-              </div>
-            </label>
-          </div>
-        </div>
-
-        <!-- Discount Options -->
-        <div class="form-group">
-          <label class="form-label" for="discount-type">Account Type</label>
-          <select id="discount-type" class="form-input">
-            <option value="">Regular</option>
-            <option value="student">Student</option>
-            <option value="industry">Film Industry Professional</option>
-          </select>
-        </div>
-
-        <div class="discount-verification" id="discount-verification" style="display: none;">
-          <div class="form-group">
-            <label class="form-label" for="verification-doc">Verification Document</label>
-            <input 
-              type="file" 
-              id="verification-doc" 
-              class="form-input file-input"
-              accept=".pdf,.jpg,.jpeg,.png"
-            >
-            <p class="form-hint">Upload student ID or industry credentials</p>
-          </div>
-        </div>
-
-        <!-- Price Summary -->
-        <div class="price-summary">
-          <div class="price-row total-row">
-            <span>Total:</span>
-            <span id="total-price">$49.99</span>
-          </div>
-          <p class="pricing-note" id="pricing-note"></p>
-        </div>
-
-        <div class="form-checkbox">
-          <input type="checkbox" id="newsletter" checked>
-          <label for="newsletter">Send me updates and newsletters</label>
-        </div>
-
-        <button type="submit" class="submit-button">Continue to Payment</button>
-
-        <p class="terms-text">
-          By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
-        </p>
-      </form>
+<div class="signup-container">
+  <form id="signup-form">
+    <div class="form-group">
+      <input 
+        type="text" 
+        id="signup-name" 
+        class="form-input" 
+        placeholder="Your name"
+        required
+      >
     </div>
-  </div>
 
-  <script>
-    // Tab switching
-    const tabButtons = document.querySelectorAll('.tab-button');
-    const authForms = document.querySelectorAll('.auth-form');
+    <div class="form-group">
+      <input 
+        type="email" 
+        id="signup-email" 
+        class="form-input" 
+        placeholder="your@email.com"
+        required
+      >
+    </div>
 
-    tabButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const targetTab = button.dataset.tab;
-        
-        // Update active states
-        tabButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-        
-        // Show corresponding form
-        authForms.forEach(form => {
-          form.classList.remove('active');
-          if (form.id === `${targetTab}-form`) {
-            form.classList.add('active');
-          }
-        });
-      });
-    });
+    <div class="form-group">
+      <input 
+        type="password" 
+        id="signup-password" 
+        class="form-input" 
+        placeholder="Set a password"
+        required
+      >
+    </div>
 
-    // Form submissions (placeholder)
-    document.getElementById('signin-form').addEventListener('submit', (e) => {
-      e.preventDefault();
-      console.log('Sign in submitted');
-      alert('Sign in functionality would connect to backend');
-    });
+    <div class="form-group">
+      <input 
+        type="password" 
+        id="signup-confirm" 
+        class="form-input" 
+        placeholder="Confirm your password"
+        required
+      >
+    </div>
 
-    document.getElementById('signup-form').addEventListener('submit', (e) => {
-      e.preventDefault();
-      const password = document.getElementById('signup-password').value;
-      const confirm = document.getElementById('signup-confirm').value;
-      
-      if (password !== confirm) {
-        alert('Passwords do not match');
-        return;
-      }
-      
-      const selectedPlan = document.querySelector('input[name="plan"]:checked');
-      const discountType = document.getElementById('discount-type').value;
-      const totalPrice = document.getElementById('total-price').textContent;
-      
-      console.log('Sign up submitted', {
-        plan: selectedPlan.value,
-        price: selectedPlan.dataset.price,
-        discount: discountType,
-        total: totalPrice
-      });
-      alert(`Proceeding to payment for ${totalPrice}`);
-    });
+    <!-- Membership Plans -->
+    <div class="form-group">
+      <label class="form-label">Select Membership Plan</label>
+      <div class="plan-cards">
+        <label class="plan-card">
+          <input type="radio" name="plan" value="monthly" data-price="18.99" required>
+          <div class="plan-content">
+            <div class="plan-name">Monthly</div>
+            <div class="plan-price">$18.99<span class="plan-period">/mo</span></div>
+            <div class="plan-desc">Billed monthly</div>
+          </div>
+        </label>
 
-    // Plan selection and price calculation
-    const planRadios = document.querySelectorAll('input[name="plan"]');
-    const discountSelect = document.getElementById('discount-type');
-    const discountVerification = document.getElementById('discount-verification');
-    const totalPriceEl = document.getElementById('total-price');
-    const pricingNote = document.getElementById('pricing-note');
+        <label class="plan-card">
+          <input type="radio" name="plan" value="quarterly" data-price="49.99" checked>
+          <div class="plan-content">
+            <div class="plan-name">Quarterly</div>
+            <div class="plan-price">$49.99<span class="plan-period">/3mo</span></div>
+            <div class="plan-desc">Billed quarterly</div>
+          </div>
+        </label>
 
-    // Pricing structure: [regular, student, industry]
-    const pricing = {
-      monthly: [18.99, 6.99, 7.99],
-      quarterly: [49.99, 18.99, 21.99],
-      annual: [189.99, 69.99, 79.99],
-      docu: [9.99, 9.99, 9.99],
-      anthropology: [6.99, 6.99, 6.99]
-    };
+        <label class="plan-card">
+          <input type="radio" name="plan" value="annual" data-price="189.99">
+          <div class="plan-badge">Best Value</div>
+          <div class="plan-content">
+            <div class="plan-name">Annual</div>
+            <div class="plan-price">$189.99<span class="plan-period">/yr</span></div>
+            <div class="plan-desc">Billed annually</div>
+          </div>
+        </label>
 
-    function updatePrice() {
-      const selectedPlan = document.querySelector('input[name="plan"]:checked');
-      const accountType = discountSelect.value;
-      const planType = selectedPlan.value;
-      
-      let priceIndex = 0;
-      let noteText = '';
-      
-      if (accountType === 'student') {
-        priceIndex = 1;
-        noteText = 'Student pricing applied';
-      } else if (accountType === 'industry') {
-        priceIndex = 2;
-        noteText = 'Industry professional pricing applied';
-      }
-      
-      const finalPrice = pricing[planType][priceIndex];
-      totalPriceEl.textContent = `$${finalPrice.toFixed(2)}`;
-      pricingNote.textContent = noteText;
-      
-      // Update the data-price attribute for form submission
-      selectedPlan.dataset.price = finalPrice;
+        <label class="plan-card">
+          <input type="radio" name="plan" value="docu" data-price="9.99">
+          <div class="plan-content">
+            <div class="plan-name">Documentary Lover</div>
+            <div class="plan-price">$9.99<span class="plan-period">/mo</span></div>
+            <div class="plan-desc">Billed monthly</div>
+          </div>
+        </label>
+
+        <label class="plan-card">
+          <input type="radio" name="plan" value="anthropology" data-price="6.99">
+          <div class="plan-content">
+            <div class="plan-name">Anthropology Club</div>
+            <div class="plan-price">$6.99<span class="plan-period">/mo</span></div>
+            <div class="plan-desc">Billed monthly</div>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- Discount Options
+    <div class="form-group">
+      <label class="form-label" for="discount-type">Account Type</label>
+      <select id="discount-type" class="form-input">
+        <option value="">Regular</option>
+        <option value="student">Student</option>
+        <option value="industry">Film Industry Professional</option>
+      </select>
+    </div>
+    -->
+
+    <div class="discount-verification" id="discount-verification" style="display: none;">
+      <div class="form-group">
+        <label class="form-label" for="verification-doc">Verification Document</label>
+        <input 
+          type="file" 
+          id="verification-doc" 
+          class="form-input file-input"
+          accept=".pdf,.jpg,.jpeg,.png"
+        >
+        <p class="form-hint">Upload student ID or industry credentials</p>
+      </div>
+    </div>
+
+    <!-- Price Summary -->
+    <div class="price-summary">
+      <div class="price-row total-row">
+        <span>Total:</span>
+        <span id="total-price">$49.99</span>
+      </div>
+      <p class="pricing-note" id="pricing-note"></p>
+    </div>
+
+    <div class="form-checkbox">
+      <input type="checkbox" id="newsletter" checked>
+      <label for="newsletter">Send me updates and newsletters</label>
+    </div>
+
+    <button type="submit" class="submit-button">Continue to Payment</button>
+
+    <p class="terms-text">
+      By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+    </p>
+  </form>
+</div>
+
+<script>
+  // Form submission
+  document.getElementById('signup-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const password = document.getElementById('signup-password').value;
+    const confirm = document.getElementById('signup-confirm').value;
+    
+    if (password !== confirm) {
+      alert('Passwords do not match');
+      return;
     }
-
-    planRadios.forEach(radio => {
-      radio.addEventListener('change', updatePrice);
+    
+    const selectedPlan = document.querySelector('input[name="plan"]:checked');
+    const discountType = document.getElementById('discount-type').value;
+    const totalPrice = document.getElementById('total-price').textContent;
+    
+    console.log('Sign up submitted', {
+      plan: selectedPlan.value,
+      price: selectedPlan.dataset.price,
+      discount: discountType,
+      total: totalPrice
     });
+    alert(`Proceeding to payment for ${totalPrice}`);
+  });
 
-    discountSelect.addEventListener('change', function() {
-      if (this.value === 'student' || this.value === 'industry') {
-        discountVerification.style.display = 'block';
-      } else {
-        discountVerification.style.display = 'none';
-      }
-      updatePrice();
-    });
+  // Plan selection and price calculation
+  const planRadios = document.querySelectorAll('input[name="plan"]');
+  const discountSelect = document.getElementById('discount-type');
+  const discountVerification = document.getElementById('discount-verification');
+  const totalPriceEl = document.getElementById('total-price');
+  const pricingNote = document.getElementById('pricing-note');
 
-    // Initialize price
+  // Pricing structure: [regular, student, industry]
+  const pricing = {
+    monthly: [18.99, 6.99, 7.99],
+    quarterly: [49.99, 18.99, 21.99],
+    annual: [189.99, 69.99, 79.99],
+    docu: [9.99, 9.99, 9.99],
+    anthropology: [6.99, 6.99, 6.99]
+  };
+
+  function updatePrice() {
+    const selectedPlan = document.querySelector('input[name="plan"]:checked');
+    const accountType = discountSelect.value;
+    const planType = selectedPlan.value;
+    
+    let priceIndex = 0;
+    let noteText = '';
+    
+    if (accountType === 'student') {
+      priceIndex = 1;
+      noteText = 'Student pricing applied';
+    } else if (accountType === 'industry') {
+      priceIndex = 2;
+      noteText = 'Industry professional pricing applied';
+    }
+    
+    const finalPrice = pricing[planType][priceIndex];
+    totalPriceEl.textContent = `$${finalPrice.toFixed(2)}`;
+    pricingNote.textContent = noteText;
+    
+    selectedPlan.dataset.price = finalPrice;
+  }
+
+  planRadios.forEach(radio => {
+    radio.addEventListener('change', updatePrice);
+  });
+
+  discountSelect.addEventListener('change', function() {
+    if (this.value === 'student' || this.value === 'industry') {
+      discountVerification.style.display = 'block';
+    } else {
+      discountVerification.style.display = 'none';
+    }
     updatePrice();
-  </script>
-</body>
-</html>
+  });
+
+  // Initialize price
+  updatePrice();
+</script>
+{{ end }}
