@@ -1,0 +1,447 @@
+/* Modal Overlay */
+.auth-modal {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: 9999;
+opacity: 0;
+transition: opacity 0.3s ease;
+}
+
+.auth-modal.active {
+display: block;
+opacity: 1;
+}
+
+.auth-modal-overlay {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.85);
+backdrop-filter: blur(4px);
+}
+
+.modal-close {
+position: absolute;
+top: 1.5rem;
+right: 1.5rem;
+background: transparent;
+border: none;
+color: rgba(255, 255, 255, 0.7);
+font-size: 2rem;
+cursor: pointer;
+line-height: 1;
+transition: color 0.3s ease;
+z-index: 10;
+}
+
+.modal-close:hover {
+color: rgb(255, 221, 0);
+}
+
+/* Main Content */
+.auth-container {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5vh 5vw;
+    margin-top: -5vh;
+    min-height: 100vh;
+    overflow-y: auto;
+    z-index: 10000;
+}
+
+.auth-box {
+    position: relative;
+    width: 100%;
+    max-width: 40vw; 
+    max-height: 80vh;
+    overflow-y: auto;
+    background: rgba(20, 20, 20, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 3rem;
+    padding-right: 4.5rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.auth-box::-webkit-scrollbar {
+  display: none;
+}
+
+.auth-tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tab-button {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    font-family: 'Diatype-bold', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    padding: 1rem 0;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.tab-button:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.tab-button.active {
+    color: rgb(255, 221, 0);
+    border-bottom-color: rgb(255, 221, 0);
+}
+
+.auth-form {
+    display: none;
+}
+
+.auth-form.active {
+    display: block;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    font-family: 'Diatype-bold', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    color: white;
+    font-family: 'Diatype-light', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: rgba(255, 221, 0, 0.6);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(255, 221, 0, 0.1);
+}
+
+.form-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 1.25rem 0;
+}
+
+.form-checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: rgb(255, 221, 0);
+    cursor: pointer;
+}
+
+.form-checkbox label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+}
+
+.forgot-password {
+    display: block;
+    text-align: right;
+    margin-top: -0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: rgb(255, 221, 0);
+}
+
+.submit-button {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 221, 0, 0.2);
+    border: 2px solid rgba(255, 221, 0, 0.6);
+    border-radius: 8px;
+    color: rgb(255, 221, 0);
+    font-family: 'Diatype-bold', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.submit-button:hover {
+    background: rgb(255, 221, 0);
+    color: black;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 221, 0, 0.3);
+}
+
+.submit-button:active {
+    transform: translateY(0);
+}
+
+.terms-text {
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    line-height: 1.5;
+}
+
+.terms-text a {
+    color: rgba(255, 221, 0, 0.8);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.terms-text a:hover {
+    color: rgb(255, 221, 0);
+}
+
+/* Membership Plans */
+.plan-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+}
+
+.plan-card {
+    position: relative;
+    padding: 1.25rem 1rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.plan-card input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.plan-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 221, 0, 0.4);
+}
+
+.plan-card input[type="radio"]:checked ~ .plan-content {
+    opacity: 1;
+}
+
+.plan-card input[type="radio"]:checked + .plan-badge,
+.plan-card input[type="radio"]:checked ~ .plan-content {
+    opacity: 1;
+}
+
+.plan-card:has(input[type="radio"]:checked) {
+    background: rgba(255, 221, 0, 0.1);
+    border-color: rgb(255, 221, 0);
+    transform: translateY(-2px);
+}
+
+.plan-badge {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgb(255, 221, 0);
+    color: black;
+    font-family: 'Diatype-bold', sans-serif;
+    font-size: 0.7rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+}
+
+.plan-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.plan-name {
+    font-family: 'Diatype-bold', sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+    color: white;
+}
+
+.plan-price {
+    font-family: 'Diatype-bold', sans-serif;
+    font-size: 1.5rem;
+    color: white;
+    line-height: 1;
+}
+
+.plan-period {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.plan-desc {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Discount Section */
+.discount-verification {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(255, 221, 0, 0.05);
+    border: 1px solid rgba(255, 221, 0, 0.2);
+    border-radius: 8px;
+}
+
+.form-hint {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 0.35rem;
+    font-style: italic;
+}
+
+.file-input {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.file-input::file-selector-button {
+    background: rgba(255, 221, 0, 0.2);
+    border: 1px solid rgba(255, 221, 0, 0.5);
+    border-radius: 6px;
+    color: rgb(255, 221, 0);
+    font-family: 'Diatype-bold', sans-serif;
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    margin-right: 1rem;
+    transition: all 0.3s ease;
+}
+
+.file-input::file-selector-button:hover {
+    background: rgba(255, 221, 0, 0.3);
+}
+
+/* Price Summary */
+.price-summary {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.price-row:last-child {
+    margin-bottom: 0;
+}
+
+.discount-row {
+    color: rgb(255, 221, 0);
+}
+
+.total-row {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+    font-family: 'Diatype-bold', sans-serif;
+    font-size: 1.1rem;
+    color: white;
+}
+
+.pricing-note {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    font-size: 0.8rem;
+    color: rgba(255, 221, 0, 0.9);
+    margin-bottom: 0;
+    font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .auth-container {
+        padding: 12vh 5vw 5vh;
+    }
+
+    .auth-box {
+        padding: 2rem 1.5rem;
+    }
+
+    .tab-button {
+        font-size: 1rem;
+        padding: 0.875rem 0;
+    }
+
+    .plan-cards {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .plan-card {
+        padding: 1.5rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-box {
+        padding: 1.75rem 1.25rem;
+    }
+
+    .tab-button {
+        font-size: 0.95rem;
+    }
+
+    .form-input {
+        font-size: 0.95rem;
+        padding: 0.75rem 0.875rem;
+    }
+}
