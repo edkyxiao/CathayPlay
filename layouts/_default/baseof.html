@@ -23,9 +23,9 @@
       </a>
     </div>
     <div class="menu">
-      <h3 class="menu-buttons"><a href="#recently-added" class="button" data-home-url="{{ "/" | relLangURL }}" data-target-id="recently-added">Featured</a></h3>
+      <h3 class="menu-buttons"><a href="#recently-added" class="button" data-home-url="{{ "/" | relLangURL }}" data-target-id="recently-added">NOW SHOWING</a></h3>
       <h3 class="menu-buttons"><a href="/english/films/" class="button">ALL FILMS</a></h3>
-      <h3 class="menu-buttons" onclick="openAuthModal('signup')" style="cursor: pointer;">SUBSCRIBE</h3>
+      <h3 class="menu-buttons"><a href="/signup/">SUBSCRIBE</a></h3>
       <h3 class="menu-buttons menu-search">
         <button type="button" class="search-trigger" aria-label="Open search">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
@@ -36,7 +36,7 @@
       </h3>
       <h3 class="menu-buttons" id="menu-toggle">☰</h3>
       <div class="menu-dropdown">
-          <h3 class="menu-buttons default-hidden" onclick="openAuthModal('signin')" style="cursor: pointer;">SIGN IN</h3>
+          <h3 class="menu-buttons default-hidden" onclick="openAuthModal()" style="cursor: pointer;">SIGN IN</h3>
           <h3 class="menu-buttons default-hidden"><a href="/english/about/" class="button">ABOUT</a></h3>
           <h3 class="menu-buttons default-hidden"><a href="/english/FAQ/" class="button">FAQ</a></h3>
           <h3 class="menu-buttons default-hidden">
@@ -100,45 +100,40 @@
       <div class="auth-box">
         <button class="modal-close" onclick="closeAuthModal()">&times;</button>
         
-            <!-- Tabs -->
-            <div class="auth-tabs">
-              <button class="tab-button active" data-tab="signin">Sign In</button>
-              <button class="tab-button" data-tab="signup">Sign Up</button>
-            </div>
+            <!-- Header -->
+            <h2 class="signin-heading">Sign In</h2>
 
             <!-- Sign In Form -->
             <form class="auth-form active" id="signin-form">
               <div class="form-group">
-                <label class="form-label" for="signin-email">Email</label>
                 <input 
                   type="email" 
                   id="signin-email" 
                   class="form-input" 
-                  placeholder="your@email.com"
+                  placeholder="Email"
                   required
                 >
               </div>
 
               <div class="form-group">
-                <label class="form-label" for="signin-password">Password</label>
                 <input 
                   type="password" 
                   id="signin-password" 
                   class="form-input" 
-                  placeholder="Enter your password"
+                  placeholder="Password"
                   required
                 >
               </div>
 
               <a href="#" class="forgot-password">Forgot password?</a>
 
-              <div class="form-checkbox">
+              <div class="form-checkbox remember-me">
                 <input type="checkbox" id="remember-me">
                 <label for="remember-me">Remember me</label>
               </div>
 
               <button type="submit" class="submit-button">Sign In</button>
-              <p id="to-sign-up">New to CATHAYPLAY?  <span style="color: rgb(255, 221, 0); cursor: pointer;" onclick="document.querySelector('[data-tab=\'signup\']').click()">Register now</span></p>
+              <p id="to-sign-up">New to CATHAYPLAY?  <a href="/signup/"><span style="color: rgb(255, 221, 0); cursor: pointer;">Register now</span></a></p>
             </form>
 
             <!-- Sign Up Form -->
