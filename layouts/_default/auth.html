@@ -485,6 +485,15 @@
       <label class="form-label">Select Membership Plan</label>
       <div class="plan-cards">
         <label class="plan-card">
+          <input type="radio" name="plan" value="trial" data-price="0.00" required>
+          <div class="plan-content">
+            <div class="plan-name">Trial</div>
+            <div class="plan-price">$0.00</div>
+            <div class="plan-desc">Browsing only</div>
+          </div>
+        </label>
+
+        <label class="plan-card">
           <input type="radio" name="plan" value="monthly" data-price="18.99" required>
           <div class="plan-content">
             <div class="plan-name">Monthly</div>
@@ -541,7 +550,6 @@
         <option value="industry">Film Industry Professional</option>
       </select>
     </div>
-    -->
 
     <div class="discount-verification" id="discount-verification" style="display: none;">
       <div class="form-group">
@@ -555,6 +563,7 @@
         <p class="form-hint">Upload student ID or industry credentials</p>
       </div>
     </div>
+    -->
 
     <!-- Price Summary -->
     <div class="price-summary">
@@ -591,13 +600,13 @@
     }
     
     const selectedPlan = document.querySelector('input[name="plan"]:checked');
-    const discountType = document.getElementById('discount-type').value;
+    // const discountType = document.getElementById('discount-type').value;
     const totalPrice = document.getElementById('total-price').textContent;
     
     console.log('Sign up submitted', {
       plan: selectedPlan.value,
       price: selectedPlan.dataset.price,
-      discount: discountType,
+      // discount: discountType,
       total: totalPrice
     });
     alert(`Proceeding to payment for ${totalPrice}`);
@@ -605,13 +614,14 @@
 
   // Plan selection and price calculation
   const planRadios = document.querySelectorAll('input[name="plan"]');
-  const discountSelect = document.getElementById('discount-type');
-  const discountVerification = document.getElementById('discount-verification');
+  // const discountSelect = document.getElementById('discount-type');
+  // const discountVerification = document.getElementById('discount-verification');
   const totalPriceEl = document.getElementById('total-price');
   const pricingNote = document.getElementById('pricing-note');
 
   // Pricing structure: [regular, student, industry]
   const pricing = {
+    trial: [0.00, 0.00, 0.00],
     monthly: [18.99, 6.99, 7.99],
     quarterly: [49.99, 18.99, 21.99],
     annual: [189.99, 69.99, 79.99],
@@ -621,19 +631,19 @@
 
   function updatePrice() {
     const selectedPlan = document.querySelector('input[name="plan"]:checked');
-    const accountType = discountSelect.value;
+    // const accountType = discountSelect.value;
     const planType = selectedPlan.value;
     
     let priceIndex = 0;
     let noteText = '';
     
-    if (accountType === 'student') {
+    /* if (accountType === 'student') {
       priceIndex = 1;
       noteText = 'Student pricing applied';
     } else if (accountType === 'industry') {
       priceIndex = 2;
       noteText = 'Industry professional pricing applied';
-    }
+    } */
     
     const finalPrice = pricing[planType][priceIndex];
     totalPriceEl.textContent = `$${finalPrice.toFixed(2)}`;
@@ -646,14 +656,14 @@
     radio.addEventListener('change', updatePrice);
   });
 
-  discountSelect.addEventListener('change', function() {
+  /* discountSelect.addEventListener('change', function() {
     if (this.value === 'student' || this.value === 'industry') {
       discountVerification.style.display = 'block';
     } else {
       discountVerification.style.display = 'none';
     }
     updatePrice();
-  });
+  }); */
 
   // Initialize price
   updatePrice();
