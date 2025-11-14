@@ -26,10 +26,10 @@ tags:
 festivals:
   - name: "2022 Thessaloniki International Short Film Festival, Greece"
     award: ""
-    logo: "/images/festivals/icon.png"
+    logo: "/images/festivals/award-logo.png"
   - name: "2022 Salerno International Film Festival, Italy"
     award: ""
-    logo: "/images/festivals/icon.png"
+    logo: "/images/festivals/award-logo.png"
 
 # Cast and Crew
 #cast:
