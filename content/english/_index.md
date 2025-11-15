@@ -83,7 +83,6 @@ title: "CathayPlay"
     <div class="feature-block-2">
       <div class="feature-text-heading"><p>Filmmaker bio</p></div>
       <p class="filmmaker-bio">Wang Libo began making films in 1999. His works include the multimedia drama The Wall and the political documentaries Buried (2009), Oh! The Sanxia (2013), and Entropy (2016). He currently lives in New York.
-      <br><br>His trilogy of political documentaries engages with major disasters in modern Chinese history — the Tangshan earthquake, the Wenchuan earthquake, the Three Gorges Project, and the Cultural Revolution. Using plain yet powerful cinematic language, his films reflect on how such events came to feel inevitable within a seemingly well-functioning political system.
     </p>
     </div>
   </div>
@@ -237,7 +236,6 @@ title: "CathayPlay"
     <div class="feature-block-2">
       <div class="feature-text-heading"><p>Filmmaker bio</p></div>
       <p class="filmmaker-bio">Chen Ziyan is a visual artist and filmmaker whose practice spans documentary, experimental video art, dance film, and participatory workshops. She uses visual media as a tool to probe complex, thought-provoking themes with depth and sensitivity.
-      <br><br>Her work often emerges from close observation of daily life, opening dialogue on subjects such as family relationships, language, ecology, and the many states of human existence. By combining careful attention to detail with direct engagement, she creates works that resonate across personal and collective experience.
       </p>
     </div>
   </div>
