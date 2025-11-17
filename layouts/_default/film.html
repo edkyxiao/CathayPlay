@@ -914,7 +914,7 @@
 .festivals-grid {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: minmax(250px, calc((100% - 6rem) / 4));
+  grid-auto-columns: calc((100% - 6rem) / 4);
   gap: 2rem;
   overflow-x: auto;
   overflow-y: hidden;
@@ -925,29 +925,30 @@
 /* Adjust layout based on number of cards */
 .festivals-grid:has(.festival-card:nth-child(1):last-child) {
   /* Only 1 card - center it */
-  grid-auto-columns: minmax(250px, 400px);
+  grid-auto-columns: 400px;
   justify-content: center;
 }
 
 .festivals-grid:has(.festival-card:nth-child(2):last-child) {
   /* Only 2 cards - make them bigger */
-  grid-auto-columns: minmax(250px, calc((100% - 2rem) / 2));
+  grid-auto-columns: calc((100% - 2rem) / 2);
 }
 
 .festivals-grid:has(.festival-card:nth-child(3):last-child) {
   /* Only 3 cards - make them bigger */
-  grid-auto-columns: minmax(250px, calc((100% - 4rem) / 3));
+  grid-auto-columns: calc((100% - 4rem) / 3);
 }
 
 /* 4 or more cards - keep scrolling behavior */
 .festivals-grid:has(.festival-card:nth-child(4)) {
-  grid-auto-columns: minmax(250px, calc((100% - 6rem) / 4));
+  grid-auto-columns: calc((100% - 6rem) / 4);
 }
 
 .festival-card {
   scroll-snap-align: start;
-  min-width: 250px;
+  width: 100%;
   box-sizing: border-box;
+  background-color: #141414;
 }
 
 /* Custom scrollbar styling */
@@ -1197,6 +1198,26 @@
   max-height: 150px;
   overflow: hidden;
   }
+
+    .festivals-grid {
+    grid-auto-columns: 85vw !important;
+    gap: 1rem;
+  }
+
+  .festivals-grid:has(.festival-card:nth-child(1):last-child),
+  .festivals-grid:has(.festival-card:nth-child(2):last-child),
+  .festivals-grid:has(.festival-card:nth-child(3):last-child),
+  .festivals-grid:has(.festival-card:nth-child(4)) {
+    grid-auto-columns: 85vw !important;
+  }
+
+  .festival-card {
+    width: 85vw;
+  }
+
+  .festival-logo-container {
+    height: 100px;
+  }
 }
 .director-statement-text.collapsed {
   max-height: 200px;
@@ -1216,11 +1237,6 @@
 
 .see-more-btn {
   display: block;
-}
-
-.festivals-grid {
-  grid-auto-columns: calc((100% - 3rem) / 4);
-  gap: 1.5rem;
 }
 
 .festival-logo-container {
@@ -1261,9 +1277,20 @@
     font-size: 0.9rem;
   }
 
-  .festivals-grid {
-    grid-template-columns: 1fr;
+    .festivals-grid {
+    grid-auto-columns: 90vw !important;
     gap: 1rem;
+  }
+
+  .festivals-grid:has(.festival-card:nth-child(1):last-child),
+  .festivals-grid:has(.festival-card:nth-child(2):last-child),
+  .festivals-grid:has(.festival-card:nth-child(3):last-child),
+  .festivals-grid:has(.festival-card:nth-child(4)) {
+    grid-auto-columns: 90vw !important;
+  }
+
+  .festival-card {
+    width: 90vw;
   }
 }
 
