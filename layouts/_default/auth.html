@@ -381,6 +381,30 @@
     font-style: italic;
   }
 
+  .student {
+    display: none;
+    margin-top: -1vh;
+    font-size: 1.5rem;
+    color: rgb(255, 221, 0);
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  }
+
+  .plan-price-amount {
+    font-family: 'Diatype-bold', sans-serif;
+    font-size: 1.5rem;
+    color: white;
+    line-height: 1;
+  }
+
+  .plan-price-original {
+    font-family: 'Diatype-bold', sans-serif;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.4);
+    text-decoration: line-through;
+    margin-right: 0.25rem;
+  }
+
   /* Responsive */
   @media (max-width: 768px) {
     .header {
@@ -436,6 +460,7 @@
 
 <!-- Sign Up Container -->
 <h2 class="signup-heading">COMPLETE REGISTRATION</h2>
+<h3 class="student">STUDENT SIGN UP</h3>
 <P class="signup-subheading">Secure your CATHAYPLAY account to start watching great films at home and on the go.</p>
 
 <div class="signup-container">
@@ -588,6 +613,97 @@
 </div>
 
 <script>
+  // Pricing structure: [regular, student, industry]
+  const pricing = {
+    trial: [0.00, 0.00, 0.00],
+    monthly: [18.99, 6.99, 7.99],
+    quarterly: [49.99, 18.99, 21.99],
+    annual: [189.99, 69.99, 79.99],
+    docu: [9.99, 9.99, 9.99],
+    anthropology: [6.99, 6.99, 6.99]
+  };
+
+  const planRadios = document.querySelectorAll('input[name="plan"]');
+  const emailInput = document.getElementById('signup-email');
+  const totalPriceEl = document.getElementById('total-price');
+  const pricingNote = document.getElementById('pricing-note');
+
+  // Check if email is .edu
+  function isEduEmail(email) {
+    const eduRegex = /\.edu(\.|$)|@[\w-]+\.edu$/i;
+    return eduRegex.test(email);
+  }
+
+  // Update all plan card prices
+  function updateAllPlanPrices(priceIndex) {
+    planRadios.forEach(radio => {
+      const planType = radio.value;
+      const price = pricing[planType][priceIndex];
+      const planCard = radio.closest('.plan-card');
+      const priceElement = planCard.querySelector('.plan-price');
+      
+      // Get the period text (if exists)
+      const periodSpan = priceElement.querySelector('.plan-period');
+      const periodText = periodSpan ? periodSpan.outerHTML : '';
+      
+      // Update the price while keeping the period
+      priceElement.innerHTML = `$${price.toFixed(2)}${periodText}`;
+    });
+  }
+
+  // Apply student pricing
+  function applyStudentPricing() {
+    const selectedPlan = document.querySelector('input[name="plan"]:checked');
+    const planType = selectedPlan.value;
+    
+    // Update all plan card prices to student pricing
+    updateAllPlanPrices(1);
+    
+    const finalPrice = pricing[planType][1];
+    totalPriceEl.textContent = `$${finalPrice.toFixed(2)}`;
+    pricingNote.textContent = 'Student pricing applied (verified via .edu email)';
+    pricingNote.style.color = 'rgba(255, 221, 0, 0.9)';
+    
+    selectedPlan.dataset.price = finalPrice;
+
+    // Show student heading
+    document.querySelector('.student').style.display = 'block';
+  }
+
+  // Apply regular pricing
+  function applyRegularPricing() {
+    const selectedPlan = document.querySelector('input[name="plan"]:checked');
+    const planType = selectedPlan.value;
+    
+    // Update all plan card prices to regular pricing
+    updateAllPlanPrices(0);
+    
+    const finalPrice = pricing[planType][0];
+    totalPriceEl.textContent = `$${finalPrice.toFixed(2)}`;
+    pricingNote.textContent = '';
+    
+    selectedPlan.dataset.price = finalPrice;
+  }
+
+  // Update price based on plan and email
+  function updatePrice() {
+    const email = emailInput.value.trim();
+    
+    if (isEduEmail(email)) {
+      applyStudentPricing();
+    } else {
+      applyRegularPricing();
+    }
+  }
+
+  // Listen to email input changes
+  emailInput.addEventListener('input', updatePrice);
+
+  // Listen to plan selection changes
+  planRadios.forEach(radio => {
+    radio.addEventListener('change', updatePrice);
+  });
+
   // Form submission
   document.getElementById('signup-form').addEventListener('submit', (e) => {
     e.preventDefault();
@@ -600,70 +716,16 @@
     }
     
     const selectedPlan = document.querySelector('input[name="plan"]:checked');
-    // const discountType = document.getElementById('discount-type').value;
     const totalPrice = document.getElementById('total-price').textContent;
     
     console.log('Sign up submitted', {
       plan: selectedPlan.value,
       price: selectedPlan.dataset.price,
-      // discount: discountType,
-      total: totalPrice
+      total: totalPrice,
+      isStudent: isEduEmail(emailInput.value)
     });
     alert(`Proceeding to payment for ${totalPrice}`);
   });
-
-  // Plan selection and price calculation
-  const planRadios = document.querySelectorAll('input[name="plan"]');
-  // const discountSelect = document.getElementById('discount-type');
-  // const discountVerification = document.getElementById('discount-verification');
-  const totalPriceEl = document.getElementById('total-price');
-  const pricingNote = document.getElementById('pricing-note');
-
-  // Pricing structure: [regular, student, industry]
-  const pricing = {
-    trial: [0.00, 0.00, 0.00],
-    monthly: [18.99, 6.99, 7.99],
-    quarterly: [49.99, 18.99, 21.99],
-    annual: [189.99, 69.99, 79.99],
-    docu: [9.99, 9.99, 9.99],
-    anthropology: [6.99, 6.99, 6.99]
-  };
-
-  function updatePrice() {
-    const selectedPlan = document.querySelector('input[name="plan"]:checked');
-    // const accountType = discountSelect.value;
-    const planType = selectedPlan.value;
-    
-    let priceIndex = 0;
-    let noteText = '';
-    
-    /* if (accountType === 'student') {
-      priceIndex = 1;
-      noteText = 'Student pricing applied';
-    } else if (accountType === 'industry') {
-      priceIndex = 2;
-      noteText = 'Industry professional pricing applied';
-    } */
-    
-    const finalPrice = pricing[planType][priceIndex];
-    totalPriceEl.textContent = `$${finalPrice.toFixed(2)}`;
-    pricingNote.textContent = noteText;
-    
-    selectedPlan.dataset.price = finalPrice;
-  }
-
-  planRadios.forEach(radio => {
-    radio.addEventListener('change', updatePrice);
-  });
-
-  /* discountSelect.addEventListener('change', function() {
-    if (this.value === 'student' || this.value === 'industry') {
-      discountVerification.style.display = 'block';
-    } else {
-      discountVerification.style.display = 'none';
-    }
-    updatePrice();
-  }); */
 
   // Initialize price
   updatePrice();
