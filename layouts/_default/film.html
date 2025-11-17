@@ -1145,7 +1145,7 @@
 }
 
 /* Tablet */
-@media (max-width: 968px) {
+@media (max-width: 1228px) {
   .director-statement-card {
     gap: 2rem;
     padding: 2rem;
@@ -1157,6 +1157,29 @@
 
   .director-statement-text {
     font-size: 1rem;
+  }
+
+  .festivals-grid {
+    grid-auto-columns: calc((100% - 2rem) / 2) !important;
+    gap: 2rem;
+  }
+
+  .festivals-grid:has(.festival-card:nth-child(1):last-child) {
+    grid-auto-columns: 400px !important;
+    justify-content: center;
+  }
+
+  .festivals-grid:has(.festival-card:nth-child(2):last-child) {
+    grid-auto-columns: calc((100% - 2rem) / 2) !important;
+  }
+
+  .festivals-grid:has(.festival-card:nth-child(3)),
+  .festivals-grid:has(.festival-card:nth-child(4)) {
+    grid-auto-columns: calc((100% - 2rem) / 2) !important;
+  }
+
+  .festival-card {
+    width: 100%;
   }
 }
 
