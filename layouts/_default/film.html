@@ -914,18 +914,40 @@
 .festivals-grid {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: calc((100% - 6rem) / 4); /* 4 cards with 3 gaps of 2rem */
+  grid-auto-columns: minmax(250px, calc((100% - 6rem) / 4));
   gap: 2rem;
   overflow-x: auto;
   overflow-y: hidden;
   padding-bottom: 1rem;
   scroll-snap-type: x mandatory;
-  justify-content: space-around;
+}
+
+/* Adjust layout based on number of cards */
+.festivals-grid:has(.festival-card:nth-child(1):last-child) {
+  /* Only 1 card - center it */
+  grid-auto-columns: minmax(250px, 400px);
+  justify-content: center;
+}
+
+.festivals-grid:has(.festival-card:nth-child(2):last-child) {
+  /* Only 2 cards - make them bigger */
+  grid-auto-columns: minmax(250px, calc((100% - 2rem) / 2));
+}
+
+.festivals-grid:has(.festival-card:nth-child(3):last-child) {
+  /* Only 3 cards - make them bigger */
+  grid-auto-columns: minmax(250px, calc((100% - 4rem) / 3));
+}
+
+/* 4 or more cards - keep scrolling behavior */
+.festivals-grid:has(.festival-card:nth-child(4)) {
+  grid-auto-columns: minmax(250px, calc((100% - 6rem) / 4));
 }
 
 .festival-card {
   scroll-snap-align: start;
-  width: fit-content;
+  min-width: 250px;
+  box-sizing: border-box;
 }
 
 /* Custom scrollbar styling */
