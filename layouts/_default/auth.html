@@ -683,6 +683,9 @@
     pricingNote.textContent = '';
     
     selectedPlan.dataset.price = finalPrice;
+
+    // Hide student heading
+    document.querySelector('.student').style.display = 'none';
   }
 
   // Update price based on plan and email
