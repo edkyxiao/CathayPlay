@@ -3,28 +3,34 @@
 <!-- Film Hero Section -->
 <section class="film-hero">
   <div class="film-hero-container">
-    <!-- Trailer -->
-    {{ if .Params.trailer_url }}
-    <div class="film-trailer">
-      <iframe 
-        src="{{ .Params.trailer_url }}" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen
-        class="trailer-iframe">
-      </iframe>
-    </div>
-    {{ else }}
-    <div class="film-trailer">
-      {{ if .Params.stills }}
-        <img src="{{ index .Params.stills 0 }}" alt="{{ .Title }} placeholder" class="trailer-placeholder">
-      {{ else }}
-        <div class="trailer-placeholder-empty">
-          <p>Trailer coming soon</p>
+    <!-- Film Stills (moved here) -->
+    <div class="film-hero-stills">
+      <div class="hero-stills-viewer">
+        {{ range $index, $still := .Params.stills }}
+          <img src="{{ $still }}" alt="Film still {{ add $index 1 }}" class="hero-still-image {{ if eq $index 0 }}active{{ end }}" data-index="{{ $index }}">
+        {{ end }}
+      </div>
+      
+      <div class="hero-stills-controls">
+        <button class="hero-stills-nav prev" onclick="changeHeroStill(-1)" aria-label="Previous">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        
+        <div class="hero-stills-dots">
+          {{ range $index, $still := .Params.stills }}
+            <button class="hero-still-dot {{ if eq $index 0 }}active{{ end }}" onclick="goToHeroStill({ $index })" aria-label="Go to still {{ add $index 1 }}"></button>
+          {{ end }}
         </div>
-      {{ end }}
+        
+        <button class="hero-stills-nav next" onclick="changeHeroStill(1)" aria-label="Next">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
     </div>
-    {{ end }}
 
     <!-- Film Info -->
     <div class="film-info-panel">
@@ -63,9 +69,6 @@
                 {{ range first 3 . }}
                     <a href="/categories/queer-cinema/" class="film-tag">{{ . }}</a>
                 {{ end }}
-            <!-- {{ range first 3 . }}
-                <a href="/categories/{{ . | urlize }}" class="film-tag">{{ . }}</a>
-            {{ end }} -->
             </div>
             {{ if gt (len .) 3 }}
                 <div class="tags-hidden" style="display: none;">
@@ -163,37 +166,23 @@
 </section>
 {{ end }}
 
-<!-- Film Stills Section -->
-<section class="film-stills-section">
+<!-- Trailer Section -->
+{{ if .Params.trailer_url }}
+<section class="film-trailer-section">
   <div class="section-container">
-    <h2 class="section-heading">STILLS</h2>
-    <div class="stills-gallery">
-      <button class="stills-nav prev" onclick="changeStill(-1)" aria-label="Previous">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polyline points="15 18 9 12 15 6"></polyline>
-        </svg>
-      </button>
-      
-      <div class="stills-viewer">
-        {{ range $index, $still := .Params.stills }}
-          <img src="{{ $still }}" alt="Film still {{ add $index 1 }}" class="still-image {{ if eq $index 0 }}active{{ end }}" data-index="{{ $index }}">
-        {{ end }}
-      </div>
-      
-      <button class="stills-nav next" onclick="changeStill(1)" aria-label="Next">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polyline points="9 18 15 12 9 6"></polyline>
-        </svg>
-      </button>
-    </div>
-    
-    <div class="stills-dots">
-      {{ range $index, $still := .Params.stills }}
-        <button class="still-dot {{ if eq $index 0 }}active{{ end }}" onclick="goToStill({ $index })" aria-label="Go to still {{ add $index 1 }}"></button>
-      {{ end }}
+    <h2 class="section-heading">TRAILER</h2>
+    <div class="trailer-container">
+      <iframe 
+        src="{{ .Params.trailer_url }}" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen
+        class="full-trailer-iframe">
+      </iframe>
     </div>
   </div>
 </section>
+{{ end }}
 
 <!-- Physical Products Section 
 {{ with .Params.products }}
@@ -990,6 +979,7 @@
   display: flex;
   align-items: center;
   justify-content: left;
+  ;
 }
 
 .festival-text-content {
@@ -1004,6 +994,7 @@
   width: auto;
   height: auto;
   object-fit: contain;
+  filter: brightness(2);
 }
 
 .festival-name {
@@ -1593,8 +1584,157 @@
   }
 }
 
+/* Hero Stills Styles */
+.film-hero-stills {
+  width: 100%;
+  aspect-ratio: 16/9;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #222;
+}
+
+.hero-stills-viewer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+}
+
+.hero-still-image {
+  position: absolute;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.hero-still-image.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.hero-stills-controls {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  backdrop-filter: blur(4px);
+}
+
+.hero-stills-nav {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  padding: 0.25rem;
+}
+
+.hero-stills-nav:hover {
+  color: rgb(255, 221, 0);
+  transform: scale(1.1);
+}
+
+.hero-stills-dots {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.hero-still-dot {
+  width: 4px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hero-still-dot:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: scale(1.2);
+}
+
+.hero-still-dot.active {
+  background: rgb(255, 221, 0);
+  transform: scale(1.3);
+}
+
+/* Trailer Section (where stills used to be) */
+.film-trailer-section {
+  background-color: black;
+}
+
+.trailer-container {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #222;
+}
+
+.full-trailer-iframe {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .hero-stills-controls {
+    bottom: 0.5rem;
+    padding: 0.4rem 0.8rem;
+    gap: 0.6rem;
+  }
+
+  .hero-still-dot {
+    width: 6px;
+    height: 6px;
+  }
+}
+
 </style>
 <script>
+    // Hero Stills (in film hero section)
+    let currentHeroStillIndex = 0;
+    const heroStills = document.querySelectorAll('.hero-still-image');
+    const heroDots = document.querySelectorAll('.hero-still-dot');
+
+    function showHeroStill(index) {
+    heroStills.forEach(still => still.classList.remove('active'));
+    heroDots.forEach(dot => dot.classList.remove('active'));
+    
+    if (index >= heroStills.length) currentHeroStillIndex = 0;
+    else if (index < 0) currentHeroStillIndex = heroStills.length - 1;
+    else currentHeroStillIndex = index;
+    
+    heroStills[currentHeroStillIndex].classList.add('active');
+    heroDots[currentHeroStillIndex].classList.add('active');
+    }
+
+    function changeHeroStill(direction) {
+    showHeroStill(currentHeroStillIndex + direction);
+    }
+
+    function goToHeroStill(index) {
+    showHeroStill(index);
+    }
+
     // Hidden tags toggle
     function toggleTags(button) {
     const hiddenTags = button.previousElementSibling;
