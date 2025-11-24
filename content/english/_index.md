@@ -1,243 +1,110 @@
 ---
 title: "CathayPlay"
----
+layout: "home"
 
-<section class="main recently-added">
-  <div class="grid-container">
-    <div class="grid-heading-container">
-      <h2 class="grid-heading" id="recently-added">RECENTLY ADDED</h2>
-      <a href="/categories/queer-cinema/"><p class="see-all">SEE ALL ></p></a>
-    </div>
-    <div class="grid">
-      <div class="film">
-        <div class="film-image-container">
-          <img src="/images/home-page/recently-added/Chronicle of a durian, Zhang Xin, 2017.jpg" alt="Recently added film">
-          <div class="film-text">
-            <h2 class="film-title">CHRONICLE OF A DURIAN</h2>
-            <p class="director-year"><strong>ZHANG XIN</strong> 2017</p>
-          </div>
-        </div>
-        <div class="film-hover">
-          <div class="buttons">
-            <button id="watch-button"><a href="/films/chronicle-of-a-durian/">WATCH</a></button>
-            <button id="add-button">+</button>
-            <button id="heart-button">&#9733;</button>
-          </div>
-          <p class="film-synopsis">TEXT</p>
-          <div class="film-misc">
-          </div>
-        </div>
-      </div>
-      <div class="film">
-        <div class="film-image-container">
-          <img src="/images/home-page/recently-added/Meili, directed by Zhou Zhou, 2018.jpg" alt="recently added film">
-          <div class="film-text">
-            <h2 class="film-title">MEILI</h2>
-            <p class="director-year"><strong>ZJOU ZHOU</strong> 2018</p>
-          </div>
-        </div>
-        <div class="film-hover">
-          <div class="buttons">
-            <button id="watch-button">WATCH</button>
-            <button id="add-button">+</button>
-            <button id="heart-button">&#9733;</button>
-          </div>
-          <p class="film-synopsis">TEXT</p>
-          <div class="film-misc">
-          </div>
-        </div>
-      </div>
-      <div class="film">
-        <div class="film-image-container">
-          <img src="/images/home-page/recently-added/The Nail, Jiang Zhi, 2007.jpg" alt="recently added film">
-          <div class="film-text">
-            <h2 class="film-title">THE NAIL</h2>
-            <p class="director-year"><strong>JIANG ZHI</strong> 2007</p>
-          </div>
-        </div>
-        <div class="film-hover">
-          <div class="buttons">
-            <button id="watch-button">WATCH</button>
-            <button id="add-button">+</button>
-            <button id="heart-button">&#9733;</button>
-          </div>
-          <p class="film-synopsis">TEXT</p>
-          <div class="film-misc">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="full-bleed-feature feature-1">
-  <div class="feature-image-container">
-    <img class="feature-image" src="/images/home-page/full-bleed-feature/TO SAY FAREWELL, WANG LIBO, 2024.jpg" alt="full bleed feature image">
-    <img class="play-button" src="/images/utilities/play-button.png" alt="play button">
-  </div>
-  <div class="feature-text">
-    <div class="feature-text-heading">
-      <h1>TO SA<span class="ss05">Y</span> FAREWELL</h1>
-      <p>WANG LIBO 2024</p>
-    </div>
-    <p class="feature-synopsis feature-block-1">In a Manhattan apartment in New York, there lived a 96-year-old solitary elderly person, Gao Yaojie. Seen as the first grassroots AIDS activist in China, Gao was forced to flee to the United States from China at the age of 82. The elderly woman’s long and tumultuous life mirrors the turbulent modern history of China. The film documents the lonely last three months of Gao Yaojie’s life.</p>
-    <div class="feature-block-2">
-      <div class="feature-text-heading"><p>Filmmaker bio</p></div>
-      <p class="filmmaker-bio">Wang Libo began making films in 1999. His works include the multimedia drama The Wall and the political documentaries Buried (2009), Oh! The Sanxia (2013), and Entropy (2016). He currently lives in New York.
-    </p>
-    </div>
-  </div>
-</section>
-<section class="main trending">
-  <div class="grid-container">
-    <div class="grid-heading-container">
-      <h2 class="grid-heading">TRENDING</h2>
-      <a href="/categories/queer-cinema/"><p class="see-all">SEE ALL ></p></a>
-    </div>
-    <div class="grid">
-      <div class="film">
-        <div class="film-image-container">
-          <img src="/images/home-page/trending/A year apart, Ocean cHIN, 2023.jpg" alt="trending film">
-          <div class="film-text">
-            <h2 class="film-title">A YEAR APART</h2>
-            <p class="director-year"><strong>OCEAN CHIN</strong> 2023</p>
-          </div>
-        </div>
-        <div class="film-hover">
-          <div class="buttons">
-            <button id="watch-button">WATCH</button>
-            <button id="add-button">+</button>
-            <button id="heart-button">&#9733;</button>
-          </div>
-          <p class="film-synopsis">TEXT</p>
-          <div class="film-misc">
-          </div>
-        </div>
-      </div>
-      <div class="film">
-        <div class="film-image-container">
-          <img src="/images/home-page/trending/My grandmother, Gao Kuan, 2022.jpg" alt="trending film">
-          <div class="film-text">
-            <h2 class="film-title">MY GRANDMOTHER</h2>
-            <p class="director-year"><strong>GAO KUAN</strong> 2022</p>
-          </div>
-        </div>
-        <div class="film-hover">
-          <div class="buttons">
-            <button id="watch-button">WATCH</button>
-            <button id="add-button">+</button>
-            <button id="heart-button">&#9733;</button>
-          </div>
-          <p class="film-synopsis">TEXT</p>
-          <div class="film-misc">
-          </div>
-        </div>
-      </div>
-      <div class="film">
-        <div class="film-image-container">
-          <img src="/images/home-page/trending/The right moment, chen fang, 2022.jpg" alt="recently added film">
-          <div class="film-text">
-            <h2 class="film-title">THE RIGHT MOMENT</h2>
-            <p class="director-year"><strong>CHEN FANG</strong> 2022</p>
-          </div>
-        </div>
-        <div class="film-hover">
-          <div class="buttons">
-            <button id="watch-button">WATCH</button>
-            <button id="add-button">+</button>
-            <button id="heart-button">&#9733;</button>
-          </div>
-          <p class="film-synopsis">TEXT</p>
-          <div class="film-misc">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<div class="space"></div>
-<section class="main staff-picks">
-  <div class="grid-container">
-    <div class="grid-heading-container">
-      <h2 class="grid-heading">STAFF PICKS</h2>
-      <a href="/categories/queer-cinema/"><p class="see-all">SEE ALL ></p></a>
-    </div>
-    <div class="grid">
-      <div class="film">
-        <div class="film-image-container">
-          <img src="/images/home-page/staff-picks/On my way home, tan junwu, 2019.jpg" alt="staff picked film">
-          <div class="film-text">
-            <h2 class="film-title">ON MY WAY HOME</h2>
-            <p class="director-year"><strong>TAN JUNWU</strong> 2019</p>
-          </div>
-        </div>
-        <div class="film-hover">
-          <div class="buttons">
-            <button id="watch-button">WATCH</button>
-            <button id="add-button">+</button>
-            <button id="heart-button">&#9733;</button>
-          </div>
-          <p class="film-synopsis">TEXT</p>
-          <div class="film-misc">
-          </div>
-        </div>
-      </div>
-      <div class="film">
-        <div class="film-image-container">
-          <img src="/images/home-page/staff-picks/the night, jenny, 2023.jpg" alt="staff picked film">
-          <div class="film-text">
-            <h2 class="film-title">THE NIGHT</h2>
-            <p class="director-year"><strong>JENNY</strong> 2023</p>
-          </div>
-        </div>
-        <div class="film-hover">
-          <div class="buttons">
-            <button id="watch-button">WATCH</button>
-            <button id="add-button">+</button>
-            <button id="heart-button">&#9733;</button>
-          </div>
-          <p class="film-synopsis">TEXT</p>
-          <div class="film-misc">
-          </div>
-        </div>
-      </div>
-      <div class="film">
-        <div class="film-image-container">
-          <img src="/images/home-page/staff-picks/THE VIRGIN, ZHANG QIN, 2022.jpg" alt="staff picked film">
-          <div class="film-text">
-            <h2 class="film-title">THE VIRGIN</h2>
-            <p class="director-year"><strong>ZHANG QIN</strong> 2022</p>
-          </div>
-        </div>
-        <div class="film-hover">
-          <div class="buttons">
-            <button id="watch-button">WATCH</button>
-            <button id="add-button">+</button>
-            <button id="heart-button">&#9733;</button>
-          </div>
-          <p class="film-synopsis">TEXT</p>
-          <div class="film-misc">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="full-bleed-feature feature-2">
-  <div class="feature-image-container">
-    <img class="feature-image" src="/images/home-page/full-bleed-feature/Blessed with burdens, chen ziyan, 2025.jpg" alt="full bleed feature image">
-    <img class="play-button" src="/images/utilities/play-button.png" alt="play button">
-  </div>
-  <div class="feature-text">
-    <div class="feature-text-heading">
-      <h1>BLESSED WITH BURDENS</h1>
-      <p>CHEN ZIYAN 2025</p>
-    </div>
-    <p class="feature-synopsis feature-block-1">When my cousin gave birth to a girl, my mom and family stood outside the obstetrics and gynecology department and said, "Those who give birth to daughters are blessed." But is childbirth truly a blessing? Behind the blessing and the excitement, how much have mothers sacrificed and compromised in their choices? And as daughters, do we really see everything our mothers have done for us?</p>
-    <div class="feature-block-2">
-      <div class="feature-text-heading"><p>Filmmaker bio</p></div>
-      <p class="filmmaker-bio">Chen Ziyan is a visual artist and filmmaker whose practice spans documentary, experimental video art, dance film, and participatory workshops. She uses visual media as a tool to probe complex, thought-provoking themes with depth and sensitivity.
-      </p>
-    </div>
-  </div>
-</section>
-<section class="add-height"></section>
+# Hero Section
+hero:
+  video: "/videos/victors-cut.mp4"
+  promotion:
+    text: "SUPPORT INDEPENDENT CHINESE FILMMAKERS"
+    button_text: "SUBSCRIBE"
+    button_link: "/english/signup/"
+  featured_film:
+    title: "FIELD"
+    director: "LÜ MEIJING"
+    year: 2022
+    description: "In a world shaped by networks, consumption, and technology, FIELD imagines new ways of being together. Through fragments of human and non-human connection—between people, animals, elements, and devices—the film creates a shifting space where perception and emotion resonate across consciousness. The result is a meditation on communication, community, and the fragile possibilities of co-existence."
+    watch_link: "/english/films/field/"
+
+# Recently Added Section
+recently_added:
+  heading: "RECENTLY ADDED"
+  see_all_link: "/english/categories/queer-cinema/"
+  films:
+    - title: "CHRONICLE OF A DURIAN"
+      director: "ZHANG XIN"
+      year: 2017
+      image: "/images/home-page/recently-added/Chronicle of a durian, Zhang Xin, 2017.jpg"
+      synopsis: "TEXT"
+      watch_link: "/english/films/chronicle-of-a-durian/"
+    - title: "MEILI"
+      director: "ZHOU ZHOU"
+      year: 2018
+      image: "/images/home-page/recently-added/Meili, directed by Zhou Zhou, 2018.jpg"
+      synopsis: "TEXT"
+      watch_link: "#"
+    - title: "THE NAIL"
+      director: "JIANG ZHI"
+      year: 2007
+      image: "/images/home-page/recently-added/The Nail, Jiang Zhi, 2007.jpg"
+      synopsis: "TEXT"
+      watch_link: "#"
+
+# Full Bleed Feature 1
+feature_1:
+  title: "TO SAY FAREWELL"
+  director: "WANG LIBO"
+  year: 2024
+  image: "/images/home-page/full-bleed-feature/TO SAY FAREWELL, WANG LIBO, 2024.jpg"
+  synopsis: "In a Manhattan apartment in New York, there lived a 96-year-old solitary elderly person, Gao Yaojie. Seen as the first grassroots AIDS activist in China, Gao was forced to flee to the United States from China at the age of 82. The elderly woman's long and tumultuous life mirrors the turbulent modern history of China. The film documents the lonely last three months of Gao Yaojie's life."
+  filmmaker_bio: "Wang Libo began making films in 1999. His works include the multimedia drama The Wall and the political documentaries Buried (2009), Oh! The Sanxia (2013), and Entropy (2016). He currently lives in New York."
+  watch_link: "#"
+
+# Trending Section
+trending:
+  heading: "TRENDING"
+  see_all_link: "/english/categories/queer-cinema/"
+  films:
+    - title: "A YEAR APART"
+      director: "OCEAN CHIN"
+      year: 2023
+      image: "/images/home-page/trending/A year apart, Ocean cHIN, 2023.jpg"
+      synopsis: "TEXT"
+      watch_link: "#"
+    - title: "MY GRANDMOTHER"
+      director: "GAO KUAN"
+      year: 2022
+      image: "/images/home-page/trending/My grandmother, Gao Kuan, 2022.jpg"
+      synopsis: "TEXT"
+      watch_link: "#"
+    - title: "THE RIGHT MOMENT"
+      director: "CHEN FANG"
+      year: 2022
+      image: "/images/home-page/trending/The right moment, chen fang, 2022.jpg"
+      synopsis: "TEXT"
+      watch_link: "#"
+
+# Staff Picks Section
+staff_picks:
+  heading: "STAFF PICKS"
+  see_all_link: "/english/categories/queer-cinema/"
+  films:
+    - title: "ON MY WAY HOME"
+      director: "TAN JUNWU"
+      year: 2019
+      image: "/images/home-page/staff-picks/On my way home, tan junwu, 2019.jpg"
+      synopsis: "TEXT"
+      watch_link: "#"
+    - title: "THE NIGHT"
+      director: "JENNY"
+      year: 2023
+      image: "/images/home-page/staff-picks/the night, jenny, 2023.jpg"
+      synopsis: "TEXT"
+      watch_link: "#"
+    - title: "THE VIRGIN"
+      director: "ZHANG QIN"
+      year: 2022
+      image: "/images/home-page/staff-picks/THE VIRGIN, ZHANG QIN, 2022.jpg"
+      synopsis: "TEXT"
+      watch_link: "#"
+
+# Full Bleed Feature 2
+feature_2:
+  title: "BLESSED WITH BURDENS"
+  director: "CHEN ZIYAN"
+  year: 2025
+  image: "/images/home-page/full-bleed-feature/Blessed with burdens, chen ziyan, 2025.jpg"
+  synopsis: "When my cousin gave birth to a girl, my mom and family stood outside the obstetrics and gynecology department and said, 'Those who give birth to daughters are blessed.' But is childbirth truly a blessing? Behind the blessing and the excitement, how much have mothers sacrificed and compromised in their choices? And as daughters, do we really see everything our mothers have done for us?"
+  filmmaker_bio: "Chen Ziyan is a visual artist and filmmaker whose practice spans documentary, experimental video art, dance film, and participatory workshops. She uses visual media as a tool to probe complex, thought-provoking themes with depth and sensitivity."
+  watch_link: "#"
+---
