@@ -1,0 +1,141 @@
+{{ define "main" }}
+<!-- About Hero Section -->
+<section class="about-hero">
+  <img src="{{ .Params.hero.image }}" alt="About CathayPlay" class="about-hero-image">
+  <div class="about-hero-overlay">
+    <h1 class="about-hero-title">WHO IS CATHA<span class="ss05">Y</span>PLA<span class="ss05">Y</span>?</h1>
+  </div>
+</section>
+
+<!-- About Content Section -->
+<section class="about-content">
+  <div class="about-content-container">
+    {{ range .Params.content.paragraphs }}
+    <p class="about-paragraph">{{ . }}</p>
+    {{ end }}
+    
+    <div class="about-cta">
+      <a href="{{ .Params.content.cta.link }}" class="about-cta-button">
+        {{ .Params.content.cta.text }}
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* About Hero Section */
+  .about-hero {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    min-height: 400px;
+    overflow: hidden;
+  }
+
+  .about-hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .about-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-hero-title {
+    font-family: 'Gravity Wide', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 400;
+    color: white;
+    text-align: center;
+    padding: 0 2rem;
+    letter-spacing: 0.05em;
+    font-feature-settings: "ss05" 1; /* Activates stylistic set for Y characters */
+  }
+
+  /* About Content Section */
+  .about-content {
+    background: black;
+    padding: 6rem 2rem;
+  }
+
+  .about-content-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .about-paragraph {
+    font-family: 'Diatype-light';
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: white;
+    margin-bottom: 2rem;
+    text-align: left;
+  }
+
+  .about-paragraph:last-of-type {
+    margin-bottom: 3rem;
+  }
+
+  /* CTA Button */
+  .about-cta {
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .about-cta-button {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background: black;
+    color: white;
+    font-family: 'Favorit', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    border: 2px solid black;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .about-cta-button:hover {
+    background: rgb(255, 221, 0);
+    color: black;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .about-hero {
+      height: 50vh;
+      min-height: 300px;
+    }
+
+    .about-hero-title {
+      font-size: 2rem;
+    }
+
+    .about-content {
+      padding: 3rem 1.5rem;
+    }
+
+    .about-paragraph {
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .about-cta-button {
+      padding: 0.875rem 2rem;
+      font-size: 0.9rem;
+    }
+  }
+</style>
+{{ end }}
