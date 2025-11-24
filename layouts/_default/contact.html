@@ -1,0 +1,151 @@
+{{ define "main" }}
+<!-- Info Hero Section -->
+<section class="info-hero">
+  <img src="{{ .Params.hero.image }}" alt="{{ .Params.hero.title }}" class="info-hero-image">
+  <div class="info-hero-overlay">
+    <h1 class="info-hero-title">{{ .Params.hero.title }}</h1>
+  </div>
+</section>
+
+<!-- Info Content Section -->
+<section class="info-content">
+  <div class="info-content-container">
+    {{ range .Params.content }}
+    <div class="contact-item">
+      <h3 class="contact-category">{{ .category }}</h3>
+      <a href="mailto:{{ .email }}" class="contact-email">{{ .email }}</a>
+      {{ if .description }}
+      <p class="contact-description">{{ .description }}</p>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+</section>
+
+<style>
+  /* Info Hero Section */
+  .info-hero {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    min-height: 400px;
+    overflow: hidden;
+  }
+
+  .info-hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .info-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .info-hero-title {
+    font-family: 'Gravity Wide';
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 400;
+    color: white;
+    text-align: center;
+    padding: 0 2rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* Info Content Section */
+  .info-content {
+    background: black;
+    padding: 6rem 2rem;
+  }
+
+  .info-content-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* Contact Items */
+  .contact-item {
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid #e5e5e5;
+    text-align: center;
+  }
+
+  .contact-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .contact-category {
+    font-family: 'Diatype-bold';
+    font-size: 1rem;
+    font-weight: 400;
+    color: white;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.02em;
+  }
+
+  .contact-email {
+    display: inline-block;
+    font-family: 'Diatype-light';
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 0.75rem;
+    transition: color 0.3s ease;
+  }
+
+  .contact-email:hover {
+    color: #666;
+  }
+
+  .contact-description {
+    font-family: 'Diatype-light';
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #b1b0b0;
+    margin-top: 0.75rem;
+    font-style: italic;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .info-hero {
+      height: 50vh;
+      min-height: 300px;
+    }
+
+    .info-hero-title {
+      font-size: 2rem;
+    }
+
+    .info-content {
+      padding: 3rem 1.5rem;
+    }
+
+    .contact-item {
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+    }
+
+    .contact-email {
+      font-size: 1.25rem;
+    }
+
+    .contact-description {
+      font-size: 0.9rem;
+    }
+  }
+</style>
+{{ end }}
