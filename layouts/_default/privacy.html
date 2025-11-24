@@ -1,0 +1,246 @@
+{{ define "main" }}
+<!-- Legal Hero Section -->
+<section class="legal-hero">
+  <img src="{{ .Params.hero.image }}" alt="{{ .Params.hero.title }}" class="legal-hero-image">
+  <div class="legal-hero-overlay">
+    <h1 class="legal-hero-title">{{ .Params.hero.title }}</h1>
+  </div>
+</section>
+
+<!-- Legal Content Section -->
+<section class="legal-content">
+  <div class="legal-content-container">
+    
+    <!-- Introduction -->
+    {{ if .Params.introduction }}
+    <div class="legal-intro">
+      <p>{{ .Params.introduction | markdownify }}</p>
+    </div>
+    {{ end }}
+    
+    {{ if .Params.notice }}
+    <div class="legal-notice">
+      <p><strong>{{ .Params.notice }}</strong></p>
+    </div>
+    {{ end }}
+    
+    <!-- Main Sections -->
+    {{ range .Params.sections }}
+    <div class="legal-section">
+      <h2 class="section-heading">{{ .heading }}</h2>
+      
+      {{ range .subsections }}
+        {{ if .title }}
+        <h3 class="subsection-title">{{ .title }}</h3>
+        {{ end }}
+        
+        {{ range .content }}
+          {{ if .subheading }}
+          <h4 class="content-subheading">{{ .subheading }}</h4>
+          {{ end }}
+          
+          <div class="legal-text">
+            {{ .text | markdownify }}
+          </div>
+        {{ end }}
+      {{ end }}
+    </div>
+    {{ end }}
+    
+  </div>
+</section>
+
+<style>
+  /* Legal Hero Section */
+  .legal-hero {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    min-height: 350px;
+    overflow: hidden;
+  }
+
+  .legal-hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .legal-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .legal-hero-title {
+    font-family: 'Gravity Wide';
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 400;
+    color: white;
+    text-align: center;
+    padding: 0 2rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* Legal Content Section */
+  .legal-content {
+    background: black;
+    padding: 4rem 2rem;
+  }
+
+  .legal-content-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* Introduction */
+  .legal-intro {
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #000;
+  }
+
+  .legal-intro p {
+    font-family: 'Diatype-light';
+    font-size: 1rem;
+    line-height: 1.7;
+    color: white;
+  }
+
+  .legal-notice {
+    background: #454444;
+    padding: 1.5rem;
+    margin-bottom: 3rem;
+    border-left: 4px solid #000;
+  }
+
+  .legal-notice p {
+    font-family: 'Diatype-light';
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: white;
+    margin: 0;
+  }
+
+  /* Sections */
+  .legal-section {
+    margin-bottom: 3rem;
+  }
+
+  .section-heading {
+    font-family: 'Diatype-bold';
+    font-size: 2rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #ddd;
+  }
+
+  .subsection-title {
+    font-family: 'Diatype-bold';
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: white;
+    margin: 2rem 0 1rem 0;
+  }
+
+  .content-subheading {
+    font-family: 'Diatype-bold';
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: white;
+    margin: 1.5rem 0 0.75rem 0;
+  }
+
+  .legal-text {
+    font-family: 'Diatype-light';
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: white;
+    margin-bottom: 1.5rem;
+  }
+
+  .legal-text p {
+    margin-bottom: 1rem;
+  }
+
+  .legal-text strong {
+    font-weight: 600;
+    color: white;
+  }
+
+  .legal-text a {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .legal-text a:hover {
+    color: #666;
+  }
+
+  .legal-text ul,
+  .legal-text ol {
+    margin: 1rem 0 1rem 2rem;
+  }
+
+  .legal-text li {
+    margin-bottom: 0.5rem;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .legal-hero {
+      height: 40vh;
+      min-height: 250px;
+    }
+
+    .legal-hero-title {
+      font-size: 1.75rem;
+    }
+
+    .legal-content {
+      padding: 2rem 1.5rem;
+    }
+
+    .section-heading {
+      font-size: 1.5rem;
+    }
+
+    .subsection-title {
+      font-size: 1.1rem;
+    }
+
+    .content-subheading {
+      font-size: 1rem;
+    }
+
+    .legal-text {
+      font-size: 0.9rem;
+    }
+  }
+
+  /* Print styles */
+  @media print {
+    .legal-hero {
+      height: auto;
+      min-height: 0;
+      page-break-after: avoid;
+    }
+
+    .legal-hero-overlay {
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .legal-section {
+      page-break-inside: avoid;
+    }
+  }
+</style>
+{{ end }}
