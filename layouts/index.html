@@ -1,35 +1,174 @@
 {{ define "main" }}
+<!-- Hero Section -->
 <section class="hero">
   <video autoplay muted loop playsinline class="hero-video">
-    <source src="/videos/victors-cut.mp4" type="video/mp4">
+    <source src="{{ .Params.hero.video }}" type="video/mp4">
     Your browser does not support the video tag
   </video>
 
   <div class="overlay"></div>
 
   <div class="hero-text-middle">
-      <div class="promotion">
-        <h3 class="white">SUPPORT INDEPENDENT CHINESE FILMMAKERS</h3>
-        <button class="promotion-button">SUBSCRIBE</button>
-      </div>
-      <div class="film-info">
-        <div>
-            <div class="film-title-container">
-                <h2 class="film-title-text">FIELD</h2>
-                <div class="buttons">
-                    <a href="/films/field/" id="watch-button-hero">WATCH</a>
-                </div>
-            </div>
-          <p class="director">Directed by <strong>LÜ MEIJING</strong><br>2022</p>
+    <div class="promotion">
+      <h3 class="white">{{ .Params.hero.promotion.text }}</h3>
+      <a href="{{ .Params.hero.promotion.button_link }}">
+        <button class="promotion-button">{{ .Params.hero.promotion.button_text }}</button>
+      </a>
+    </div>
+    <div class="film-info">
+      <div>
+        <div class="film-title-container">
+          <h2 class="film-title-text">{{ .Params.hero.featured_film.title }}</h2>
+          <div class="buttons">
+            <a href="{{ .Params.hero.featured_film.watch_link }}" id="watch-button-hero">WATCH</a>
+          </div>
         </div>
-        <p class="description">In a world shaped by networks, consumption, and technology, FIELD imagines new ways of being together. Through fragments of human and non-human connection—between people, animals, elements, and devices—the film creates a shifting space where perception and emotion resonate across consciousness. The result is a meditation on communication, community, and the fragile possibilities of co-existence.</p>
+        <p class="director">Directed by <strong>{{ .Params.hero.featured_film.director }}</strong><br>{{ .Params.hero.featured_film.year }}</p>
       </div>
+      <p class="description">{{ .Params.hero.featured_film.description }}</p>
+    </div>
   </div>
 </section>
 
-{{ .Content }}
+<!-- Recently Added Section -->
+<section class="main recently-added">
+  <div class="grid-container">
+    <div class="grid-heading-container">
+      <h2 class="grid-heading" id="recently-added">{{ .Params.recently_added.heading }}</h2>
+      <a href="{{ .Params.recently_added.see_all_link }}"><p class="see-all">SEE ALL ></p></a>
+    </div>
+    <div class="grid">
+      {{ range .Params.recently_added.films }}
+      <div class="film">
+        <div class="film-image-container">
+          <img src="{{ .image }}" alt="{{ .title }}">
+          <div class="film-text">
+            <h2 class="film-title">{{ .title }}</h2>
+            <p class="director-year"><strong>{{ .director }}</strong> {{ .year }}</p>
+          </div>
+        </div>
+        <div class="film-hover">
+          <div class="buttons">
+            <a href="{{ .watch_link }}"><button id="watch-button">WATCH</button></a>
+            <button id="add-button">+</button>
+            <button id="heart-button">&#9733;</button>
+          </div>
+          <p class="film-synopsis">{{ .synopsis }}</p>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
 
-{{ partial "recent-articles.html" . }}
+<!-- Full Bleed Feature 1 -->
+<section class="full-bleed-feature feature-1">
+  <div class="feature-image-container">
+    <img class="feature-image" src="{{ .Params.feature_1.image }}" alt="{{ .Params.feature_1.title }}">
+    <a href="{{ .Params.feature_1.watch_link }}">
+      <img class="play-button" src="/images/utilities/play-button.png" alt="play button">
+    </a>
+  </div>
+  <div class="feature-text">
+    <div class="feature-text-heading">
+      <h1>{{ .Params.feature_1.title }}</h1>
+      <p>{{ .Params.feature_1.director }} {{ .Params.feature_1.year }}</p>
+    </div>
+    <p class="feature-synopsis feature-block-1">{{ .Params.feature_1.synopsis }}</p>
+    <div class="feature-block-2">
+      <div class="feature-text-heading"><p>Filmmaker bio</p></div>
+      <p class="filmmaker-bio">{{ .Params.feature_1.filmmaker_bio }}</p>
+    </div>
+  </div>
+</section>
+
+<!-- Trending Section -->
+<section class="main trending">
+  <div class="grid-container">
+    <div class="grid-heading-container">
+      <h2 class="grid-heading">{{ .Params.trending.heading }}</h2>
+      <a href="{{ .Params.trending.see_all_link }}"><p class="see-all">SEE ALL ></p></a>
+    </div>
+    <div class="grid">
+      {{ range .Params.trending.films }}
+      <div class="film">
+        <div class="film-image-container">
+          <img src="{{ .image }}" alt="{{ .title }}">
+          <div class="film-text">
+            <h2 class="film-title">{{ .title }}</h2>
+            <p class="director-year"><strong>{{ .director }}</strong> {{ .year }}</p>
+          </div>
+        </div>
+        <div class="film-hover">
+          <div class="buttons">
+            <a href="{{ .watch_link }}"><button id="watch-button">WATCH</button></a>
+            <button id="add-button">+</button>
+            <button id="heart-button">&#9733;</button>
+          </div>
+          <p class="film-synopsis">{{ .synopsis }}</p>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<div class="space"></div>
+
+<!-- Staff Picks Section -->
+<section class="main staff-picks">
+  <div class="grid-container">
+    <div class="grid-heading-container">
+      <h2 class="grid-heading">{{ .Params.staff_picks.heading }}</h2>
+      <a href="{{ .Params.staff_picks.see_all_link }}"><p class="see-all">SEE ALL ></p></a>
+    </div>
+    <div class="grid">
+      {{ range .Params.staff_picks.films }}
+      <div class="film">
+        <div class="film-image-container">
+          <img src="{{ .image }}" alt="{{ .title }}">
+          <div class="film-text">
+            <h2 class="film-title">{{ .title }}</h2>
+            <p class="director-year"><strong>{{ .director }}</strong> {{ .year }}</p>
+          </div>
+        </div>
+        <div class="film-hover">
+          <div class="buttons">
+            <a href="{{ .watch_link }}"><button id="watch-button">WATCH</button></a>
+            <button id="add-button">+</button>
+            <button id="heart-button">&#9733;</button>
+          </div>
+          <p class="film-synopsis">{{ .synopsis }}</p>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- Full Bleed Feature 2 -->
+<section class="full-bleed-feature feature-2">
+  <div class="feature-image-container">
+    <img class="feature-image" src="{{ .Params.feature_2.image }}" alt="{{ .Params.feature_2.title }}">
+    <a href="{{ .Params.feature_2.watch_link }}">
+      <img class="play-button" src="/images/utilities/play-button.png" alt="play button">
+    </a>
+  </div>
+  <div class="feature-text">
+    <div class="feature-text-heading">
+      <h1>{{ .Params.feature_2.title }}</h1>
+      <p>{{ .Params.feature_2.director }} {{ .Params.feature_2.year }}</p>
+    </div>
+    <p class="feature-synopsis feature-block-1">{{ .Params.feature_2.synopsis }}</p>
+    <div class="feature-block-2">
+      <div class="feature-text-heading"><p>Filmmaker bio</p></div>
+      <p class="filmmaker-bio">{{ .Params.feature_2.filmmaker_bio }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="add-height"></section>
+
 <style>
   a {
     text-decoration: none !important;
@@ -37,4 +176,3 @@
   }
 </style>
 {{ end }}
-
