@@ -5,28 +5,24 @@ layout: "home"
 # Hero Section
 hero:
   video: "/videos/victors-cut.mp4"
-  promotion:
-    text: "SUPPORT INDEPENDENT CHINESE FILMMAKERS"
-    button_text: "SUBSCRIBE"
-    button_link: "/english/signup/"
   featured_film:
     title: "FIELD"
     director: "LÜ MEIJING"
     year: 2022
     description: "In a world shaped by networks, consumption, and technology, FIELD imagines new ways of being together. Through fragments of human and non-human connection—between people, animals, elements, and devices—the film creates a shifting space where perception and emotion resonate across consciousness. The result is a meditation on communication, community, and the fragile possibilities of co-existence."
-    watch_link: "/english/films/field/"
+    watch_link: "/films/field/"
 
 # Recently Added Section
 recently_added:
   heading: "RECENTLY ADDED"
-  see_all_link: "/english/categories/queer-cinema/"
+  see_all_link: "/categories/queer-cinema/"
   films:
     - title: "CHRONICLE OF A DURIAN"
       director: "ZHANG XIN"
       year: 2017
       image: "/images/home-page/recently-added/Chronicle of a durian, Zhang Xin, 2017.jpg"
       synopsis: "TEXT"
-      watch_link: "/english/films/chronicle-of-a-durian/"
+      watch_link: "/films/chronicle-of-a-durian/"
     - title: "MEILI"
       director: "ZHOU ZHOU"
       year: 2018
@@ -53,7 +49,7 @@ feature_1:
 # Trending Section
 trending:
   heading: "TRENDING"
-  see_all_link: "/english/categories/queer-cinema/"
+  see_all_link: "/categories/queer-cinema/"
   films:
     - title: "A YEAR APART"
       director: "OCEAN CHIN"
@@ -77,7 +73,7 @@ trending:
 # Staff Picks Section
 staff_picks:
   heading: "STAFF PICKS"
-  see_all_link: "/english/categories/queer-cinema/"
+  see_all_link: "/categories/queer-cinema/"
   films:
     - title: "ON MY WAY HOME"
       director: "TAN JUNWU"
