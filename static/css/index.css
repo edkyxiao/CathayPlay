@@ -65,7 +65,7 @@ p {
 
 @media (max-width: 1000px) {
   .hero {
-    top: -5.5vh;
+    top: -5.9vh;
   }
 }
 
@@ -456,6 +456,11 @@ a {
   top: 75vh;
   left: 7.5vw;
   color: white;  
+}
+@media (max-width: 768px) {
+  .hero-text-middle {
+    top: -5vh;
+  }
 }
 .promotion {
   display: none;
