@@ -20,7 +20,7 @@
         <div class="film-title-container">
           <h2 class="film-title-text">{{ .Params.hero.featured_film.title }}</h2>
           <div class="buttons">
-            <a href="{{ .Params.hero.featured_film.watch_link }}" id="watch-button-hero">WATCH</a>
+            <a href="{{ .Params.hero.featured_film.watch_link | relURL }}" id="watch-button-hero">WATCH</a>
           </div>
         </div>
         <p class="director">Directed by <strong>{{ .Params.hero.featured_film.director }}</strong><br>{{ .Params.hero.featured_film.year }}</p>
@@ -173,6 +173,148 @@
   a {
     text-decoration: none !important;
     border: none;
+  }
+  /* Mobile - Stack image on top, then text below */
+  @media (max-width: 768px) {
+    .full-bleed-feature {
+      min-height: auto;
+      flex-direction: column;
+      margin-top: 5vh;
+    }
+
+    /* Image section - takes up portion of screen */
+    .feature-image-container {
+      position: relative;
+      width: 100%;
+      height: 50vh;
+      min-height: 300px;
+      max-width: 85vw;
+      overflow: hidden;
+      margin: 0 auto;
+      padding: 0;
+      display: block;
+    }
+
+    .feature-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: left center;  /* CHANGE: Align to left instead of center */
+      /* OR */
+      object-position: right center; /* Align to right */
+      opacity: 1;
+      display: block;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Play button over image */
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50px;
+      height: 50px;
+      z-index: 2;
+    }
+
+    /* Text section - below image with black background */
+    .feature-text {
+      position: relative;  /* Change from absolute */
+      z-index: 1;
+      width: 100%;
+      max-width: 85vw;
+      padding: 2rem 1.5rem;
+      background: #000;  /* Solid black background */
+      display: block;  /* Change from grid to block */
+    }
+
+    /* Title and Director */
+    .feature-text-heading {
+      margin-bottom: 1.5rem;
+    }
+
+    .feature-text-heading h1 {
+      font-size: 1.75rem;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-text-heading p {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Synopsis */
+    .feature-synopsis {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* Filmmaker Bio Section */
+    .feature-block-2 {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .feature-block-2 .feature-text-heading {
+      margin-bottom: 0.75rem;
+    }
+
+    .feature-block-2 .feature-text-heading p {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .filmmaker-bio {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    /* Reset grid properties for mobile */
+    .feature-block-1,
+    .feature-block-2 {
+      grid-column: auto;
+      grid-row: auto;
+    }
+
+    .feature-text > .feature-text-heading:first-child {
+      grid-column: auto;
+      grid-row: auto;
+    }
+  }
+
+  /* Even smaller phones */
+  @media (max-width: 480px) {
+    .feature-image-container {
+      height: 40vh;
+      min-height: 250px;
+    }
+
+    .feature-text {
+      padding: 1.5rem 1.25rem;
+    }
+
+    .feature-text-heading h1 {
+      font-size: 1.5rem;
+    }
+
+    .feature-synopsis,
+    .filmmaker-bio {
+      font-size: 0.875rem;
+    }
+
+    .play-button {
+      width: 40px;
+      height: 40px;
+    }
   }
 </style>
 {{ end }}
