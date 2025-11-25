@@ -455,7 +455,8 @@ a {
   /* top: 65vh; */
   top: 75vh;
   left: 7.5vw;
-  color: white;  
+  color: white; 
+  text-align: justify; 
 }
 @media (max-width: 768px) {
   .hero-text-middle {
