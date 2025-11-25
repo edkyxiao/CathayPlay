@@ -300,5 +300,42 @@
     }
   }
 
+  /* ===== Force-centre .feature-text on mobile ===== */
+  @media (max-width: 768px) {
+    /* Ensure parent stacks and centres children */
+    .full-bleed-feature {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: flex-start !important;
+    }
+
+    /* Target feature-text precisely and remove conflicting 100% rules */
+    .full-bleed-feature.feature-1 .feature-text,
+    .full-bleed-feature.feature-2 .feature-text,
+    .full-bleed-feature .feature-text {
+      box-sizing: border-box !important;
+      width: auto !important;                 /* let max-width control it */
+      max-width: 85vw !important;             /* cap width */
+      margin-left: auto !important;
+      margin-right: auto !important;
+      padding-left: 1.5rem !important;
+      padding-right: 1.5rem !important;
+      padding-top: 1.5rem !important;
+      padding-bottom: 1.5rem !important;
+      display: block !important;
+      position: relative !important;
+      left: 0 !important;
+      right: 0 !important;
+      text-align: left !important;            /* change to center if you want text centred */
+    }
+
+    /* If any overly-specific rule sets width:100%, override it explicitly */
+    .full-bleed-feature .feature-text[style] {
+      width: auto !important;
+      max-width: 85vw !important;
+    }
+  }
+
 </style>
 {{ end }}
