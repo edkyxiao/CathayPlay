@@ -9,7 +9,7 @@ hero:
     title: "FIELD"
     director: "LÜ MEIJING"
     year: 2022
-    description: "In a world shaped by networks, consumption, and technology, FIELD imagines new ways of being together. Through fragments of human and non-human connection—between people, animals, elements, and devices—the film creates a shifting space where perception and emotion resonate across consciousness. The result is a meditation on communication, community, and the fragile possibilities of co-existence."
+    description: "A chaotic field evokes contradictory, ambiguous emotions. At a reunion, a man resists rekindled desire. Another abandons visiting a dying friend after a rainy drive. A woman fails to break up during a hotel tryst. A drunk man contemplates suicide. We return to places never visited, forever approaching unfolding adventure."
     watch_link: "/films/field/"
 
 # Recently Added Section
