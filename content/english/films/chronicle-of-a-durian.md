@@ -31,7 +31,7 @@ festivals:
   - name: "Beijing International Academic Video Exhibition"
     award: "Best Photography Award"
     logo: "/images/festivals/award-logo.png"
-  - name: "Busan International Film Festival"
+  - name: "2017 Busan International Film Festival, Korea"
     award: "Video Contest"
     logo: "/images/festivals/award-logo.png"
   - name: "German International Short Film Festival"
@@ -48,6 +48,10 @@ festivals:
     logo: "/images/festivals/award-logo.png"
   - name: "Paris Author Film Festival"
     award: ""
+    logo: "/images/festivals/award-logo.png"
+  - name: "2021 Beijing International Short Film Festival, Mainland China"
+    logo: "/images/festivals/award-logo.png"
+  - name: "2018 FIRST International Short Film Festival Xining, Mainland China"
     logo: "/images/festivals/award-logo.png"
 
 # Cast and Crew
