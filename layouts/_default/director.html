@@ -1,0 +1,162 @@
+{{ define "main" }}
+
+<!-- Hero Section -->
+<section class="director-hero">
+    <div class="director-image-container">
+        <img src="{{ .Params.hero.image }}" alt="{{ .Params.hero.title }}" class="director-hero-image">
+    </div>
+    <div class="director-hero-overlay">
+        <h1 class="director-hero-title">{{ .Params.hero.title }}</h1>
+        <p class="director-hero-text">{{ .Params.hero.text }}</p>
+    </div>
+</section>
+
+<!-- Films Grid Section -->
+<section class="main category-section">
+<div class="director-films">
+  <div class="grid-container">
+    <h1 class="category-title">{{ .Params.text }}</h1>
+    
+    <div class="grid">
+      {{ range .Params.films }}
+        <div class="film">
+          <a href="{{ .url }}">
+            <div class="film-image-container">
+              <img src="{{ .image }}" alt="{{ .title }}">
+              <div class="film-text">
+                <h2 class="film-title">{{ .title }}</h2>
+                <p class="director-year"><strong>{{ .director }}</strong> {{ .year }}</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</div>
+</section>
+
+<style>
+    .director-hero {
+        position: relative;
+        display: flex;
+        gap: 2vw;
+        left: 7.5vw;
+        top: 15vh;
+    }
+
+    .director-image-container {
+        margin: 1rem;
+        width: 20vw;
+        /* border: 1px solid red; */
+    }
+
+    .director-hero-image {
+        width: 100%;
+        height: auto
+    }
+
+    .director-hero-title {
+        color: white;
+        font-family: 'Gravity Wide';
+    }
+
+    .director-hero-text {
+        color: white;
+        font-family: 'Diatype-light';
+        width: 40vw;
+    }
+
+    .director-films {
+        width: 100vw;
+        background: rgb(205, 203, 203);
+        margin-bottom: 0;
+    }
+
+    .grid-container {
+        margin-left: 6.5vw;
+        padding-top: 2vw;
+        margin-bottom: 0;
+    }
+
+    .category-section, .main {
+        margin-top: 20vh;
+        margin-bottom: 0;
+    }
+
+    .category-title {
+        font-family: 'Diatype-bold';
+        font-feature-settings: "ss05";
+        font-size: 2rem;
+        line-height: 1;
+        margin: 0 0 1.5vh 0;
+        color: gray;
+    }
+
+.category-description {
+  font-family: 'Diatype-light', sans-serif;
+  font-size: 1.2rem;
+  max-width: 60vw;
+  line-height: 1.5;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Category Section */
+.category-section {
+  background-color: black;
+  padding: 5vh 0;
+}
+
+.category-intro p {
+  color: white;
+}
+
+.grid {
+    /* border: 1px solid red; */
+    position: relative;
+    left: 0vw;
+    width: 90vw;
+    margin: 0 auto;
+    padding-bottom: 15vh;
+    display: grid;
+    gap: 1vw;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.film {
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .category-hero {
+    height: 50vh;
+  }
+  
+  .category-hero-content {
+    left: 5vw;
+    right: 5vw;
+    bottom: 5vh;
+  }
+  
+  .category-title {
+    font-size: 2.5rem;
+  }
+  
+  .category-description {
+    font-size: 1rem;
+    max-width: 90vw;
+  }
+  
+  .category-intro {
+    max-width: 100%;
+  }
+}
+
+.footer {
+    margin-top: -5vh;
+}
+</style>
+
+{{ end }}
