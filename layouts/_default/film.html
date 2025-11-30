@@ -35,7 +35,9 @@
     <!-- Film Info -->
     <div class="film-info-panel">
       <h1 class="film-page-title">{{ .Title }}</h1>
-      <p class="film-director-year">{{ .Params.director }} • {{ .Params.year }}</p>
+      <p class="film-director-year">
+        <a href="{{ printf "/directors/%s/" (.Params.director | urlize) }}" class="director-link">{{ .Params.director }}</a > • {{ .Params.year }}
+      </p>
       
       <div class="film-meta">
         <div class="meta-item">
@@ -340,6 +342,15 @@
   }
 }
 
+.director-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.director-link:hover {
+  color: rgb(255, 221, 0);
+}
 
 .film-hero-container {
   max-width: 90vw;
