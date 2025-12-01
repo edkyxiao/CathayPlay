@@ -1,0 +1,188 @@
+{{ define "main" }}
+<!-- Hero Section -->
+<section class="faq-page-hero">
+  <img src="{{ .Params.hero.image }}" class="faq-page-hero-image">
+  <div class="faq-page-hero-overlay">
+    <h1 class="faq-page-hero-title">{{ .Params.hero.title }}</h1>
+  </div>
+</section>
+
+<!-- Content Section -->
+<section class="faq-page-content">
+  <div class="faq-page-content-container">
+    <!-- Back Link -->
+    {{ if .Params.back_link }}
+    <a href="/FAQ/" class="back-link">← Back</a >
+    {{ end }}
+  
+    {{ range .Params.content.paragraphs }}
+    <div class="faq-page-content-block">
+      {{ . | markdownify }}
+    </div>
+    {{ end }}
+    
+    {{ if not .Params.content.hide_cta }}
+    <div class="faq-page-cta">
+      <a href="{{ .Params.content.cta.link }}" class="faq-page-cta-button">
+        {{ .Params.content.cta.text }}
+      </a >
+    </div>
+    {{ end }}
+  </div>
+</section>
+
+<style>
+  /* Back Link */
+  .back-link {
+    display: inline-block;
+    font-family: 'Diatype-light', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1rem;
+    color: #666;
+    text-decoration: none;
+    margin-bottom: 2rem;
+    transition: color 0.3s ease;
+  }
+
+  .back-link:hover {
+    color: white;
+  }
+
+  /* Hero Section */
+  .faq-page-hero {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    min-height: 400px;
+    overflow: hidden;
+  }
+
+  .faq-page-hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .faq-page-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .faq-page-hero-title {
+    font-family: 'Gravity Wide', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 400;
+    color: white;
+    text-align: center;
+    padding: 0 2rem;
+    letter-spacing: 0.05em;
+    font-feature-settings: "ss05" 1;
+  }
+
+  /* Content Section */
+  .faq-page-content {
+    background: black;
+    padding: 6rem 2rem;
+    text-align: justify;
+  }
+
+  .faq-page-content-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* Content Blocks */
+  .faq-page-content-block {
+    font-family: 'Diatype-light';
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: white;
+    margin-bottom: 2rem;
+    text-align: justify !important;
+  }
+
+  .faq-page-content-block:last-of-type {
+    margin-bottom: 3rem;
+  }
+
+  /* Style Markdown elements */
+  .faq-page-content-block strong {
+    font-family: 'Diatype-bold';
+    font-weight: bold;
+  }
+
+  .faq-page-content-block ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+  }
+
+  .faq-page-content-block li {
+    margin-bottom: 0.5rem;
+  }
+
+  .faq-page-content-block p {
+    margin-bottom: 1rem;
+  }
+
+  /* CTA Button */
+  .faq-page-cta {
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .faq-page-cta-button {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background: rgb(255, 221, 0);
+    color: black;
+    font-family: 'Diatype-bold';
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    border: 2px solid black;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+
+  .faq-page-cta-button:hover {
+    color: white;
+    background: rgba(0, 0, 128, 1);
+    transform: translateY(-2px);
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .faq-page-hero {
+      height: 50vh;
+      min-height: 300px;
+    }
+
+    .faq-page-hero-title {
+      font-size: 2rem;
+    }
+
+    .faq-page-content {
+      padding: 3rem 1.5rem;
+    }
+
+    .faq-page-content-block {
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .faq-page-cta-button {
+      padding: 0.875rem 2rem;
+      font-size: 0.9rem;
+    }
+  }
+</style>
+{{ end }}
