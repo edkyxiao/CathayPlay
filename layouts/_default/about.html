@@ -7,22 +7,91 @@
   </div>
 </section>
 
+
+
 <!-- About Content Section -->
 <section class="about-content">
   <div class="about-content-container">
+    <!-- Back Link -->
+    {{ if .Params.back_link }}
+    <a href="/FAQ/general/" class="back-link">← Back to general information</a >
+    {{ end }}
+  
     {{ range .Params.content.paragraphs }}
     <p class="about-paragraph">{{ . }}</p>
     {{ end }}
-    
-    <div class="about-cta">
-      <a href="{{ .Params.content.cta.link }}" class="about-cta-button">
-        {{ .Params.content.cta.text }}
-      </a>
-    </div>
   </div>
 </section>
 
+<!-- FAQ Accordion -->
+<section class="faq-category-content">
+  <div class="faq-category-content-container">
+    <div class="faq-accordion">
+      {{ range $index, $faq := .Params.faqs }}
+      <div class="faq-item">
+        <button class="faq-question" data-index="{{ $index }}">
+          <span>{{ $faq.question }}</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer" id="faq-{{ $index }}">
+          <p>{{ $faq.answer }}</p >
+          {{ if $faq.link }}
+          <a href="{{ $faq.link }}" class="faq-link">Learn more →</a >
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    faqQuestions.forEach((question) => {
+      question.addEventListener('click', function() {
+        const index = this.getAttribute('data-index');
+        const answer = document.getElementById(`faq-${index}`);
+        const icon = this.querySelector('.faq-icon');
+        const allAnswers = document.querySelectorAll('.faq-answer');
+        const allIcons = document.querySelectorAll('.faq-icon');
+        
+        // Close all other FAQs
+        allAnswers.forEach((item) => {
+          if (item.id !== `faq-${index}`) {
+            item.classList.remove('active');
+          }
+        });
+        
+        allIcons.forEach((item) => {
+          if (item !== icon) {
+            item.textContent = '+';
+          }
+        });
+        
+        // Toggle current FAQ
+        answer.classList.toggle('active');
+        icon.textContent = answer.classList.contains('active') ? '−' : '+';
+      });
+    });
+  });
+</script>
 <style>
+  /* Back Link */
+  .back-link {
+    display: inline-block;
+    font-family: 'Diatype-light', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1rem;
+    color: #666;
+    text-decoration: none;
+    margin-bottom: 2rem;
+    transition: color 0.3s ease;
+  }
+
+  .back-link:hover {
+    color: white;
+  }
+
   /* About Hero Section */
   .about-hero {
     position: relative;
@@ -65,11 +134,11 @@
   /* About Content Section */
   .about-content {
     background: black;
-    padding: 6rem 2rem;
+    padding: 6rem 2rem 2rem;
   }
 
   .about-content-container {
-    max-width: 800px;
+    max-width: 55vw;
     margin: 0 auto;
   }
 
@@ -86,30 +155,75 @@
     margin-bottom: 3rem;
   }
 
-  /* CTA Button */
-  .about-cta {
-    text-align: center;
-    margin-top: 3rem;
+  /* FAQ Accordion */
+  .faq-accordion {
+    margin-bottom: 3rem;
   }
 
-  .about-cta-button {
-    display: inline-block;
-    padding: 1rem 3rem;
-    background: black;
-    color: white;
-    font-family: 'Diatype-light';
-    font-size: 1rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-decoration: none;
-    border: 2px solid black;
-    transition: all 0.3s ease;
+  .faq-item {
+    border-bottom: 1px solid #333;
+    margin-bottom: 0;
+  }
+
+  .faq-question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+    background: none;
+    border: none;
     cursor: pointer;
+    text-align: left;
+    font-family: 'Diatype-bold', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: white;
+    transition: color 0.3s ease;
   }
 
-  .about-cta-button:hover {
-    background: rgb(255, 221, 0);
-    color: black;
+  .faq-question:hover {
+    color: #999;
+  }
+
+  .faq-icon {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: white;
+    flex-shrink: 0;
+    margin-left: 1rem;
+    transition: transform 0.3s ease;
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+  }
+
+  .faq-answer.active {
+    max-height: 500px;
+    padding-bottom: 1.5rem;
+  }
+
+  .faq-answer p {
+    font-family: 'Diatype-light', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #ccc;
+    margin: 0 0 1rem 0;
+  }
+
+  .faq-link {
+    font-family: 'Diatype-bold';
+    color: rgb(255, 221, 0);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+  }
+
+  .faq-link:hover {
+    color: white;
   }
 
   /* Responsive adjustments */
@@ -131,10 +245,176 @@
       font-size: 1rem;
       line-height: 1.7;
     }
+  }
 
-    .about-cta-button {
-      padding: 0.875rem 2rem;
-      font-size: 0.9rem;
+  /* FAQ Category Content Section */
+  .faq-category-content {
+    background: black;
+    padding: 0 2rem 4rem;
+  }
+
+  .faq-category-content-container {
+    max-width: 55vw;
+    margin: 0 auto;
+  }
+
+  /* Back Link */
+  .back-link {
+    display: inline-block;
+    font-family: 'Diatype-light', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1rem;
+    color: #666;
+    text-decoration: none;
+    margin-bottom: 2rem;
+    transition: color 0.3s ease;
+  }
+
+  .back-link:hover {
+    color: white;
+  }
+
+  /* FAQ Accordion */
+  .faq-accordion {
+    margin-bottom: 3rem;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid #333;
+    margin-bottom: 0;
+  }
+
+  .faq-question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: 'Diatype-bold', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: white;
+    transition: color 0.3s ease;
+  }
+
+  .faq-question:hover {
+    color: #999;
+  }
+
+  .faq-icon {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: white;
+    flex-shrink: 0;
+    margin-left: 1rem;
+    transition: transform 0.3s ease;
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+  }
+
+  .faq-answer.active {
+    max-height: 500px;
+    padding-bottom: 1.5rem;
+  }
+
+  .faq-answer p {
+    font-family: 'Diatype-light', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #ccc;
+    margin: 0 0 1rem 0;
+  }
+
+  .faq-link {
+    font-family: 'Diatype-bold';
+    color: rgb(255, 221, 0);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+  }
+
+  .faq-link:hover {
+    color: white;
+  }
+
+  /* Help Section */
+  .faq-help {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 2rem;
+    text-align: center;
+    background: #1a1a1a;
+    border-radius: 8px;
+    margin: 3rem auto 0;
+    max-width: 500px;
+  }
+
+  .faq-help p {
+    font-family: 'Diatype-light', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1.25rem;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+  }
+
+  .help-button {
+    font-family: 'Diatype-bold';
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: rgb(255, 221, 0);
+    border: none;
+    border-radius: 8px;
+    color: black;
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .help-button:hover {
+    color: white;
+    background: rgba(0, 0, 128, 1);
+    transform: translateY(-2px);
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .faq-category-hero {
+      height: 40vh;
+      min-height: 250px;
+    }
+
+    .faq-category-hero-title {
+      font-size: 2rem;
+    }
+
+    .faq-category-content {
+      padding: 3rem 1.5rem;
+    }
+
+    .faq-question {
+      font-size: 1rem;
+      padding: 1.25rem 0;
+    }
+
+    .faq-answer p {
+      font-size: 0.95rem;
+    }
+
+    .faq-help {
+      padding: 2rem 1.5rem;
+      max-width: 100%;
+    }
+
+    .faq-help p {
+      font-size: 1.125rem;
     }
   }
 </style>
