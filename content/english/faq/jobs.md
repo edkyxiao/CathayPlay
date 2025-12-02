@@ -8,10 +8,10 @@ hero:
   title: "Jobs"
 
 back_link: true
-
+ 
 faqs:
  - question: 'Growth and Partnership Specialist (Full-time and Intership)'
-   link: '/FAQ/position_growth_partnership_specialist/'
+   link: '/faq/position_growth_partnership_specialist/'
  - question: 'Why join us?'
-   link: '/FAQ/why_join_us/'
+   link: '/faq/why_join_us/'
 ---
