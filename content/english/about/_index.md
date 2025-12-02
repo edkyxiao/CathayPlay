@@ -19,7 +19,7 @@ content:
 faqs:
  - question: 'Brand Kit'
    answer: 'To access our brand kit.'
-   link: '/FAQ/brand_kit.md'
+   link: '/FAQ/brand_kit/'
  - question: 'Host a Screening'
    answer: 'To host a screening of a CathayPlay film.'
    link: '/FAQ/host/'
