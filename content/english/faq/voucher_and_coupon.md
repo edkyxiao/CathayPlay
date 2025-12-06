@@ -12,11 +12,11 @@ back_link: true
 faqs:
  - question: 'Voucher'
    answer: 'For more information on CathayPlay vouchers'
-   link: '/FAQ/voucher/'
+   link: '/faq/voucher/'
  - question: 'Coupon'
    answer: 'For more information on CathayPlay coupons'
-   link: '/FAQ/coupon/'
+   link: '/faq/coupon/'
  - question: 'Gift Voucher'
    answer: 'For more information on CathayPlay gift vouchers'
-   link: '/FAQ/gift_voucher/'
+   link: '/faq/gift_voucher/'
 ---
